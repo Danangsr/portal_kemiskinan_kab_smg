@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width
+     initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/images/template/shortcut_icon.ico">
+    <title>Portal Informasi Data Kemiskinan Kabupaten Semarang</title>
+
+    <link href="/stylesheets/template/css/bs4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/template/css/style.css" rel="stylesheet">
+    <link href="/stylesheets/template/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+    <!-- Plugin This Page --> 
+    
+    <script src="/stylesheets/template/css/bs4/js/jquery.min.js"></script>
+    
+    <!-- End Plugins This Page -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        
+    </style>
+</head>
+
+<body>
+    <header class="shadow">
+      <div class="container">
+        <div class="row">
+          <div class="col-9 col-sm-9 col-md-9 col-lg-6 col-xl-6">
+            <div class="w-100-flex" style="height: 80px;justify-content: flex-start;align-items: center;">
+              <img src="/images/template/logo_kab_smg.png" alt="" style="height: 65px;">
+              <div style="display: flex;height: 80px;justify-content: center;flex-direction: column;margin-left: 15px;">
+                <h6><strong>PORTAL INFORMASI DATA KEMISKINAN</strong></h6>
+                <h6><strong>KABUPATEN SEMARANG</strong></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-3 col-sm-3 col-md-3 col-lg-6 col-xl-6">
+            <div class="w-100-flex" style="height: 80px;justify-content: flex-end;align-items: center;">
+              <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="far fa-user-circle fa-lg"></i>
+                </a>
+              
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="/autentifikasi/logout_user">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section style="padding: 60px 0;">
+      <div class="container">
+        
+        <div class="row mt-5">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="card shadow">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h6 class="text-center"><strong>DETAIL DATA KEMISKINAN</strong></h6>
+                    <center>
+                      <ul class="list-inline mt-3">
+                        <%if(user.role_id == 2){%><li class="list-inline-item"><a href="/dashboard_user" style="color: #000;text-decoration: none;">Data</a></li>
+                        <%}else if(user.role_id == 4){%><li class="list-inline-item"><a href="/dashboard_user/camat" style="color: #000;text-decoration: none;">Data</a></li>
+                        <%}else if(user.role_id == 5){%><li class="list-inline-item"><a href="/dashboard_user/lurah" style="color: #000;text-decoration: none;">Data</a></li>
+                        <%}else if(user.role_id == 3 || user.role_id > 5){%><li class="list-inline-item"><a href="/dashboard_user/opd" style="color: #000;text-decoration: none;">Data</a></li>
+                        <%}%>
+
+
+                        
+                        
+                        <li class="list-inline-item">|</li>
+                        <li class="list-inline-item text-primary"><strong>Detil Data Kemiskinan</strong></li>
+                      </ul>
+                  </center>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="accordion" id="accordionExample">
+                      <div class="card">
+                        <div class="card-header" id="headingOne">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              DATA ART KEPMENKOPMK
+                            </button>
+                          </h2>
+                        </div>
+                    
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <table class="table table-borderless table-striped">
+                                  <tbody>
+                                    <tr id="div_ID_keluarga_P3KE">
+                                      <td style="width: 200px;">ID Keluarga P3KE</td>
+                                      <td style="width: 15px;">:</td>
+                                      <td><%=data[0].ID_keluarga_P3KE%></td>
+                                    </tr>
+                                    
+                                    <tr id="div_dimuktakhirkan_tahun">
+                                      <td>Dimuktakhirkan Tahun</td>
+                                      <td>:</td>
+                                      <td><%=data[0].dimuktakhirkan_tahun%></td>
+                                    </tr>
+
+                                    <tr id="div_provinsi">
+                                      <td>Provinsi</td>
+                                      <td>:</td>
+                                      <td><%=data[0].provinsi%></td>
+                                    </tr>
+
+                                    <tr id="div_kabupaten">
+                                      <td>Kabupaten/Kota</td>
+                                      <td>:</td>
+                                      <td><%=data[0].kabupaten%></td>
+                                    </tr>
+
+                                    <tr id="div_Id_kec">
+                                      <td>Kecamatan</td>
+                                      <td>:</td>
+                                      <td><%=data[0].Id_kec%></td>
+                                    </tr>
+
+                                    <tr id="div_Id_des_kel">
+                                      <td>Desa/Kelurahan</td>
+                                      <td>:</td>
+                                      <td><%=data[0].Id_des_kel%></td>
+                                    </tr>
+
+                                    <tr id="div_kode_kemdagri">
+                                      <td>Kode Kemendagri</td>
+                                      <td>:</td>
+                                      <td><%=data[0].kode_kemdagri%></td>
+                                    </tr>
+
+                                    <tr id="div_desil_kesejahteraan">
+                                      <td>Desil Kesejahteraan</td>
+                                      <td>:</td>
+                                      <td><%=data[0].desil_kesejahteraan%></td>
+                                    </tr>
+                                    
+                                    <tr id="div_persentil">
+                                      <td>Persentil</td>
+                                      <td>:</td>
+                                      <td><%=data[0].persentil%></td>
+                                    </tr>
+
+                                    <tr id="div_alamat">
+                                      <td>Alamat</td>
+                                      <td>:</td>
+                                      <td><%=data[0].alamat%></td>
+                                    </tr>
+
+                                    <tr id="div_RT">
+                                      <td>RT</td>
+                                      <td>:</td>
+                                      <td><%=data[0].RT%></td>
+                                    </tr>
+
+                                    <tr id="div_RW">
+                                      <td>RW</td>
+                                      <td>:</td>
+                                      <td><%=data[0].RW%></td>
+                                    </tr>
+
+                                    <tr id="div_prioritas_verval">
+                                      <td>Prioritas Verval</td>
+                                      <td>:</td>
+                                      <td><%=data[0].prioritas_verval%></td>
+                                    </tr>
+
+                                    <tr id="div_nama">
+                                      <td>Nama</td>
+                                      <td>:</td>
+                                      <td><%=data[0].nama%></td>
+                                    </tr>
+
+                                    <tr id="div_nama_perbaikan">
+                                      <td>Nama Perbaikan</td>
+                                      <td>:</td>
+                                      <td><%=data[0].nama_perbaikan%></td>
+                                    </tr>
+
+                                    <tr id="div_NIK">
+                                      <td>NIK</td>
+                                      <td>:</td>
+                                      <td><%=data[0].NIK%></td>
+                                    </tr>
+
+                                    <tr id="div_NIK_perbaikan">
+                                      <td>NIK Perbaikan</td>
+                                      <td>:</td>
+                                      <td><%=data[0].NIK_perbaikan%></td>
+                                    </tr>
+
+                                    <tr id="div_padan_dukcapil">
+                                      <td>Padan Dukcapil</td>
+                                      <td>:</td>
+                                      <td><%=data[0].padan_dukcapil%></td>
+                                    </tr>
+
+                                    <tr id="div_nomor_KK">
+                                      <td>Nomor KK</td>
+                                      <td>:</td>
+                                      <td><%=data[0].nomor_KK%></td>
+                                    </tr>
+
+                                    <tr id="div_foto_KK">
+                                      <td>Foto KK</td>
+                                      <td>:</td>
+                                      <td><a href="/foto/<%=data[0].foto_KK%>" target="_blank" class="btn btn-primary btn-sm">Lihat Foto</a></td>
+                                    </tr>
+
+                                    <tr id="div_tanggal_lahir">
+                                      <td>Tanggal Lahir</td>
+                                      <td>:</td>
+                                      <td><%=data[0].tanggal_lahir%></td>
+                                    </tr>
+
+                                    <tr id="div_jenis_kelamin">
+                                      <td>Jenis Kelamin</td>
+                                      <td>:</td>
+                                      <td><%=data[0].jenis_kelamin%></td>
+                                    </tr>
+
+                                    <tr id="div_hubungan_dengan_KK">
+                                      <td>Hubungan Dengan Kepala Keluarga</td>
+                                      <td>:</td>
+                                      <td><%=data[0].hubungan_dengan_KK%></td>
+                                    </tr>
+
+                                    <tr id="div_status_kawin">
+                                      <td>Status Kawin</td>
+                                      <td>:</td>
+                                      <td><%=data[0].status_kawin%></td>
+                                    </tr>
+
+                                    <tr id="div_pekerjaan">
+                                      <td>Pekerjaan</td>
+                                      <td>:</td>
+                                      <td><%=data[0].pekerjaan%></td>
+                                    </tr>
+
+                                    <tr id="div_status_pekerjaan">
+                                      <td>Status Pekerjaan</td>
+                                      <td>:</td>
+                                      <td><%=data[0].status_pekerjaan%></td>
+                                    </tr>
+
+                                    <tr id="div_pendidikan">
+                                      <td>Pendidikan</td>
+                                      <td>:</td>
+                                      <td><%=data[0].pendidikan%></td>
+                                    </tr>
+
+                                    <tr id="div_umur">
+                                      <td>Umur</td>
+                                      <td>:</td>
+                                      <td><%=data[0].umur%></td>
+                                    </tr>
+
+                                    <tr id="div_kelompok_umur">
+                                      <td>Kelompok Umur</td>
+                                      <td>:</td>
+                                      <td><%=data[0].kelompok_umur%></td>
+                                    </tr>
+
+                                    <tr id="div_penerima_BPNT">
+                                      <td>Penerima BPNT</td>
+                                      <td>:</td>
+                                      <td><%=data[0].penerima_BPNT%></td>
+                                    </tr>
+
+                                    <tr id="div_penerima_BPUM">
+                                      <td>Penerima BPUM</td>
+                                      <td>:</td>
+                                      <td><%=data[0].penerima_BPUM%></td>
+                                    </tr>
+
+                                    <tr id="div_penerima_BST">
+                                      <td>Penerima BST</td>
+                                      <td>:</td>
+                                      <td><%=data[0].penerima_BST%></td>
+                                    </tr>
+
+                                    <tr id="div_penerima_PKH">
+                                      <td>Penerima PKH</td>
+                                      <td>:</td>
+                                      <td><%=data[0].penerima_PKH%></td>
+                                    </tr>
+
+                                    <tr id="div_penerima_SEMBAKO">
+                                      <td>Penerima Sembako</td>
+                                      <td>:</td>
+                                      <td><%=data[0].penerima_SEMBAKO%></td>
+                                    </tr>
+
+                                    <tr id="div_penerima_prakerja">
+                                      <td>Penerima Prakerja</td>
+                                      <td>:</td>
+                                      <td><%=data[0].penerima_prakerja%></td>
+                                    </tr>
+
+                                    <tr id="div_penerima_KUR">
+                                      <td>Penerima KUR</td>
+                                      <td>:</td>
+                                      <td><%=data[0].penerima_KUR%></td>
+                                    </tr>
+
+                                    <tr id="div_resiko_stunting">
+                                      <td>Resiko Stunting</td>
+                                      <td>:</td>
+                                      <td><%=data[0].resiko_stunting%></td>
+                                    </tr>
+
+                                    <tr id="div_Koordinat_X">
+                                      <td>Koordinat Lokasi X</td>
+                                      <td>:</td>
+                                      <td><%=data[0].Koordinat_X%></td>
+                                    </tr>
+
+                                    <tr id="div_Koordinat_Y">
+                                      <td>Koordinat Lokasi Y</td>
+                                      <td>:</td>
+                                      <td><%=data[0].Koordinat_Y%></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header" id="headingTwo">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              DATA RT KEPMENKOPMK
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <table class="table table-borderless table-striped">
+                                  <tbody>
+                                    <tr id="div_kepemilikan_rumah">
+                                      <td style="width: 200px;">Kepemilikan Rumah</td>
+                                      <td style="width: 15px;">:</td>
+                                      <td><%=data[0].kepemilikan_rumah%></td>
+                                    </tr>
+                                    
+                                    <tr id="div_memiliki_simpanan">
+                                      <td>Memiliki Simpanan Uang/Perhiasan/Ternak/Lainnya</td>
+                                      <td>:</td>
+                                      <td><%=data[0].memiliki_simpanan%></td>
+                                    </tr>
+
+                                    <tr id="div_jenis_atap">
+                                      <td>Jenis Atap</td>
+                                      <td>:</td>
+                                      <td><%=data[0].jenis_atap%></td>
+                                    </tr>
+
+                                    <tr id="div_kualitas_atap">
+                                      <td>Kualitas Atap</td>
+                                      <td>:</td>
+                                      <td><%=data[0].kualitas_atap%></td>
+                                    </tr>
+
+                                    <tr id="div_jenis_dinding">
+                                      <td>Jenis Dinding</td>
+                                      <td>:</td>
+                                      <td><%=data[0].jenis_dinding%></td>
+                                    </tr>
+
+                                    <tr id="div_kualitas_dinding">
+                                      <td>Kualitas Dinding</td>
+                                      <td>:</td>
+                                      <td><%=data[0].kualitas_dinding%></td>
+                                    </tr>
+
+                                    <tr id="div_jenis_lantai">
+                                      <td>Jenis Lantai</td>
+                                      <td>:</td>
+                                      <td><%=data[0].jenis_lantai%></td>
+                                    </tr>
+
+                                    <tr id="div_kualitas_lantai">
+                                      <td>Kualitas Lantai</td>
+                                      <td>:</td>
+                                      <td><%=data[0].kualitas_lantai%></td>
+                                    </tr>
+
+                                    <tr id="div_sumber_penerangan">
+                                      <td>Sumber Penerangan</td>
+                                      <td>:</td>
+                                      <td><%=data[0].sumber_penerangan%></td>
+                                    </tr>
+
+                                    <tr id="div_daya_listik_terpasang">
+                                      <td>Daya Listrik Terpasang</td>
+                                      <td>:</td>
+                                      <td><%=data[0].daya_listik_terpasang%></td>
+                                    </tr>
+
+                                    <tr id="div_bahan_bakar_memasak">
+                                      <td>Bahan Bakar Memasak</td>
+                                      <td>:</td>
+                                      <td><%=data[0].bahan_bakar_memasak%></td>
+                                    </tr>
+
+                                    <tr id="div_sumber_air_minum">
+                                      <td>Sumber Air Minum</td>
+                                      <td>:</td>
+                                      <td><%=data[0].sumber_air_minum%></td>
+                                    </tr>
+
+                                    <tr id="div_memiliki_fasilitas_buang_air_besar">
+                                      <td>Memiliki Fasilitas Buang Air Besar</td>
+                                      <td>:</td>
+                                      <td><%=data[0].memiliki_fasilitas_buang_air_besar%></td>
+                                    </tr>
+
+                                    <tr id="div_foto_rumah_tampak_depan">
+                                      <td>Foto Rumah Tampak Depan</td>
+                                      <td>:</td>
+                                      <td><a href="/foto/<%=data[0].foto_rumah_tampak_depan%>" target="_blank" class="btn btn-primary btn-sm">Lihat Foto</a></td>
+                                    </tr>
+
+                                    <tr id="div_foto_atap">
+                                      <td>Foto Atap</td>
+                                      <td>:</td>
+                                      <td><a href="/foto/<%=data[0].foto_atap%>" target="_blank" class="btn btn-primary btn-sm">Lihat Foto</a></td>
+                                    </tr>
+
+                                    <tr id="div_foto_lantai">
+                                      <td>Foto Lantai</td>
+                                      <td>:</td>
+                                      <td><a href="/foto/<%=data[0].foto_lantai%>" target="_blank" class="btn btn-primary btn-sm">Lihat Foto</a></td>
+                                    </tr>
+
+                                    <tr id="div_foto_dinding">
+                                      <td>Foto Dinding</td>
+                                      <td>:</td>
+                                      <td><a href="/foto/<%=data[0].foto_dinding%>" target="_blank" class="btn btn-primary btn-sm">Lihat Foto</a></td>
+                                    </tr>
+
+                                    <tr id="div_foto_jamban">
+                                      <td>Foto Jamban</td>
+                                      <td>:</td>
+                                      <td><a href="/foto/<%=data[0].foto_jamban%>" target="_blank" class="btn btn-primary btn-sm">Lihat Foto</a></td>
+                                    </tr>                                    
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header" id="headingThree">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              KETERANGAN HASIL VERVAL
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <table class="table table-borderless table-striped">
+                                  <tbody>
+                                    <tr id="div_VERVAL_memenuhi_kriteria_P3KE">
+                                      <td style="width: 200px;">Memenuhi Kriteria P3KE</td>
+                                      <td style="width: 15px;">:</td>
+                                      <td><%=data[0].VERVAL_memenuhi_kriteria_P3KE%></td>
+                                    </tr>
+                                    
+                                    <tr id="div_VERVAL_alasan_tidak_memenuhi_kriteria_P3KE">
+                                      <td>Alasan Tidak Memenuhi Kriteria P3KE</td>
+                                      <td>:</td>
+                                      <td><%=data[0].VERVAL_alasan_tidak_memenuhi_kriteria_P3KE%></td>
+                                    </tr>
+
+                                    <tr id="div_VERVAL_keterangan">
+                                      <td>Keterangan</td>
+                                      <td>:</td>
+                                      <td><%=data[0].VERVAL_keterangan%></td>
+                                    </tr>
+                                  </tbody>
+                                </table>  
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header" id="headingFour">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                              OVERLAY DATA DTKS
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <table class="table table-borderless table-striped">
+                                  <tbody>
+                                    <tr id="div_DTKS_BERIRISAN_DTKS">
+                                      <td style="width: 200px;">Beririsan DTKS</td>
+                                      <td style="width: 15px;">:</td>
+                                      <td><%=data[0].DTKS_BERIRISAN_DTKS%></td>
+                                    </tr>
+                                    
+                                    <tr id="div_DTKS_keterangan_DTKS">
+                                      <td>Keterangan DTKS</td>
+                                      <td>:</td>
+                                      <td><%=data[0].DTKS_keterangan_DTKS%></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header" id="headingFive">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                              KOMPONEN TAGGING SIKS-DJ
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <table class="table table-borderless table-striped">
+                                  <tbody>
+                                    <tr id="div_SIKS_DJ_memiliki_rumah_layak_huni">
+                                      <td style="width: 200px;">Beririsan DTKS</td>
+                                      <td style="width: 15px;">:</td>
+                                      <td><%=data[0].SIKS_DJ_memiliki_rumah_layak_huni%></td>
+                                    </tr>
+                                    
+                                    <tr id="div_SIKS_DJ_memiliki_akses_air_bersih">
+                                      <td>Keterangan DTKS</td>
+                                      <td>:</td>
+                                      <td><%=data[0].SIKS_DJ_memiliki_akses_air_bersih%></td>
+                                    </tr>
+
+                                    <tr id="div_SIKS_DJ_memiliki_jamban">
+                                      <td>Memiliki Jamban ?</td>
+                                      <td>:</td>
+                                      <td><%=data[0].SIKS_DJ_memiliki_jamban%></td>
+                                    </tr>
+
+                                    <tr id="div_SIKS_DJ_memiliki_listrik_sendiri">
+                                      <td>Memiliki Listrik Sendiri </td>
+                                      <td>:</td>
+                                      <td><%=data[0].SIKS_DJ_memiliki_listrik_sendiri%></td>
+                                    </tr>
+
+                                    <tr id="div_SIKS_DJ_apakah_bekerja">
+                                      <td>Apakah Bekerja ?</td>
+                                      <td>:</td>
+                                      <td><%=data[0].SIKS_DJ_apakah_bekerja%></td>
+                                    </tr>
+
+                                    <tr id="div_SIKS_DJ_anak_tidak_sekolah">
+                                      <td>Anak Tidak Sekolah ?</td>
+                                      <td>:</td>
+                                      <td><%=data[0].SIKS_DJ_anak_tidak_sekolah%></td>
+                                    </tr>
+
+                                    <tr id="div_SIKS_DJ_berisiko_stunting">
+                                      <td>Beresiko Stunting ?</td>
+                                      <td>:</td>
+                                      <td><%=data[0].SIKS_DJ_berisiko_stunting%></td>
+                                    </tr>
+
+                                    <tr id="div_SIKS_DJ_disabilitas">
+                                      <td>Disabilitas ?</td>
+                                      <td>:</td>
+                                      <td><%=data[0].SIKS_DJ_disabilitas%></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header" id="headingSix">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                              BANSOS (APBN)
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <table class="table table-borderless table-striped">
+                                  <tbody>
+                                    <tr id="div_APBN_PKH">
+                                      <td style="width: 200px;">PKH</td>
+                                      <td style="width: 15px;">:</td>
+                                      <td><%=data[0].APBN_PKH%></td>
+                                    </tr>
+                                    
+                                    <tr id="div_APBN_sembako">
+                                      <td>Sembako</td>
+                                      <td>:</td>
+                                      <td><%=data[0].APBN_sembako%></td>
+                                    </tr>
+
+                                    <tr id="div_APBN_PIP">
+                                      <td>PIP</td>
+                                      <td>:</td>
+                                      <td><%=data[0].APBN_PIP%></td>
+                                    </tr>
+
+                                    <tr id="div_APBN_KIP">
+                                      <td>KIP</td>
+                                      <td>:</td>
+                                      <td><%=data[0].APBN_KIP%></td>
+                                    </tr>
+
+                                    <tr id="div_APBN_JKN_KIS">
+                                      <td>JKN-KIS</td>
+                                      <td>:</td>
+                                      <td><%=data[0].APBN_JKN_KIS%></td>
+                                    </tr>
+
+                                    <tr id="div_APBN_BSPS">
+                                      <td>BSPS</td>
+                                      <td>:</td>
+                                      <td><%=data[0].APBN_BSPS%></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header" id="headingSeven">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                              BANSOS (APBD)
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <table class="table table-borderless table-striped">
+                                  <tbody>
+                                    <tr id="div_APBD_beasiswa_miskin">
+                                      <td style="width: 200px;">Beasiswa Miskin</td>
+                                      <td style="width: 15px;">:</td>
+                                      <td><%=data[0].APBD_beasiswa_miskin%></td>
+                                    </tr>
+
+                                    <tr id="div_APBD_serasi_kasih">
+                                      <td>Serasi Kasih</td>
+                                      <td>:</td>
+                                      <td><%=data[0].APBD_serasi_kasih%></td>
+                                    </tr>
+
+                                    <tr id="div_APBD_yatim_piatu">
+                                      <td>Yatim Piatu</td>
+                                      <td>:</td>
+                                      <td><%=data[0].APBD_yatim_piatu%></td>
+                                    </tr>
+
+                                    <tr id="div_APBD_alat_bantu_disabilitas">
+                                      <td>Alat Bantu Disabilitas</td>
+                                      <td>:</td>
+                                      <td><%=data[0].APBD_alat_bantu_disabilitas%></td>
+                                    </tr>
+
+                                    <tr id="div_APBD_RTLH_desa">
+                                      <td>RTLH Desa Bantuan Provinsi</td>
+                                      <td>:</td>
+                                      <td><%=data[0].APBD_RTLH_desa%></td>
+                                    </tr>
+
+                                    <tr id="div_RTLH_bantuan_kabupaten">
+                                      <td>RTLH Desa Bantuan Kabupaten</td>
+                                      <td>:</td>
+                                      <td><%=data[0].RTLH_bantuan_kabupaten%></td>
+                                    </tr>
+
+                                    <tr id="div_APBD_RTLH_kelurahan">
+                                      <td>RTLH Kelurahan</td>
+                                      <td>:</td>
+                                      <td><%=data[0].APBD_RTLH_kelurahan%></td>
+                                    </tr>
+
+                                    <tr id="div_BLT_DBHCHT">
+                                      <td>BLT DBHCHT</td>
+                                      <td>:</td>
+                                      <td><%=data[0].BLT_DBHCHT%></td>
+                                    </tr>
+
+                                    <tr id="div_BLT_DID">
+                                      <td>BLT DID</td>
+                                      <td>:</td>
+                                      <td><%=data[0].BLT_DID%></td>
+                                    </tr>
+
+                                    <tr id="div_APBD_BPJS_PBI">
+                                      <td>BPJS PBI</td>
+                                      <td>:</td>
+                                      <td><%=data[0].APBD_BPJS_PBI%></td>
+                                    </tr>
+
+                                    <tr id="div_bansos_APBD_bantuan_jambanisasi">
+                                      <td>Bantuan Jambanisasi</td>
+                                      <td>:</td>
+                                      <td><%=data[0].bansos_APBD_bantuan_jambanisasi%></td>
+                                    </tr>
+
+                                    <tr id="div_bansos_APBD_bantuan_akses_air_bersih">
+                                      <td>Bantuan Akses Air Bersih</td>
+                                      <td>:</td>
+                                      <td><%=data[0].bansos_APBD_bantuan_akses_air_bersih%></td>
+                                    </tr>
+
+                                    <tr id="div_bansos_APBD_bantuan_jaringan_listrik">
+                                      <td>Bantuan Jaringan Listrik</td>
+                                      <td>:</td>
+                                      <td><%=data[0].bansos_APBD_bantuan_jaringan_listrik%></td>
+                                    </tr>
+
+                                    <tr id="div_bansos_APBD_bantuan_padat_karya">
+                                      <td>Bantuan Padat karya</td>
+                                      <td>:</td>
+                                      <td><%=data[0].bansos_APBD_bantuan_padat_karya%></td>
+                                    </tr>
+
+                                    <tr id="div_bansos_APBD_bantuan_pelatihan">
+                                      <td>Bantuan Pelatihan</td>
+                                      <td>:</td>
+                                      <td><%=data[0].bansos_APBD_bantuan_pelatihan%></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header" id="headingEight">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                              BANSOS (DANA DESA)
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <table class="table table-borderless table-striped">
+                                  <tbody>
+                                    <tr id="div_dana_desa_BLT_DD">
+                                      <td style="width: 200px;">BLT DD</td>
+                                      <td style="width: 15px;">:</td>
+                                      <td><%=data[0].dana_desa_BLT_DD%></td>
+                                    </tr>
+
+                                    <tr id="div_dana_desa_RTLH_desa">
+                                      <td>RTLH Desa</td>
+                                      <td>:</td>
+                                      <td><%=data[0].dana_desa_RTLH_desa%></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- <div class="card">
+                        <div class="card-header" id="headingNine">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" onclick="submit_temp()" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                              SIMPAN DATA
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="form-group row" id="div_sumber_data">
+                                  <label class="col-sm-2 col-form-label">Sumber Data</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="sumber_data" class="form-control">
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_tahun_data">
+                                  <label class="col-sm-2 col-form-label">Tahun Data</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" name="" id="tahun_data"  value="<%=data[0].tahun_data%>" class="form-control">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_status_keberadaan_target">
+                                  <label class="col-sm-2 col-form-label">Status Keberadaan Target</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="status_keberadaan_target" class="form-control">
+                                     </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_status_verifikasi">
+                                  <label class="col-sm-2 col-form-label">Status</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="status_verifikasi"  class="form-control">
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <button class="btn btn-primary btn-block" onclick="simpan()">Simpan Data</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="/stylesheets/template/css/bs4/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Plugins This Page -->
+    <!-- End Plugins This Page -->
+    <script type="text/javascript">
+      window.onload =async function () {
+       await $.post('/user/role/list',{role_id:'<%=user.role_id%>'}).then(async function (hsl) {
+          let user = hsl.role[0]
+          await   $.post('/manajemen_master/get_kec').then(function (hsl) {
+              for (let i = 0; i < hsl.data.length; i++) {
+                 $('#Id_kec').append(`<option value="${hsl.data[i].id}" ${hsl.data[i].id=='<%=data[0].Id_kec%>'?'selected':''}>${hsl.data[i].wadmkc}</option>`)
+              }
+        })
+     await   $.post('/manajemen_master/get_kab/<%=data[0].Id_kec%>').then(function (hsl) {
+          for (let i = 0; i < hsl.data.length; i++) {
+                 $('#Id_des_kel').append(`<option value="${hsl.data[i].id_des_kel}" ${hsl.data[i].id_des_kel=='<%=data[0].Id_des_kel%>'?'selected':''}>${hsl.data[i].wadmkd}</option>`)
+              }
+        })
+
+          console.log(user);  
+          for (const i in user) {
+            $('#div_'+i).hide()
+            if (user[i]==2) {
+              $('#div_'+i).show()
+            }else if (user[i]==1) {
+              $('#div_'+i).show()
+              $('#'+i).prop('disabled', true);
+            }
+          }
+      })
+
+      }
+
+      $('#Id_kec').change(async function () {
+          await   $.post('/manajemen_master/get_kab/'+$('#Id_kec').val()).then(function (hsl) {
+          for (let i = 0; i < hsl.data.length; i++) {
+                 $('#Id_des_kel').append(`<option value="${hsl.data[i].id_des_kel}" >${hsl.data[i].wadmkd}</option>`)
+              }
+        })
+        })
+      $('#data').DataTable({    
+            "language": {    
+                "sProcessing":   "Sedang memproses...",
+                "sLengthMenu":   "_MENU_",
+                "sZeroRecords":  "Tidak ditemukan data yang sesuai",    
+                "sInfo":         "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",    
+                "sInfoEmpty":    "Menampilkan 0 sampai 0 dari 0 entri",    
+                "sInfoFiltered": "(disaring dari _MAX_ entri keseluruhan)",    
+                "sInfoPostFix":  "",    
+                "sUrl":          "",    
+                "oPaginate": {    
+                    "sFirst":    "Pertama",    
+                    "sPrevious": "Sebelumnya",    
+                    "sNext":     "Selanjutnya",    
+                    "sLast":     "Terakhir"    
+                }    
+            },    
+            // "columnDefs": [    
+            // { "width": "80px", "targets": 2}    
+            // ],    
+        });
+  </script>
+</body>
+</html>

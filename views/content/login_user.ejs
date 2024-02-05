@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/images/template/shortcut_icon.ico">
+    <title>Login Portal Informasi Data Kemiskinan Kabupaten Semarang</title>
+
+    <link href="/stylesheets/template/css/bs4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/template/css/style.css" rel="stylesheet">
+    <link href="/stylesheets/template/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <!-- Plugin This Page --> 
+    
+    <script src="/stylesheets/template/css/bs4/js/jquery.min.js"></script>
+    
+    <!-- End Plugins This Page -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        html, body{
+          background-image: url('/images/template/bg_log_in.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="w-100-flex" style="height: 100vh;justify-content: center;flex-direction: column;">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 offset-lg-4 offset-xl-4">
+                <div class="card shadow" style="border-radius: 10px;">
+                  <div class="card-body">
+                    <h3 style="font-weight: bold;text-align: center;">LOGIN</h3>
+                    <h6 style="text-align: center;" class="mt-2">PORTAL INFORMASI KEMISKINAN</h6>
+                    <h6 style="text-align: center;">KABUPATEN SEMARANG</h6>
+                    <hr>
+                    <form style="width:100%" action="/autentifikasi/login_user" method="post" enctype="application/x-www-form-urlencoded">
+                      <div class="form-group">
+                        <label for="">Username</label>
+                        <input type="text" class="form-control" id="username" name="username">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                        <input type="checkbox" onclick="myFunction()"> Show Password
+                        <input type="hidden" name="tujuan" value="<%=tujuan%>"/>
+                        <p><%=pesan%></p>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-block">Login</button>
+                      <!-- <a href="/dashboard_user" class="btn btn-primary btn-block">Login</a> -->
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/stylesheets/template/css/bs4/js/bootstrap.bundle.min.js"></script>
+    <!-- Plugins This Page -->
+    <!-- End Plugins This Page -->
+    <script type="text/javascript">
+           function myFunction() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    
+    </script>
+</body>
+</html>

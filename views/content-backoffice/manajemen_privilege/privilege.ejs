@@ -1,0 +1,1340 @@
+<% include ../../template-backoffice/header.ejs %>
+<!-- BEGIN PAGE CONTENT -->
+<div class="page-content">
+  <div class="header">
+    <h2><strong>Pengaturan Privilege</strong></h2>
+    <div class="breadcrumb-wrapper">
+      <ol class="breadcrumb">
+        <li><a href="/backoffice">Dashboard</a></li>
+        <li><a href="/manajemen_master/role">Data</a></li>
+        <li class="active">Tambah Data</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="panel">
+        <div class="panel-content">
+          <form role="form" action="/manajemen_master/role/submit_edit" method="POST" enctype="application/x-www-form-urlencoded">
+            <div class="tab tab-light clearfix"> 
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist" >
+                  <li class="active"><a href="#tab1" data-toggle="tab" aria-expdaned="false" style="padding: 7.5px;"><span class="font-custom" style="font-size: 14px;">DATA ART KEPMENKOPMK</span></a></li>
+                  <li><a href="#tab2" data-toggle="tab" aria-expdaned="false" style="padding: 7.5px;"><span class="font-custom" style="font-size: 14px;">DATA RT KEPMENKOPMK</span></a></li>
+                  <li><a href="#tab3" data-toggle="tab" aria-expdaned="false" style="padding: 7.5px;"><span class="font-custom" style="font-size: 14px;">KET. HASIL VERVAL</span></a></li>
+                  <li><a href="#tab4" data-toggle="tab" aria-expdaned="false" style="padding: 7.5px;"><span class="font-custom" style="font-size: 14px;">OVERLAY DATA DTKS</span></a></li>
+                  <li><a href="#tab5" data-toggle="tab" aria-expdaned="false" style="padding: 7.5px;"><span class="font-custom" style="font-size: 14px;">KOMPONEN TAGGING SIKS-DJ</span></a></li>
+                  <li><a href="#tab6" data-toggle="tab" aria-expdaned="false" style="padding: 7.5px;"><span class="font-custom" style="font-size: 14px;">BANSOS (APBN)</span></a></li>
+                  <li><a href="#tab7" data-toggle="tab" aria-expdaned="false" style="padding: 7.5px;"><span class="font-custom" style="font-size: 14px;">BANSOS (APBD)</span></a></li>
+                  <li><a href="#tab8" data-toggle="tab" aria-expdaned="false" style="padding: 7.5px;"><span class="font-custom" style="font-size: 14px;">BANSOS (DANA DESA)</span></a></li>
+                  <li><a href="#tab9" data-toggle="tab" aria-expdaned="false" style="padding: 7.5px;"><span class="font-custom" style="font-size: 14px;">KETERANGAN</span></a></li>
+                  <!-- <li><a href="#tab10" data-toggle="tab" aria-expdaned="false" style="padding: 7.5px;"><span class="font-custom" style="font-size: 14px;">BANSOS APBD</span></a></li> -->
+                  <li><a href="#tab11" data-toggle="tab" aria-expdaned="false" style="padding: 7.5px;"><span class="font-custom" style="font-size: 14px;">SIMPAN DATA</span></a></li>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="tab1" >
+                  <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <table class="table table-bordered table-striped">
+                          <tbody>
+                            <input type="hidden" name="role_id" value="<%= data[0].role_id%>">
+                            <tr>
+                              <td style="width: 260px;">ID Keluarga P3kE</td>
+                              <td>
+                                <select id="" name="ID_keluarga_P3KE" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].ID_keluarga_P3KE=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].ID_keluarga_P3KE=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].ID_keluarga_P3KE=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Dimuktakhirkan Tahun</td>
+                              <td>
+                                <select id="" name="dimuktakhirkan_tahun" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].dimuktakhirkan_tahun=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].dimuktakhirkan_tahun=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].dimuktakhirkan_tahun=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Provinsi</td>
+                              <td>
+                                <select id="" name="provinsi" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].provinsi=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].provinsi=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].provinsi=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Kabupaten/Kota</td>
+                              <td>
+                                <select id="" name="kabupaten" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].kabupaten=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].kabupaten=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].kabupaten=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Kecamatan</td>
+                              <td>
+                                <select id="" name="Id_kec" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].Id_kec=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].Id_kec=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].Id_kec=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Desa/Kelurahan</td>
+                              <td>
+                                <select id="" name="Id_des_kel" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].Id_des_kel=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].Id_des_kel=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].Id_des_kel=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Kode Kemendagri</td>
+                              <td>
+                                <select id="" name="kode_kemdagri" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].kode_kemdagri=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].kode_kemdagri=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].kode_kemdagri=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Desil Kesejahteraan</td>
+                              <td>
+                                <select id="" name="desil_kesejahteraan" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].desil_kesejahteraan=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].desil_kesejahteraan=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].desil_kesejahteraan=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Persentil</td>
+                              <td>
+                                <select id="" name="persentil" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].persentil=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].persentil=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].persentil=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Alamat</td>
+                              <td>
+                                <select id="" name="alamat" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].alamat=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].alamat=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].alamat=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>RT</td>
+                              <td>
+                                <select id="" name="RT" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].RT=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].RT=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].RT=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>RW</td>
+                              <td>
+                                <select id="" name="RW" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].RW=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].RW=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].RW=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td>Prioritas Verval</td>
+                              <td>
+                                <select id="" name="prioritas_verval" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].prioritas_verval=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].prioritas_verval=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].prioritas_verval=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Nama</td>
+                              <td>
+                                <select id="" name="nama" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].nama=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].nama=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].nama=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+
+                            <!-- TAMBAHAN BARU -->
+                            <tr>
+                              <td>Perbaikan Nama</td>
+                              <td>
+                                <select id="" name="nama_perbaikan" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].nama_perbaikan=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].nama_perbaikan=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].nama_perbaikan=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>NIK</td>
+                              <td>
+                                <select id="" name="NIK" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].NIK=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].NIK=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].NIK=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+
+                            <!-- TAMBAHAN BARU -->
+                            <tr>
+                              <td>Perbaikan NIK</td>
+                              <td>
+                                <select id="" name="NIK_perbaikan" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].NIK_perbaikan=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].NIK_perbaikan=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].NIK_perbaikan=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Padan Dukcapil</td>
+                              <td>
+                                <select id="" name="padan_dukcapil" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].padan_dukcapil=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].padan_dukcapil=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].padan_dukcapil=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Nomor KK</td>
+                              <td>
+                                <select id="" name="nomor_KK" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].nomor_KK=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].nomor_KK=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].nomor_KK=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Foto KK</td>
+                              <td>
+                                <select id="" name="foto_KK" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].foto_KK=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].foto_KK=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].foto_KK=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Tanggal Lahir</td>
+                              <td>
+                                <select id="" name="tanggal_lahir" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].tanggal_lahir=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].tanggal_lahir=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].tanggal_lahir=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Jenis Kelamin</td>
+                              <td>
+                                <select id="" name="jenis_kelamin" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].jenis_kelamin=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].jenis_kelamin=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].jenis_kelamin=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Hubungan Dengan Kepala Keluarga</td>
+                              <td>
+                                <select id="" name="hubungan_dengan_KK" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].hubungan_dengan_KK=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].hubungan_dengan_KK=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].hubungan_dengan_KK=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Status Kawin</td>
+                              <td>
+                                <select id="" name="status_kawin" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].status_kawin=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].status_kawin=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].status_kawin=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Pekerjaan</td>
+                              <td>
+                                <select id="" name="pekerjaan" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].pekerjaan=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].pekerjaan=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].pekerjaan=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Status Pekerjaan</td>
+                              <td>
+                                <select id="" name="status_pekerjaan" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].status_pekerjaan=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].status_pekerjaan=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].status_pekerjaan=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Pendidikan</td>
+                              <td>
+                                <select id="" name="pendidikan" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].pendidikan=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].pendidikan=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].pendidikan=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Umur</td>
+                              <td>
+                                <select id="" name="umur" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].umur=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].umur=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].umur=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Kelompok Usia</td>
+                              <td>
+                                <select id="" name="kelompok_umur" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].kelompok_umur=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].kelompok_umur=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].kelompok_umur=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Penerima BPNT</td>
+                              <td>
+                                <select id="" name="penerima_BPNT" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].penerima_BPNT=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].penerima_BPNT=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].penerima_BPNT=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Penerima BPUM</td>
+                              <td>
+                                <select id="" name="penerima_BPUM" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].penerima_BPUM=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].penerima_BPUM=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].penerima_BPUM=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Penerima BST</td>
+                              <td>
+                                <select id="" name="penerima_BST" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].penerima_BST=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].penerima_BST=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].penerima_BST=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Penerima PKH</td>
+                              <td>
+                                <select id="" name="penerima_PKH" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].penerima_PKH=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].penerima_PKH=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].penerima_PKH=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Penerima Sembako</td>
+                              <td>
+                                <select id="" name="penerima_SEMBAKO" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].penerima_SEMBAKO=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].penerima_SEMBAKO=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].penerima_SEMBAKO=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Penerima Prakerja</td>
+                              <td>
+                                <select id="" name="penerima_prakerja" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].penerima_prakerja=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].penerima_prakerja=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].penerima_prakerja=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Penerima KUR</td>
+                              <td>
+                                <select id="" name="penerima_KUR" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].penerima_KUR=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].penerima_KUR=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].penerima_KUR=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Resiko Stunting</td>
+                              <td>
+                                <select id="" name="resiko_stunting" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].resiko_stunting=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].resiko_stunting=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].resiko_stunting=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td>Koordinat Lokasi X</td>
+                              <td>
+                                <select id="" name="Koordinat_X" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].Koordinat_X=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].Koordinat_X=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].Koordinat_X=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+        
+                            <tr>
+                              <td>Koordinat Lokasi Y</td>
+                              <td>
+                                <select id="" name="Koordinat_Y" class="form-control">
+                                  <option value="">--- Pilih ---</option>
+                                  <option value="1" <%= data[0].Koordinat_Y=='1'?'selected':''%>>Lihat</option>
+                                  <option value="2" <%= data[0].Koordinat_Y=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                  <option value="3" <%= data[0].Koordinat_Y=='3'?'selected':''%>>Sembunyikan</option>
+                                </select>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                  </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="tab2" >
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <table class="table table-bordered table-striped">
+                        <tbody>
+                          <tr>
+                            <td style="width: 260px;">Kepemilikan Rumah</td>
+                            <td>
+                              <select id="" name="kepemilikan_rumah" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].kepemilikan_rumah=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].kepemilikan_rumah=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].kepemilikan_rumah=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Memiliki Simpanan Uang/Perhiasan/Ternak/Lainnya</td>
+                            <td>
+                              <select id="" name="memiliki_simpanan" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].memiliki_simpanan=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].memiliki_simpanan=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].memiliki_simpanan=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Jenis Atap</td>
+                            <td>
+                              <select id="" name="jenis_atap" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].jenis_atap=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].jenis_atap=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].jenis_atap=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <!-- TAMBAHAN BARU -->
+                          <tr>
+                            <td>Kualitas Atap</td>
+                            <td>
+                              <select id="" name="kualitas_atap" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].kualitas_atap=='1'?'selected':''%>>Lihat</option>      
+                                <option value="2" <%= data[0].kualitas_atap=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].kualitas_atap=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Jenis Dinding</td>
+                            <td>
+                              <select id="" name="jenis_dinding" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].jenis_dinding=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].jenis_dinding=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].jenis_dinding=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <!-- TAMBAHAN BARU -->
+                          <tr>
+                            <td>Kualitas Dinding</td>
+                            <td>
+                              <select id="" name="kualitas_dinding" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].kualitas_dinding=='1'?'selected':''%>>Lihat</option>      
+                                <option value="2" <%= data[0].kualitas_dinding=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].kualitas_dinding=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Jenis Lantai</td>
+                            <td>
+                              <select id="" name="jenis_lantai" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].jenis_lantai=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].jenis_lantai=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].jenis_lantai=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <!-- TAMBAHAN BARU -->
+                          <tr>
+                            <td>Kualitas Lantai</td>
+                            <td>
+                              <select id="" name="kualitas_lantai" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].kualitas_lantai=='1'?'selected':''%>>Lihat</option>      
+                                <option value="2" <%= data[0].kualitas_lantai=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].kualitas_lantai=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Sumber Penerangan</td>
+                            <td>
+                              <select id="" name="sumber_penerangan" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].sumber_penerangan=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].sumber_penerangan=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].sumber_penerangan=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <!-- TAMBAHAN BARU -->
+                          <tr>
+                            <td>Daya Listrik Terpasang</td>
+                            <td>
+                              <select id="" name="daya_listik_terpasang" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].daya_listik_terpasang=='1'?'selected':''%>>Lihat</option>      
+                                <option value="2" <%= data[0].daya_listik_terpasang=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].daya_listik_terpasang=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Bahan Bakar Memasak</td>
+                            <td>
+                              <select id="" name="bahan_bakar_memasak" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].bahan_bakar_memasak=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].bahan_bakar_memasak=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].bahan_bakar_memasak=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Sumber Air Minum</td>
+                            <td>
+                              <select id="" name="sumber_air_minum" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].sumber_air_minum=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].sumber_air_minum=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].sumber_air_minum=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Memiliki Fasilitas Buang Air Besar</td>
+                            <td>
+                              <select id="" name="memiliki_fasilitas_buang_air_besar" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].memiliki_fasilitas_buang_air_besar=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].memiliki_fasilitas_buang_air_besar=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].memiliki_fasilitas_buang_air_besar=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Foto Rumah Tampak Depan</td>
+                            <td>
+                              <select id="" name="foto_rumah_tampak_depan" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].foto_rumah_tampak_depan=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].foto_rumah_tampak_depan=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].foto_rumah_tampak_depan=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Foto Atap</td>
+                            <td>
+                              <select id="" name="foto_atap" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].foto_atap=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].foto_atap=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].foto_atap=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Foto Lantai</td>
+                            <td>
+                              <select id="" name="foto_lantai" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].foto_lantai=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].foto_lantai=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].foto_lantai=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Foto Dinding</td>
+                            <td>
+                              <select id="" name="foto_dinding" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].foto_dinding=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].foto_dinding=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].foto_dinding=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Foto Jamban</td>
+                            <td>
+                              <select id="" name="foto_jamban" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].foto_jamban=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].foto_jamban=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].foto_jamban=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="tab3" >
+                  <table class="table table-bordered table-striped">
+                    <tbody>
+                      <tr>
+                        <td style="width: 260px;">Memenuhi Kriteria</td>
+                        <td>
+                          <select id="" name="VERVAL_memenuhi_kriteria_P3KE" class="form-control">
+                            <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].VERVAL_memenuhi_kriteria_P3KE=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].VERVAL_memenuhi_kriteria_P3KE=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].VERVAL_memenuhi_kriteria_P3KE=='3'?'selected':''%>>Sembunyikan</option>
+                          </select>
+                        </td>
+                      </tr>
+  
+                      <tr>
+                        <td>Alasan Tidak Memenuhi Kriteria P3KE</td>
+                        <td>
+                          <select id="" name="VERVAL_alasan_tidak_memenuhi_kriteria_P3KE" class="form-control">
+                            <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].VERVAL_alasan_tidak_memenuhi_kriteria_P3KE=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].VERVAL_alasan_tidak_memenuhi_kriteria_P3KE=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].VERVAL_alasan_tidak_memenuhi_kriteria_P3KE=='3'?'selected':''%>>Sembunyikan</option>
+                          </select>
+                        </td>
+                      </tr>
+  
+                      <tr>
+                        <td>Keterangan</td>
+                        <td>
+                          <select id="" name="VERVAL_keterangan" class="form-control">
+                            <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].VERVAL_keterangan=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].VERVAL_keterangan=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].VERVAL_keterangan=='3'?'selected':''%>>Sembunyikan</option>
+                          </select>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="tab4" >
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <table class="table table-bordered table-striped">
+                        <tbody>      
+                          <tr>
+                            <td style="width: 260px;">Beririsan DTKS</td>
+                            <td>
+                              <select id="" name="DTKS_BERIRISAN_DTKS" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].DTKS_BERIRISAN_DTKS=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].DTKS_BERIRISAN_DTKS=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].DTKS_BERIRISAN_DTKS=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Keterngan DTKS</td>
+                            <td>
+                              <select id="" name="DTKS_keterangan_DTKS" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].DTKS_keterangan_DTKS=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].DTKS_keterangan_DTKS=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].DTKS_keterangan_DTKS=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="tab5" >
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <table class="table table-bordered table-striped">
+                        <tbody>
+      
+                          <tr>
+                            <td style="width: 260px;">Memiliki Rumah Layak Huni</td>
+                            <td>
+                              <select id="" name="SIKS_DJ_memiliki_rumah_layak_huni" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].SIKS_DJ_memiliki_rumah_layak_huni=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].SIKS_DJ_memiliki_rumah_layak_huni=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].SIKS_DJ_memiliki_rumah_layak_huni=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Memiliki Akses Air Bersih</td>
+                            <td>
+                              <select id="" name="SIKS_DJ_memiliki_akses_air_bersih" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].SIKS_DJ_memiliki_akses_air_bersih=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].SIKS_DJ_memiliki_akses_air_bersih=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].SIKS_DJ_memiliki_akses_air_bersih=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Memiliki Jamban</td>
+                            <td>
+                              <select id="" name="SIKS_DJ_memiliki_jamban" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].SIKS_DJ_memiliki_jamban=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].SIKS_DJ_memiliki_jamban=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].SIKS_DJ_memiliki_jamban=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Memiliki Listrik Sendiri</td>
+                            <td>
+                              <select id="" name="SIKS_DJ_memiliki_listrik_sendiri" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].SIKS_DJ_memiliki_listrik_sendiri=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].SIKS_DJ_memiliki_listrik_sendiri=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].SIKS_DJ_memiliki_listrik_sendiri=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Apakah Bekerja</td>
+                            <td>
+                              <select id="" name="SIKS_DJ_apakah_bekerja" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].SIKS_DJ_apakah_bekerja=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].SIKS_DJ_apakah_bekerja=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].SIKS_DJ_apakah_bekerja=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Apakah Tidak Sekolah</td>
+                            <td>
+                              <select id="" name="SIKS_DJ_anak_tidak_sekolah" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].SIKS_DJ_anak_tidak_sekolah=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].SIKS_DJ_anak_tidak_sekolah=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].SIKS_DJ_anak_tidak_sekolah=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Beresiko Stunting</td>
+                            <td>
+                              <select id="" name="SIKS_DJ_berisiko_stunting" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].SIKS_DJ_berisiko_stunting=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].SIKS_DJ_berisiko_stunting=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].SIKS_DJ_berisiko_stunting=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Disabilitas</td>
+                            <td>
+                              <select id="" name="SIKS_DJ_disabilitas" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].SIKS_DJ_disabilitas=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].SIKS_DJ_disabilitas=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].SIKS_DJ_disabilitas=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="tab6" >
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <table class="table table-bordered table-striped">
+                        <tbody>      
+                          <tr>
+                            <td style="width: 260px;">PKH</td>
+                            <td>
+                              <select id="" name="APBN_PKH" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBN_PKH=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBN_PKH=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBN_PKH=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Sembako</td>
+                            <td>
+                              <select id="" name="APBN_sembako" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBN_sembako=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBN_sembako=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBN_sembako=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>PIP</td>
+                            <td>
+                              <select id="" name="APBN_PIP" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBN_PIP=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBN_PIP=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBN_PIP=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>KIP</td>
+                            <td>
+                              <select id="" name="APBN_KIP" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBN_KIP=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBN_KIP=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBN_KIP=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>JKN-KIS</td>
+                            <td>
+                              <select id="" name="APBN_JKN_KIS" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBN_JKN_KIS=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBN_JKN_KIS=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBN_JKN_KIS=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>BSPS</td>
+                            <td>
+                              <select id="" name="APBN_BSPS" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBN_BSPS=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBN_BSPS=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBN_BSPS=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="tab7" >
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <table class="table table-bordered table-striped">
+                        <tbody>
+                          <tr>
+                            <td style="width: 260px;">Beasiswa Miskin</td>
+                            <td>
+                              <select id="" name="APBD_beasiswa_miskin" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBD_beasiswa_miskin=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBD_beasiswa_miskin=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBD_beasiswa_miskin=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td>Serasi Kasih</td>
+                            <td>
+                              <select id="" name="APBD_serasi_kasih" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBD_serasi_kasih=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBD_serasi_kasih=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBD_serasi_kasih=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Yatim Piatu</td>
+                            <td>
+                              <select id="" name="APBD_yatim_piatu" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBD_yatim_piatu=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBD_yatim_piatu=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBD_yatim_piatu=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Alat Bantu Disabilitas</td>
+                            <td>
+                              <select id="" name="APBD_alat_bantu_disabilitas" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBD_alat_bantu_disabilitas=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBD_alat_bantu_disabilitas=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBD_alat_bantu_disabilitas=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>RTLH Desa Bantuan Provinsi</td>
+                            <td>
+                              <select id="" name="APBD_RTLH_desa" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBD_RTLH_desa=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBD_RTLH_desa=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBD_RTLH_desa=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <!-- TAMBAHAN BARU -->
+                          <tr>
+                            <td>RTLH Desa Bantuan Kabupaten</td>
+                            <td>
+                              <select id="" name="RTLH_bantuan_kabupaten" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].RTLH_bantuan_kabupaten=='1'?'selected':''%>>Lihat</option>      
+                                <option value="2" <%= data[0].RTLH_bantuan_kabupaten=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].RTLH_bantuan_kabupaten=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>RTLH Kelurahan</td>
+                            <td>
+                              <select id="" name="APBD_RTLH_kelurahan" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBD_RTLH_kelurahan=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBD_RTLH_kelurahan=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBD_RTLH_kelurahan=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <!-- TAMBAHAN BARU -->
+                          <tr>
+                            <td>BLT DBHCHT</td>
+                            <td>
+                              <select id="" name="BLT_DBHCHT" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].BLT_DBHCHT=='1'?'selected':''%>>Lihat</option>      
+                                <option value="2" <%= data[0].BLT_DBHCHT=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].BLT_DBHCHT=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <!-- TAMBAHAN BARU -->
+                          <tr>
+                            <td>BLT DID</td>
+                            <td>
+                              <select id="" name="BLT_DID" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].BLT_DID=='1'?'selected':''%>>Lihat</option>      
+                                <option value="2" <%= data[0].BLT_DID=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].BLT_DID=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>BPJS PBI</td>
+                            <td>
+                              <select id="" name="APBD_BPJS_PBI" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].APBD_BPJS_PBI=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].APBD_BPJS_PBI=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].APBD_BPJS_PBI=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <!-- TAMBAHAN BARU -->
+                          <tr>
+                            <td style="width: 260px;">Bantuan Jambanisasi</td>
+                            <td>
+                              <select id="" name="bansos_APBD_bantuan_jambanisasi" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].bansos_APBD_bantuan_jambanisasi=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].bansos_APBD_bantuan_jambanisasi=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].bansos_APBD_bantuan_jambanisasi=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <!-- TAMBAHAN BARU -->
+                          <tr>
+                            <td style="width: 260px;">Bantuan Akses Air Bersih</td>
+                            <td>
+                              <select id="" name="bansos_APBD_bantuan_akses_air_bersih" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].bansos_APBD_bantuan_akses_air_bersih=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].bansos_APBD_bantuan_akses_air_bersih=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].bansos_APBD_bantuan_akses_air_bersih=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <!-- TAMBAHAN BARU -->
+                          <tr>
+                            <td style="width: 260px;">Bantuan Jaringan Listrik</td>
+                            <td>
+                              <select id="" name="bansos_APBD_bantuan_jaringan_listrik" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].bansos_APBD_bantuan_jaringan_listrik=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].bansos_APBD_bantuan_jaringan_listrik=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].bansos_APBD_bantuan_jaringan_listrik=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <!-- TAMBAHAN BARU -->
+                          <tr>
+                            <td style="width: 260px;">Bantuan Padat karya</td>
+                            <td>
+                              <select id="" name="bansos_APBD_bantuan_padat_karya" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].bansos_APBD_bantuan_padat_karya=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].bansos_APBD_bantuan_padat_karya=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].bansos_APBD_bantuan_padat_karya=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <!-- TAMBAHAN BARU -->
+                          <tr>
+                            <td style="width: 260px;">Bantuan Pelatihan</td>
+                            <td>
+                              <select id="" name="bansos_APBD_bantuan_pelatihan" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].bansos_APBD_bantuan_pelatihan=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].bansos_APBD_bantuan_pelatihan=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].bansos_APBD_bantuan_pelatihan=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="tab8" >
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <table class="table table-bordered table-striped">
+                        <tbody>
+                          <tr>
+                            <td style="width: 260px;">BLT DD</td>
+                            <td>
+                              <select id="" name="dana_desa_BLT_DD" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].dana_desa_BLT_DD=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].dana_desa_BLT_DD=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].dana_desa_BLT_DD=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>RTLH Desa</td>
+                            <td>
+                              <select id="" name="dana_desa_RTLH_desa" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].dana_desa_RTLH_desa=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].dana_desa_RTLH_desa=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].dana_desa_RTLH_desa=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="tab9" >
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <table class="table table-bordered table-striped">
+                        <tbody>
+                          <tr>
+                            <td style="width: 260px;">Sumber Data</td>
+                            <td>
+                              <select id="" name="sumber_data" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].sumber_data=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].sumber_data=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].sumber_data=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td style="width: 260px;">Tahun Data</td>
+                            <td>
+                              <select id="" name="tahun_data" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].tahun_data=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].tahun_data=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].tahun_data=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Status Keberadaan Terget</td>
+                            <td>
+                              <select id="" name="status_keberadaan_target" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].status_keberadaan_target=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].status_keberadaan_target=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].status_keberadaan_target=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>Status Verifikasi</td>
+                            <td>
+                              <select id="" name="status_verifikasi" class="form-control">
+                                <option value="">--- Pilih ---</option>
+                                <option value="1" <%= data[0].status_verifikasi=='1'?'selected':''%>>Lihat</option>
+                                <option value="2" <%= data[0].status_verifikasi=='2'?'selected':''%>>Lihat dan Ubah</option>
+                                <option value="3" <%= data[0].status_verifikasi=='3'?'selected':''%>>Sembunyikan</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div role="tabpanel" class="tab-pane fade" id="tab10" >
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <table class="table table-bordered table-striped">
+                        <tbody>
+                          
+
+                          
+
+                          
+
+                          
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div> -->
+                <div role="tabpanel" class="tab-pane fade" id="tab11" >
+                  <h6>Apakah dana yakin akan menyimpan data ini ?</h6>
+                  <button type="submit" class="btn btn-primary btn-embossed">Simpan</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <% include ../../template-backoffice/copyright.ejs %>
+  </div>
+</div>
+<!-- END PAGE CONTENT -->
+
+<% include ../../template-backoffice/footer.ejs %>
+<script type="text/javascript">
+   
+</script>

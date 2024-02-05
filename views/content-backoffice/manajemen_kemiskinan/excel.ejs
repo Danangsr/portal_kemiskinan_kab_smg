@@ -1,0 +1,380 @@
+<!--  BACKUP ASLI SERVER BENAR -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/images/backoffice/shortcut_icon.ico" type="image/png">
+
+    <title>Export Excel</title>
+    <script src="/plugins/jquery/jquery-1.11.1.min.js"></script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div id="table_wrapper1">
+        <table border="1" cellpadding="10" cellspacing="0" style="width:100%;display: none;">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>ID Keluarga P3KE</th>
+                    <th>Dimuktakhirkan Tahun</th>
+                    <th>Provinsi</th>
+                    <th>Kabupaten/Kota</th>
+                    <th>Id_kec</th>
+                    <th>Kecamatan</th>
+                    <th>Id_des_kel</th>
+                    <th>Desa/Kelurahan</th>
+                    <th>Kode Kemdagri</th>
+                    <th>Desil Kesejahteraan</th>
+                    <th>Persentil</th>
+                    <th>Alamat</th>
+                    <th>RT</th>
+                    <th>RW</th>
+                    <th>Koordinat X</th>
+                    <th>Koordinat Y</th>
+                    <th>ID Individu</th>
+                    <th>Prioritas VerVal</th>
+                    <th>Nama</th>
+                    <th>Nama Perbaikan</th>
+                    <th>NIK</th>
+                    <th>NIK Perbaikan</th>
+                    <th>Nomor KK</th>
+                    <th>Foto KK</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Padan Dukcapil</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Hubungan dengan KK</th>
+                    <th>Status Kawin</th>
+                    <th>Pekerjaan</th>
+                    <th>Status Pekerjaan</th>
+                    <th>Pendidikan</th>
+                    <th>Umur</th>
+                    <th>Kelompok Umur</th>
+                    <th>Penerima BPNT</th>
+                    <th>Penerima BPUM</th>
+                    <th>Penerima BST</th>
+                    <th>Penerima PKH</th>
+                    <th>Penerima SEMBAKO</th>
+                    <th>Penerima Prakerja</th>
+                    <th>Penerima KUR</th>
+                    <th>Resiko Stunting</th>
+                    <th>Kepemilikan Rumah</th>
+                    <th>"Memiliki Simpanan Uang/Perhiasan/Ternak/Lainnya"</th>
+                    <th>Jenis Atap</th>
+                    <th>Kualitas Atap</th>
+                    <th>Jenis Dinding</th>
+                    <th>Kualitas Dinding</th>
+                    <th>Jenis Lantai</th>
+                    <th>Kualitas Lantai</th>
+                    <th>Sumber Penerangan</th>
+                    <th>Daya Listrik Terpasang</th>
+                    <th>Bahan Bakar Memasak</th>
+                    <th>Sumber Air Minum</th>
+                    <th>Memiliki fasilitas Buang Air Besar</th>
+                    <th>Foto Rumah Tampak Depan</th>
+                    <th>Foto Atap</th>
+                    <th>Foto Lantai</th>
+                    <th>Foto Dinding</th>
+                    <th>Foto Jamban</th>
+                    <th>Memenuhi Kriteria P3KE</th>
+                    <th>Alasan Tidak Memenuhi Kriteria P3KE</th>
+                    <th>Keterangan</th>
+                    <th>KeteranganTambahan</th>
+                    <th>BERIRISAN DTKS</th>
+                    <th>ID_DTKS</th>
+                    <th>KK_DTKS</th>
+                    <th>Keterangan DTKS</th>
+                    <th>Memiliki Rumah Layak Huni ? (Ya/Tidak)</th>
+                    <th>Memiliki Akses Air Bersih ? (Ya/Tidak)</th>
+                    <th>Memiliki Jamban ? (Ya/Tidak)</th>
+                    <th>Memiliki Listrik Sendiri ? (Ya/Tidak)</th>
+                    <th>Apakah Bekerja ?(Ya/Tidak)</th>
+                    <th>Anak tidak Sekolah ? (Ya/Tidak)</th>
+                    <th>Berisiko Stunting ? (Ya/Tidak)</th>
+                    <th>Disabilitas ? (Ya/Tidak)</th>
+                    <th>PKH (Ya/Tidak)</th>
+                    <th>Sembako (Ya/Tidak)</th>
+                    <th>PIP (Ya/Tidak)</th>
+                    <th>KIP (Ya/Tidak)</th>
+                    <th>JKN-KIS (Ya/Tidak)</th>
+                    <th>BSPS (Ya/Tidak)</th>
+                    <th>Beasiswa Miskin (Ya/Tidak)</th>
+                    <th>Serasi Kasih (Ya/Tidak)</th>
+                    <th>Yatim Piatu (Ya/Tidak)</th>
+                    <th>Alat Bantu Disabilitas (Ya/Tidak)</th>
+                    <th>RTLH Desa Bantuan Provinsi (Ya/Tidak)</th>
+                    <th>RTLH Desa Bantuan Kabupaten (Ya/Tidak)</th>
+                    <th>RTLH Kelurahan (Ya/Tidak)</th>
+                    <th>BLT DBHCHT (Ya/Tidak)</th>
+                    <th>BLT DID (Ya/Tidak)</th>
+                    <th>BPJS PBI (Ya/Tidak)</th>
+                    <th>BLT DD (Ya/Tidak)</th>
+                    <th>RTLH Desa (Ya/Tidak)</th>
+                    <th>Sumber Data</th>
+                    <th>Tahun Data</th>
+                    <th>Status Keberadaan Target</th>
+                    <th>Status Verifikasi (Terverifikasi/Belum Terverifikasi)</th>
+                    <th>Bantuan Jambanisasi</th>
+                    <th>Bantuan Akses Air Bersih</th>
+                    <th>Bantuan Jaringan Listrik</th>
+                    <th>Bantuan Padat Karya</th>
+                    <th>Bantuan Pelatihan</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                <% for(var i=0; i<data.length; i++){ %>
+
+                    <tr>
+                        <td><%= i+1 %>.</td>
+                        <td><%= data[i]['ID_keluarga_P3KE']? data[i]['ID_keluarga_P3KE']:'' %></td>
+                        <td><%= data[i]['dimuktakhirkan_tahun']? data[i]['dimuktakhirkan_tahun']:'' %></td>
+                        <td><%= data[i]['provinsi']? data[i]['provinsi']:'' %></td>
+                        <td><%= data[i]['kabupaten']? data[i]['kabupaten']:'' %></td>
+                        <td><%= data[i]['Id_kec']? data[i]['Id_kec']:'' %></td>
+                        <td><%= data[i]['kecamatan']? data[i]['kecamatan']:'' %></td>
+                        <td><%= data[i]['Id_des_kel']? data[i]['Id_des_kel']:'' %></td>
+                        <td><%= data[i]['kelurahan']? data[i]['kelurahan']:'' %></td>
+                        <td><%= data[i]['kode_kemdagri']? data[i]['kode_kemdagri']:'' %></td>
+                        <td><%= data[i]['desil_kesejahteraan']? data[i]['desil_kesejahteraan']:'' %></td>
+                        <td><%= data[i]['persentil']? data[i]['persentil']:'' %></td>
+                        <td><%= data[i]['alamat']? data[i]['alamat']:'' %></td>
+                        <td><%= data[i]['RT']? data[i]['RT']:'' %></td>
+                        <td><%= data[i]['RW']? data[i]['RW']:'' %></td>
+                        <td><%= data[i]['Koordinat_X']? data[i]['Koordinat_X']:'' %></td>
+                        <td><%= data[i]['Koordinat_Y']? data[i]['Koordinat_Y']:'' %></td>
+                        <td><%= data[i]['IDIndividu']? data[i]['IDIndividu']:'' %></td>
+                        <td><%= data[i]['prioritas_verval']? data[i]['prioritas_verval']:'' %></td>
+                        <td><%= data[i]['nama']? data[i]['nama']:'' %></td>
+                        <td><%= data[i]['nama_perbaikan']? data[i]['nama_perbaikan']:'' %></td>
+                        <td><%= data[i]['NIK']? data[i]['NIK']:'' %></td>
+                        <td><%= data[i]['NIK_perbaikan']? data[i]['NIK_perbaikan']:'' %></td>
+                        <td><%= data[i]['nomor_KK']? data[i]['nomor_KK']:'' %></td>
+                        <td><%= data[i]['foto_KK']? data[i]['foto_KK']:'' %></td>
+                        <td><%= data[i]['tanggal_lahir']? data[i]['tanggal_lahir']:'' %></td>
+                        <td><%= data[i]['padan_dukcapil']? data[i]['padan_dukcapil']:'' %></td>
+                        <td><%= data[i]['jenis_kelamin']? data[i]['jenis_kelamin']:'' %></td>
+                        <td><%= data[i]['hubungan_dengan_KK']? data[i]['hubungan_dengan_KK']:'' %></td>
+                        <td><%= data[i]['status_kawin']? data[i]['status_kawin']:'' %></td>
+                        <td><%= data[i]['pekerjaan']? data[i]['pekerjaan']:'' %></td>
+                        <td><%= data[i]['status_pekerjaan']? data[i]['status_pekerjaan']:'' %></td>
+                        <td><%= data[i]['pendidikan']? data[i]['pendidikan']:'' %></td>
+                        <td><%= data[i]['umur']? data[i]['umur']:'' %></td>
+                        <td><%= data[i]['kelompok_umur']? data[i]['kelompok_umur']:'' %></td>
+                        <td><%= data[i]['penerima_BPNT']? data[i]['penerima_BPNT']:'' %></td>
+                        <td><%= data[i]['penerima_BPUM']? data[i]['penerima_BPUM']:'' %></td>
+                        <td><%= data[i]['penerima_BST']? data[i]['penerima_BST']:'' %></td>
+                        <td><%= data[i]['penerima_PKH']? data[i]['penerima_PKH']:'' %></td>
+                        <td><%= data[i]['penerima_SEMBAKO']? data[i]['penerima_SEMBAKO']:'' %></td>
+                        <td><%= data[i]['penerima_prakerja']? data[i]['penerima_prakerja']:'' %></td>
+                        <td><%= data[i]['penerima_KUR']? data[i]['penerima_KUR']:'' %></td>
+                        <td><%= data[i]['resiko_stunting']? data[i]['resiko_stunting']:'' %></td>
+                        <td><%= data[i]['kepemilikan_rumah']? data[i]['kepemilikan_rumah']:'' %></td>
+                        <td><%= data[i]['memiliki_simpanan']? data[i]['memiliki_simpanan']:'' %></td>
+                        <td><%= data[i]['jenis_atap']? data[i]['jenis_atap']:'' %></td>
+                        <td><%= data[i]['kualitas_atap']? data[i]['kualitas_atap']:'' %></td>
+                        <td><%= data[i]['jenis_dinding']? data[i]['jenis_dinding']:'' %></td>
+                        <td><%= data[i]['kualitas_dinding']? data[i]['kualitas_dinding']:'' %></td>
+                        <td><%= data[i]['jenis_lantai']? data[i]['jenis_lantai']:'' %></td>
+                        <td><%= data[i]['kualitas_lantai']? data[i]['kualitas_lantai']:'' %></td>
+                        <td><%= data[i]['sumber_penerangan']? data[i]['sumber_penerangan']:'' %></td>
+                        <td><%= data[i]['daya_listik_terpasang']? data[i]['daya_listik_terpasang']:'' %></td>
+                        <td><%= data[i]['bahan_bakar_memasak']? data[i]['bahan_bakar_memasak']:'' %></td>
+                        <td><%= data[i]['sumber_air_minum']? data[i]['sumber_air_minum']:'' %></td>
+                        <td><%= data[i]['memiliki_fasilitas_buang_air_besar']? data[i]['memiliki_fasilitas_buang_air_besar']:'' %></td>
+                        <td><%= data[i]['foto_rumah_tampak_depan']? data[i]['foto_rumah_tampak_depan']:'' %></td>
+                        <td><%= data[i]['foto_atap']? data[i]['foto_atap']:'' %></td>
+                        <td><%= data[i]['foto_lantai']? data[i]['foto_lantai']:'' %></td>
+                        <td><%= data[i]['foto_dinding']? data[i]['foto_dinding']:'' %></td>
+                        <td><%= data[i]['foto_jamban']? data[i]['foto_jamban']:'' %></td>
+                        <td><%= data[i]['VERVAL_memenuhi_kriteria_P3KE']? data[i]['VERVAL_memenuhi_kriteria_P3KE']:'' %></td>
+                        <td><%= data[i]['VERVAL_alasan_tidak_memenuhi_kriteria_P3KE']? data[i]['VERVAL_alasan_tidak_memenuhi_kriteria_P3KE']:'' %></td>
+                        <td><%= data[i]['VERVAL_keterangan']? data[i]['VERVAL_keterangan']:'' %></td>
+                        <td><%= data[i]['VERVAL_keterangan_tambahan']? data[i]['VERVAL_keterangan_tambahan']:'' %></td>
+                        <td><%= data[i]['DTKS_BERIRISAN_DTKS']? data[i]['DTKS_BERIRISAN_DTKS']:'' %></td>
+                        <td><%= data[i]['DTKS_ID_DTKS']? data[i]['DTKS_ID_DTKS']:'' %></td>
+                        <td><%= data[i]['DTKS_KK_DTKS']? data[i]['DTKS_KK_DTKS']:'' %></td>
+                        <td><%= data[i]['DTKS_keterangan_DTKS']? data[i]['DTKS_keterangan_DTKS']:'' %></td>
+                        <td><%= data[i]['SIKS_DJ_memiliki_rumah_layak_huni']? data[i]['SIKS_DJ_memiliki_rumah_layak_huni']:'' %></td>
+                        <td><%= data[i]['SIKS_DJ_memiliki_akses_air_bersih']? data[i]['SIKS_DJ_memiliki_akses_air_bersih']:'' %></td>
+                        <td><%= data[i]['SIKS_DJ_memiliki_jamban']? data[i]['SIKS_DJ_memiliki_jamban']:'' %></td>
+                        <td><%= data[i]['SIKS_DJ_memiliki_listrik_sendiri']? data[i]['SIKS_DJ_memiliki_listrik_sendiri']:'' %></td>
+                        <td><%= data[i]['SIKS_DJ_apakah_bekerja']? data[i]['SIKS_DJ_apakah_bekerja']:'' %></td>
+                        <td><%= data[i]['SIKS_DJ_anak_tidak_sekolah']? data[i]['SIKS_DJ_anak_tidak_sekolah']:'' %></td>
+                        <td><%= data[i]['SIKS_DJ_berisiko_stunting']? data[i]['SIKS_DJ_berisiko_stunting']:'' %></td>
+                        <td><%= data[i]['SIKS_DJ_disabilitas']? data[i]['SIKS_DJ_disabilitas']:'' %></td>
+                        <td><%= data[i]['APBN_PKH']? data[i]['APBN_PKH']:'' %></td>
+                        <td><%= data[i]['APBN_sembako']? data[i]['APBN_sembako']:'' %></td>
+                        <td><%= data[i]['APBN_PIP']? data[i]['APBN_PIP']:'' %></td>
+                        <td><%= data[i]['APBN_KIP']? data[i]['APBN_KIP']:'' %></td>
+                        <td><%= data[i]['APBN_JKN_KIS']? data[i]['APBN_JKN_KIS']:'' %></td>
+                        <td><%= data[i]['APBN_BSPS']? data[i]['APBN_BSPS']:'' %></td>
+                        <td><%= data[i]['APBD_beasiswa_miskin']? data[i]['APBD_beasiswa_miskin']:'' %></td>
+                        <td><%= data[i]['APBD_serasi_kasih']? data[i]['APBD_serasi_kasih']:'' %></td>
+                        <td><%= data[i]['APBD_yatim_piatu']? data[i]['APBD_yatim_piatu']:'' %></td>
+                        <td><%= data[i]['APBD_alat_bantu_disabilitas']? data[i]['APBD_alat_bantu_disabilitas']:'' %></td>
+                        <td><%= data[i]['APBD_RTLH_desa']? data[i]['APBD_RTLH_desa']:'' %></td>
+                        <td><%= data[i]['RTLH_bantuan_kabupaten']? data[i]['RTLH_bantuan_kabupaten']:'' %></td>
+                        <td><%= data[i]['APBD_RTLH_kelurahan']? data[i]['APBD_RTLH_kelurahan']:'' %></td>
+                        <td><%= data[i]['BLT_DBHCHT']? data[i]['BLT_DBHCHT']:'' %></td>
+                        <td><%= data[i]['BLT_DID']? data[i]['BLT_DID']:'' %></td>
+                        <td><%= data[i]['APBD_BPJS_PBI']? data[i]['APBD_BPJS_PBI']:'' %></td>
+                        <td><%= data[i]['dana_desa_BLT_DD']? data[i]['dana_desa_BLT_DD']:'' %></td>
+                        <td><%= data[i]['dana_desa_RTLH_desa']? data[i]['dana_desa_RTLH_desa']:'' %></td>
+                        <td><%= data[i]['sumber_data']? data[i]['sumber_data']:'' %></td>
+                        <td><%= data[i]['tahun_data']? data[i]['tahun_data']:'' %></td>
+                        <td><%= data[i]['status_keberadaan_target']? data[i]['status_keberadaan_target']:'' %></td>
+                        <td><%= data[i]['status_verifikasi']? data[i]['status_verifikasi']:'' %></td>
+                        <td><%= data[i]['bansos_APBD_bantuan_jambanisasi']? data[i]['bansos_APBD_bantuan_jambanisasi']:'' %></td>
+                        <td><%= data[i]['bansos_APBD_bantuan_akses_air_bersih']? data[i]['bansos_APBD_bantuan_akses_air_bersih']:'' %></td>
+                        <td><%= data[i]['bansos_APBD_bantuan_jaringan_listrik']? data[i]['bansos_APBD_bantuan_jaringan_listrik']:'' %></td>
+                        <td><%= data[i]['bansos_APBD_bantuan_padat_karya']? data[i]['bansos_APBD_bantuan_padat_karya']:'' %></td>
+                        <td><%= data[i]['bansos_APBD_bantuan_pelatihan']? data[i]['bansos_APBD_bantuan_pelatihan']:'' %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript">
+    var data_type = 'data:application/vnd.ms-excel';
+    var table_div = document.getElementById('table_wrapper1');
+    var table_html = table_div.outerHTML.replace(/ /g, '%20');
+
+    var a = document.createElement('a');
+    a.href = data_type + ', ' + table_html;
+    a.download = 'DataKemiskinan' + Math.floor((Math.random() * 9999999) + 1000000) + '.xls';
+    a.click();
+    setTimeout("window.close();", 5000);
+</script>
+<!-- <tbody>
+    <% for(var i=0; i<data.length; i++){ %>
+
+        <tr>
+            <td><%= i+1 %>.</td>
+            <td><%= data[i]['ID_keluarga_P3KE'] %></td>
+            <td><%= data[i]['dimuktakhirkan_tahun'] %></td>
+            <td><%= data[i]['provinsi'] %></td>
+            <td><%= data[i]['kabupaten'] %></td>
+            <td><%= data[i]['Id_kec'] %></td>
+            <td><%= data[i]['kecamatan'] %></td>
+            <td><%= data[i]['Id_des_kel'] %></td>
+            <td><%= data[i]['kelurahan'] %></td>
+            <td><%= data[i]['kode_kemdagri'] %></td>
+            <td><%= data[i]['desil_kesejahteraan'] %></td>
+            <td><%= data[i]['persentil'] %></td>
+            <td><%= data[i]['alamat'] %></td>
+            <td><%= data[i]['RT'] %></td>
+            <td><%= data[i]['RW'] %></td>
+            <td><%= data[i]['Koordinat_X'] %></td>
+            <td><%= data[i]['Koordinat_Y'] %></td>
+            <td><%= data[i]['IDIndividu'] %></td>
+            <td><%= data[i]['prioritas_verval'] %></td>
+            <td><%= data[i]['nama'] %></td>
+            <td><%= data[i]['nama_perbaikan'] %></td>
+            <td><%= data[i]['NIK'] %></td>
+            <td><%= data[i]['NIK_perbaikan'] %></td>
+            <td><%= data[i]['nomor_KK'] %></td>
+            <td><%= data[i]['foto_KK'] %></td>
+            <td><%= data[i]['tanggal_lahir'] %></td>
+            <td><%= data[i]['padan_dukcapil'] %></td>
+            <td><%= data[i]['jenis_kelamin'] %></td>
+            <td><%= data[i]['hubungan_dengan_KK'] %></td>
+            <td><%= data[i]['status_kawin'] %></td>
+            <td><%= data[i]['pekerjaan'] %></td>
+            <td><%= data[i]['status_pekerjaan'] %></td>
+            <td><%= data[i]['pendidikan'] %></td>
+            <td><%= data[i]['umur'] %></td>
+            <td><%= data[i]['kelompok_umur'] %></td>
+            <td><%= data[i]['penerima_BPNT'] %></td>
+            <td><%= data[i]['penerima_BPUM'] %></td>
+            <td><%= data[i]['penerima_BST'] %></td>
+            <td><%= data[i]['penerima_PKH'] %></td>
+            <td><%= data[i]['penerima_SEMBAKO'] %></td>
+            <td><%= data[i]['penerima_prakerja'] %></td>
+            <td><%= data[i]['penerima_KUR'] %></td>
+            <td><%= data[i]['resiko_stunting'] %></td>
+            <td><%= data[i]['kepemilikan_rumah'] %></td>
+            <td><%= data[i]['memiliki_simpanan'] %></td>
+            <td><%= data[i]['jenis_atap'] %></td>
+            <td><%= data[i]['kualitas_atap'] %></td>
+            <td><%= data[i]['jenis_dinding'] %></td>
+            <td><%= data[i]['kualitas_dinding'] %></td>
+            <td><%= data[i]['jenis_lantai'] %></td>
+            <td><%= data[i]['kualitas_lantai'] %></td>
+            <td><%= data[i]['sumber_penerangan'] %></td>
+            <td><%= data[i]['daya_listik_terpasang'] %></td>
+            <td><%= data[i]['bahan_bakar_memasak'] %></td>
+            <td><%= data[i]['sumber_air_minum'] %></td>
+            <td><%= data[i]['memiliki_fasilitas_buang_air_besar'] %></td>
+            <td><%= data[i]['foto_rumah_tampak_depan'] %></td>
+            <td><%= data[i]['foto_atap'] %></td>
+            <td><%= data[i]['foto_lantai'] %></td>
+            <td><%= data[i]['foto_dinding'] %></td>
+            <td><%= data[i]['foto_jamban'] %></td>
+            <td><%= data[i]['VERVAL_memenuhi_kriteria_P3KE'] %></td>
+            <td><%= data[i]['VERVAL_alasan_tidak_memenuhi_kriteria_P3KE'] %></td>
+            <td><%= data[i]['VERVAL_keterangan'] %></td>
+            <td><%= data[i]['VERVAL_keterangan_tambahan'] %></td>
+            <td><%= data[i]['DTKS_BERIRISAN_DTKS'] %></td>
+            <td><%= data[i]['DTKS_ID_DTKS'] %></td>
+            <td><%= data[i]['DTKS_KK_DTKS'] %></td>
+            <td><%= data[i]['DTKS_keterangan_DTKS'] %></td>
+            <td><%= data[i]['SIKS_DJ_memiliki_rumah_layak_huni'] %></td>
+            <td><%= data[i]['SIKS_DJ_memiliki_akses_air_bersih'] %></td>
+            <td><%= data[i]['SIKS_DJ_memiliki_jamban'] %></td>
+            <td><%= data[i]['SIKS_DJ_memiliki_listrik_sendiri'] %></td>
+            <td><%= data[i]['SIKS_DJ_apakah_bekerja'] %></td>
+            <td><%= data[i]['SIKS_DJ_anak_tidak_sekolah'] %></td>
+            <td><%= data[i]['SIKS_DJ_berisiko_stunting'] %></td>
+            <td><%= data[i]['SIKS_DJ_disabilitas'] %></td>
+            <td><%= data[i]['APBN_PKH'] %></td>
+            <td><%= data[i]['APBN_sembako'] %></td>
+            <td><%= data[i]['APBN_PIP'] %></td>
+            <td><%= data[i]['APBN_KIP'] %></td>
+            <td><%= data[i]['APBN_JKN_KIS'] %></td>
+            <td><%= data[i]['APBN_BSPS'] %></td>
+            <td><%= data[i]['APBD_beasiswa_miskin'] %></td>
+            <td><%= data[i]['APBD_serasi_kasih'] %></td>
+            <td><%= data[i]['APBD_yatim_piatu'] %></td>
+            <td><%= data[i]['APBD_alat_bantu_disabilitas'] %></td>
+            <td><%= data[i]['APBD_RTLH_desa'] %></td>
+            <td><%= data[i]['RTLH_bantuan_kabupaten'] %></td>
+            <td><%= data[i]['APBD_RTLH_kelurahan'] %></td>
+            <td><%= data[i]['BLT_DBHCHT'] %></td>
+            <td><%= data[i]['BLT_DID'] %></td>
+            <td><%= data[i]['APBD_BPJS_PBI'] %></td>
+            <td><%= data[i]['dana_desa_BLT_DD'] %></td>
+            <td><%= data[i]['dana_desa_RTLH_desa'] %></td>
+            <td><%= data[i]['sumber_data'] %></td>
+            <td><%= data[i]['tahun_data'] %></td>
+            <td><%= data[i]['status_keberadaan_target'] %></td>
+            <td><%= data[i]['status_verifikasi'] %></td>
+            <td><%= data[i]['bansos_APBD_bantuan_jambanisasi'] %></td>
+            <td><%= data[i]['bansos_APBD_bantuan_akses_air_bersih'] %></td>
+            <td><%= data[i]['bansos_APBD_bantuan_jaringan_listrik'] %></td>
+            <td><%= data[i]['bansos_APBD_bantuan_padat_karya'] %></td>
+            <td><%= data[i]['bansos_APBD_bantuan_pelatihan'] %></td>
+        </tr>
+     <% } %>
+</tbody> -->

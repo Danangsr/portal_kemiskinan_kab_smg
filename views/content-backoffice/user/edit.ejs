@@ -1,0 +1,309 @@
+<% include ../../template-backoffice/header.ejs %>
+
+<!-- BEGIN PAGE CONTENT -->
+<div class="page-content">
+  <div class="header">
+    <h2><strong>Edit Data User</strong></h2>
+    <div class="breadcrumb-wrapper">
+      <ol class="breadcrumb">
+        <li><a href="/backoffice">Dashboard</a></li>
+        <li><a href="/user">Data User</a></li>
+        <li class="active">Edit Data</li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel">
+        <div class="panel-header header-line">
+          <!-- Notifikasi -->
+        </div>
+        <div class="panel-content">
+          <div class="row">
+            <div class="col-md-12">
+
+              <!-- Start form -->
+              <!-- <form role="form" action="/user/submit_edit" method="POST" enctype="multipart/form-data"> -->
+                <input type="hidden" class="form-control" id="" name="id_user" value="<%= data[0]['id_user'] %>">
+                <div class="form-group">
+                  <label>Username</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" id="username" name="username" value="<%= data[0]['username'] %>" placeholder="Nama">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Password<br/><small>(Isi kembali dengan password lama, apabila anda tidak ingin menggantinya)</small></label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="password" class="form-control" id="pwd" name="pwd">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Nama Lengkap</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" id="fullname" name="fullname"  value="<%= data[0]['fullname'] %>">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="form-group">
+                  <label>NIP</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" id="" name="NIP" value="<%= data[0]['NIP'] %>">
+                    </div>
+                  </div>
+                </div> -->
+
+
+                <div class="form-group">
+                  <label>Email</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" id="email" name="email" value="<%= data[0]['email'] %>">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Telepon</label>
+                  <div class="row">
+                    <div class="col-md-6"><input type="text" class="form-control" id="telp" name="telp" value="<%= data[0]['telp'] %>"></div>
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label>Role</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <select name="" id="role" class="form-control">
+                        <option value="" <%= data[0]['role']==''?'selected':'' %> >-- Pilih --</option>
+                        <!-- <option value="0" <%= data[0]['role']==0?'selected':'' %> >Administrator</option>
+                        <option value="1" <%= data[0]['role']==1?'selected':'' %> >PKH</option>
+                        <option value="2" <%= data[0]['role']==2?'selected':'' %> >OPD</option>
+                        <option value="3" <%= data[0]['role']==3?'selected':'' %> >Camat</option>
+                        <option value="4" <%= data[0]['role']==4?'selected':'' %> >Lurah</option> -->
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group" id="konten-kec">
+                  <label>Kecamatan</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <select name="" id="kecamatan" class="form-control" data-search="true">
+                        <option value="">-- Pilih --</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group" id="konten-kel">
+                  <label>Kelurahan/Desa</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <select name="" id="kelurahan" class="form-control" data-search="true">
+                        <option value="">-- Pilih --</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group" id="konten-dinas">
+                  <label>Dinas</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <select name="" id="dinas" class="form-control" data-search="true">
+                        <option value="">-- Pilih --</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                
+                <div id="button_submit">
+                  <button type="button" class="btn btn-primary btn-embossed" onclick="submit()">Simpan</button>
+                </div>
+              <!-- </form> -->
+              <!-- End start form -->
+
+            </div>
+          </div>         
+        </div>
+      </div>
+    </div>  
+  </div>
+  <div class="footer">
+    <% include ../../template-backoffice/copyright.ejs %>
+  </div>
+</div>
+<!-- END PAGE CONTENT -->
+
+<% include ../../template-backoffice/footer.ejs %>
+<script type="text/javascript">
+   $.post('/user/role/list').then(function (hsl) {
+  $('#role').empty()
+  console.log(hsl);
+  $('#role').append(`<option value="">-- Pilih --</option>`)  
+    for (let i = 0; i < hsl.role.length; i++) {
+        let a =''
+        if(hsl.role[i].role_id=="<%= data[0]['role'] %>"){a='selected'}
+        $('#role').append(`<option value="${hsl.role[i].role_id}" ${a}>${hsl.role[i].role}</option>`)      
+    }
+ })
+  $('#konten-kec').hide();
+  $('#konten-kel').hide();
+  $('#konten-dinas').hide();
+    if ('<%=data[0].role%>' == '') {
+        $('#konten-kec').hide();
+        $('#konten-kel').hide();
+        $('#konten-dinas').hide();
+      }
+
+      if ('<%=data[0].role%>' == '1') {
+        $('#konten-kec').hide();
+        $('#konten-kel').hide();
+        $('#konten-dinas').hide();
+      } 
+
+      if ('<%=data[0].role%>' == '2') {
+        $('#konten-kec').show();
+        $('#konten-kel').show();
+        $('#konten-dinas').hide();
+      }  
+      
+      if ('<%=data[0].role%>' == '3') {
+        $('#konten-kec').hide();
+        $('#konten-kel').hide();
+        $('#konten-dinas').show();
+      }  
+
+      if ('<%=data[0].role%>' == '4') {
+        $('#konten-kec').show();
+        $('#konten-kel').hide();
+        $('#konten-dinas').hide();
+      }
+      
+      if ('<%=data[0].role%>' == '5') {
+        $('#konten-kec').show();
+        $('#konten-kel').show();
+        $('#konten-dinas').hide();
+      }
+  $('#role').change(function(){
+      if ($(this).val() == '') {
+        $('#konten-kec').hide();
+        $('#konten-kel').hide();
+        $('#konten-dinas').hide();
+      }
+
+      if ($(this).val() == '1') {
+        $('#konten-kec').hide();
+        $('#konten-kel').hide();
+        $('#konten-dinas').hide();
+      } 
+
+      if ($(this).val() == '2') {
+        $('#konten-kec').show();
+        $('#konten-kel').show();
+        $('#konten-dinas').hide();
+      }  
+      
+      if ($(this).val() == '3') {
+        $('#konten-kec').hide();
+        $('#konten-kel').hide();
+        $('#konten-dinas').show();
+      }  
+
+      if ($(this).val() == '4') {
+        $('#konten-kec').show();
+        $('#konten-kel').hide();
+        $('#konten-dinas').hide();
+      }
+      
+      if ($(this).val() == '5') {
+        $('#konten-kec').show();
+        $('#konten-kel').show();
+        $('#konten-dinas').hide();
+      }
+  });
+  $.get('/user/data?kec=1').then(function (hsl) {
+    for (let i = 0; i < hsl.data.length; i++) {
+      let a =''
+      if(hsl.data[i].id_kec=="<%= data[0]['id_kec'] %>"){a='selected'}
+
+      $('#kecamatan').append(`<option value="${hsl.data[i].id_kec}" ${a}>${hsl.data[i].kecamatan}</option>`)
+      
+    }
+  })
+  $.get("/user/data?kel=<%= data[0]['id_kec'] %>").then(function (hsl) {
+    for (let i = 0; i < hsl.data.length; i++) {
+      let a =''
+      if(hsl.data[i].id_des_kel=="<%= data[0]['id_des_kel'] %>"){a='selected'}
+      $('#kelurahan').append(`<option value="${hsl.data[i].id_des_kel}" ${a}>${hsl.data[i].kelurahan}</option>`)
+      
+    }
+  })
+  $('#kecamatan').change(function () {
+    $.get('/user/data?kel='+$('#kecamatan').val()).then(function (hsl) {
+    for (let i = 0; i < hsl.data.length; i++) {
+      let a =''
+      if(hsl.data[i].id_des_kel=="<%= data[0]['id_des_kel'] %>"){a='selected'}
+      $('#kelurahan').append(`<option value="${hsl.data[i].id_des_kel}" ${a}>${hsl.data[i].kelurahan}</option>`)
+      
+    }
+  })
+  })
+  function submit() {
+  $('#button_submit').empty()
+  $('#button_submit').append('<button class="btn btn-primary" disabled>Simpan</button>')
+  let formData = new FormData();
+  if ($('#pwd').val()!='') {
+    formData.append('pwd',$('#pwd').val())
+  }
+  formData.append('username',$('#username').val())
+  formData.append('id_kabupaten',$('#id_kabupaten').val())
+  formData.append('fullname',$('#fullname').val())
+  formData.append('NIP',$('#NIP').val())
+  if ($('#role').val()==0) {
+    formData.append('is_admin',1)
+  }
+  formData.append('id_user','<%=data[0].id_user%>')
+  formData.append('role',$('#role').val())
+  formData.append('id_kec',$('#kecamatan').val())
+  formData.append('id_des_kel',$('#kelurahan').val())
+  formData.append('dinas',$('#dinas').val())
+  formData.append('email',$('#email').val())
+  formData.append('telp',$('#telp').val())
+  formData.append('batas',$('#batas').val())
+  formData.append('isok',$('#isok').val())
+  formData.append('google',$('#google').val())
+  formData.append('id_google',$('#id_google').val())
+
+  $.ajax({
+    type: 'POST',
+    enctype: 'multipart/form-data',
+    url: '/user/edit',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function(data) {
+      $('#button_submit').empty()
+      $('#button_submit').append(`<button type="button" class="btn btn-primary btn-embossed" onclick="submit()">Simpan</button>`)
+      alert('Sukses')
+      location.href = '/user'
+    },error: function(err) {
+      alert('gagal')
+      $('#button_submit').empty()
+      $('#button_submit').append(`<button type="button" class="btn btn-primary btn-embossed" onclick="submit()">Simpan</button>`)
+    }
+    })
+}
+ 
+</script>

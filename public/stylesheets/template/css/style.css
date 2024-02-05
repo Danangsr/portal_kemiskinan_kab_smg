@@ -1,0 +1,20 @@
+body{
+    font-family: 'Inter', sans-serif !important;
+	overflow-x: hidden;
+	font-size: 14px;
+	/* position: relative; */
+}
+
+.w-100{
+	width: 100%;
+}
+
+.w-100-flex{
+	width: 100%;
+	display: flex;
+}
+
+h1,h2,h3,h4,h5,h6{
+	margin: 0;
+	padding: 0;
+}

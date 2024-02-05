@@ -1,0 +1,146 @@
+<% include ../../template-backoffice/header.ejs %>
+
+<!-- BEGIN PAGE CONTENT -->
+<div class="page-content">
+  <div class="header">
+    <h2><strong>Edit Data Role & Privilege</strong></h2>
+    <div class="breadcrumb-wrapper">
+      <ol class="breadcrumb">
+        <li><a href="/backoffice">Dashboard</a></li>
+        <li><a href="/manajemen_master/role">Data</a></li>
+        <li class="active">Edit Data</li>
+      </ol>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="panel">
+        <div class="panel-content">
+          <form role="form" action="/manajemen_master/role/submit_edit" method="POST">
+            <input type="hidden" class="form-control" name="role_id" id="" value="<%= data[0].role_id%>">
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label>Role</label>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                      <input type="text" class="form-control" name="role" id="" value="<%= data[0].role%>">
+                    </div>
+                  </div>
+                </div>
+ 
+                <button type="submit" class="btn btn-primary btn-embossed">Simpan</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <table class="table table-bordered table-striped table-hover" id="dataTable">
+    <thead>
+      <tr>
+        <th width="50px">No.</th>
+        <th width="auto">Username</th>
+        <th width="200px">Option</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+        <tr>
+          <td>1.</td>
+          <td>-</td>  
+          <td>
+            <center>
+            <ul class="list-inline" style="text-align: center;">
+              <li><a class="btn btn-warning btn-embossed btn-sm" href="/manajemen_berita/edit/1" role="button" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></li>
+              <li class="separator">|</li>
+              <li><a class="btn btn-danger btn-embossed btn-sm" href="" role="button" onclick="return confirm('Apakah anda yakin untuk menghapus data ini ?');"><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
+            </ul>
+            </center>
+          </td>
+        </tr>
+    </tbody>
+  </table> -->
+  <div class="footer">
+    <% include ../../template-backoffice/copyright.ejs %>
+  </div>
+</div>
+<!-- END PAGE CONTENT -->
+
+<% include ../../template-backoffice/footer.ejs %>
+<script type="text/javascript">
+    var dataTable  =  $('#dataTable').DataTable({
+      "language": {
+        "sProcessing":   '<span>Sedang memproses...</span><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>',
+          "sLengthMenu":   "_MENU_",
+          "sZeroRecords":  "Tidak ditemukan data yang sesuai",
+          "sInfo":         "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+          "sInfoEmpty":    "Menampilkan 0 sampai 0 dari 0 entri",
+          "sInfoFiltered": "(disaring dari _MAX_ entri keseluruhan)",
+          "sInfoPostFix":  "",
+          "sUrl":          "",
+          "oPaginate": {
+            "sFirst":    "Pertama",
+            "sPrevious": "Sebelumnya",
+            "sNext":     "Selanjutnya",
+            "sLast":     "Terakhir"
+          }
+      },
+
+      "processing": true,
+           "ajax": `/user/list?role_id=<%=  data[0].role_id%>`,
+           "columns": [
+           { "data": null},
+               { "data": "username"},
+               { "data": null,render: function(data){
+          
+                   return `<td><center>
+                <ul class="list-inline" style="text-align: center;">
+                  <li><button class="btn btn-${data.login == 0?'success':'danger'} btn-embossed btn-sm" onclick="hapus(${data.id_user},${data.login == 0?1:0})"><i class="fa fa-trash-o" aria-hidden="true"></i></button></li>
+                </li>
+                </ul>
+                </center></td>`
+               }},
+         ],
+         "deferRender": true,
+      "columnDefs": [
+          { "searchable": false, "targets": 2}
+      ],
+
+    
+    });
+    dataTable.on( 'draw.dt', function () {
+    let PageInfo = $('#dataTable').DataTable().page.info();
+    dataTable.column(0, { page: 'current' }).nodes().each( function (cell, i) {
+            cell.innerHTML = i + 1 + PageInfo.start;
+        } );
+    } );
+   async function hapus(id,io) {
+     if (confirm('Apakah Anda Akan Menon aktifkan user ini ?')) {
+      
+      let formData = new FormData()
+      formData.append('id_user',id)
+      formData.append('login',io)
+    await  $.ajax({
+        type: 'POST',
+        enctype: 'multipart/form-data',
+        url: '/user/edit',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success:async function(data) {
+          console.log('<%=  data[0].role_id%>');
+          dataTable.ajax.url( `/user/list?role_id=<%=  data[0].role_id%>` ).load()
+        },error: function(err) {
+          console.log(err);
+        }
+        })   
+        location.href = '/manajemen_master/role/edit/<%=  data[0].role_id%>'
+
+      } 
+
+    }
+</script>

@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/images/template/shortcut_icon.ico">
+    <title>Portal Informasi Data Kemiskinan Kabupaten Semarang</title>
+
+    <link href="/stylesheets/template/css/bs4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/template/css/style.css" rel="stylesheet">
+    <link href="/stylesheets/template/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+    <!-- Plugin This Page --> 
+    
+    <script src="/stylesheets/template/css/bs4/js/jquery.min.js"></script>
+    
+    <!-- End Plugins This Page -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        
+    </style>
+</head>
+
+<body>
+    <header class="shadow">
+      <div class="container">
+        <div class="row">
+          <div class="col-9 col-sm-9 col-md-9 col-lg-6 col-xl-6">
+            <div class="w-100-flex" style="height: 80px;justify-content: flex-start;align-items: center;">
+              <img src="/images/template/logo_kab_smg.png" alt="" style="height: 65px;">
+              <div style="display: flex;height: 80px;justify-content: center;flex-direction: column;margin-left: 15px;">
+                <h6><strong>PORTAL INFORMASI DATA KEMISKINAN</strong></h6>
+                <h6><strong>KABUPATEN SEMARANG</strong></h6>
+                <h6><strong id="kecamatan"></strong></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-3 col-sm-3 col-md-3 col-lg-6 col-xl-6">
+            <div class="w-100-flex" style="height: 80px;justify-content: flex-end;align-items: center;">
+              <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="far fa-user-circle fa-lg"></i>
+                </a>
+              
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="/autentifikasi/logout_user">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section style="padding: 60px 0;">
+      <div class="container">
+        <div class="row mt-3">
+          <div class="col-lg-12 col-xl-12">
+              <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="grafik-tab" data-toggle="tab" href="#grafik" role="tab" aria-controls="grafik" aria-selected="true">STATISTIK KEMISKINAN</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="list_data-tab" data-toggle="tab" href="#list_data" role="tab" aria-controls="list_data" aria-selected="false">DATA KEMISKINAN</a>
+                  </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="grafik" role="tabpanel" aria-labelledby="grafik-tab">
+                    <div class="card shadow">
+                      <div class="card-body">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
+                          <div class="alert alert-primary" role="alert">
+                            <h4 class="alert-heading" style="font-size: 14px; font-weight: bold;">Filter Data :</h4>
+                            <hr class="mt-2 mb-2">
+                            <div class="row">
+                                <!-- <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                  <div class="form-group" id="div_Id_kec2">
+                                    <label>Kecamatan</label>
+                                    <select name="" id="Id_kec2"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                    </select>
+                                    </div>
+                                </div> -->
+                                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                  <div class="form-group" id="">
+                                    <label>Desil</label>
+                                    <select name="" id="desil_kesejahteraan"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="1" >1</option>
+                                      <option value="2" >2</option>
+                                      <option value="3" >3</option>
+                                      <option value="4" >4</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                    <div class="form-group" id="div_Id_des_kel">
+                                      <label>Desa/Kelurahan</label>
+                                      <select name="" id="Id_des_kel"  class="form-control">
+                                        <option value="">-- Pilih --</option>
+                                      </select>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                  <div class="form-group" id="div_tahun">
+                                    <label>Tahun</label>
+                                    <select name="" id="tahun2"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                    </select>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                          <div class="accordion" id="accordionExample">
+                            <div class="card"  onclick="cari1()">
+                              <div class="card-header" id="heading1">
+                                <h2 class="mb-0">
+                                  <button  class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                    BERDASARKAN KELOMPOK UMUR
+                                  </button>
+                                </h2>
+                              </div>
+                              <div class="text-center spinner-wrapper" id="loading1">
+                                <div class="spinner-border" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionExample">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div id="chartContainer1" style="height: 500px; width: 100%;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card" onclick="cari2()">
+                              <div class="card-header" id="heading2">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                    BERDASARKAN PEKERJAAN
+                                  </button>
+                                </h2>
+                              </div>
+                              <div class="text-center spinner-wrapper" id="loading2">
+                                <div class="spinner-border" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div id="chartContainer2" style="height: 500px; width: 100%;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                       
+                            <div class="card"  onclick="cari3()">
+                              <div class="card-header" id="heading3">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                    BERDASARKAN PENDIDIKAN
+                                  </button>
+                                </h2>
+                              </div>
+                              <div class="text-center spinner-wrapper" id="loading3">
+                                <div class="spinner-border" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div id="chartContainer3" style="height: 500px; width: 100%;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card"  onclick="cari4()">
+                              <div class="card-header" id="heading4">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                    BERDASARKAN PENERIMA BPTN , BPUM , BST , PKH , PRAKERJA , SEMBAKO
+                                  </button>
+                                </h2>
+                              </div>
+                              <div class="text-center spinner-wrapper" id="loading4">
+                                <div class="spinner-border" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div id="chartContainer4" style="height: 500px; width: 100%;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card" onclick="cari5()">
+                              <div class="card-header" id="heading5">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                    BERDASARKAN STUNTING
+                                  </button>
+                                </h2>
+                              </div>
+                              <div class="text-center spinner-wrapper" id="loading5">
+                                <div class="spinner-border" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div id="chartContainer5" style="height: 500px; width: 100%;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card" onclick="cari6()">
+                              <div class="card-header" id="heading6">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                    BERDASARKAN KOMPONEN TAGGING SIKS-DJ
+                                  </button>
+                                </h2>
+                              </div>
+                              <div class="text-center spinner-wrapper" id="loading6">
+                                <div class="spinner-border" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionExample">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div id="chartContainer6" style="height: 500px; width: 100%;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card" onclick="cari7()">
+                              <div class="card-header" id="heading7">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                    BERDASARKAN BANSOS APBN
+                                  </button>
+                                </h2>
+                              </div>
+                              <div class="text-center spinner-wrapper" id="loading7">
+                                <div class="spinner-border" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordionExample">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div id="chartContainer7" style="height: 500px; width: 100%;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card" onclick="cari8()">
+                              <div class="card-header" id="heading8">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                    BERDASARKAN BANSOS APBD
+                                  </button>
+                                </h2>
+                              </div>
+                              <div class="text-center spinner-wrapper" id="loading8">
+                                <div class="spinner-border" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#accordionExample">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div id="chartContainer8" style="height: 500px; width: 100%;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card" onclick="cari9()">
+                              <div class="card-header" id="heading9">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                    BERDASARKAN BANSOS DANA DESA
+                                  </button>
+                                </h2>
+                              </div>
+                              <div class="text-center spinner-wrapper" id="loading9">
+                                <div class="spinner-border" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#accordionExample">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div id="chartContainer9" style="height: 500px; width: 100%;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </div>
+                            <div class="card" onclick="cari10()">
+                              <div class="card-header" id="heading10">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                    BERDASARKAN BANSOS APBD (TAMBAHAN)
+                                  </button>
+                                </h2>
+                              </div>
+                              <div class="text-center spinner-wrapper" id="loading10">
+                                <div class="spinner-border" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#accordionExample">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div id="chartContainer10" style="height: 500px; width: 100%;"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="tab-pane fade" id="list_data" role="tabpanel" aria-labelledby="list_data-tab">    
+                    <div class="card shadow">
+                      <div class="card-body">
+                        <div class="row">
+                          <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <h6 class="text-center"><strong>DATA KEMISKINAN</strong></h6>
+                          </div> -->
+        
+                          
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="alert alert-primary" role="alert">
+                              <h4 class="alert-heading" style="font-size: 14px; font-weight: bold;">Filter Data :</h4>
+                              <hr class="mt-2 mb-2">
+                              <div class="row">
+                                <!-- <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                  <div class="form-group" id="div_Id_kec">
+                                    <label>Kecamatan</label>
+                                    <select name="" id="Id_kec"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                    </select>
+                                  </div>
+                                </div> -->
+                                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                  <div class="form-group" id="">
+                                    <label>Desil</label>
+                                    <select name="" id="desil_kesejahteraan2"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="1" >1</option>
+                                      <option value="2" >2</option>
+                                      <option value="3" >3</option>
+                                      <option value="4" >4</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                    <div class="form-group" id="div_Id_des_kel">
+                                      <label>Desa/Kelurahan</label>
+                                      <select name="" id="Id_des_kel2"  class="form-control">
+                                        <option value="">-- Pilih --</option>
+                                      </select>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                  <div class="form-group" id="div_tahun">
+                                    <label>Tahun</label>
+                                    <select name="" id="tahun"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                    </select>
+                                  </div>
+                                </div>
+        
+                                <!-- <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                                  <div class="form-group" id="div_status_verifikasi">
+                                    <label>Status</label>
+                                    <select name="" id="status_verifikasi"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="0" >Belum Terverifikasi</option>
+                                      <option value="1" >Terverifikasi</option>
+                                    </select>
+                                  </div>
+                                </div> -->
+                              </div>
+        
+                              <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                  <button class="btn btn-primary" onclick="cari()">Cari</button>
+                                </div>
+                              </div>
+                            </div>
+        
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="table-responsive">
+                                  <table class="table table-bordered table-striped" id="data" style="width: 100%;">
+                                    <thead>
+                                      <tr>
+                                        <th>No.</th>
+                                        <th>KK</th>
+                                        <th>ID Keluarga</th>
+                                        <th>Nama</th>
+                                        <th>NIK</th>
+                                        <th>Alamat</th>
+                                        <th>Kecamatan</th>
+                                        <th>Desa/Kelurahan</th>
+                                        <th>Tahun Data</th>
+                                        <!-- <th>Status Verval</th>
+                                        <th>Log Terakhir</th> -->
+                                        <th>Option</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="/stylesheets/template/css/bs4/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
+    <!-- Plugins This Page -->
+    <!-- End Plugins This Page -->
+    <script type="text/javascript">
+      // let tahun = new Date().getFullYear()
+      // for (let i = tahun+10; i > tahun-20; i--) {
+        let tahun = 2022
+        for (let i = 2024; i >= 2022; i--) {
+        $('#tahun').append(`<option value="${i}" ${tahun == i?'selected':''}>${i}</option>`)
+        $('#tahun2').append(`<option value="${i}" ${tahun == i?'selected':''}>${i}</option>`)
+
+      }
+    //  $.post('/user/role/list',{role_id:'<%=user.role%>'}).then(async function (hsl) {
+    //       let user = hsl.role[0]
+             $.post('/manajemen_master/get_kec').then(function (hsl) {
+              for (let i = 0; i < hsl.data.length; i++) {
+                if (hsl.data[i].id == '<%=user.id_kec%>') {
+                  $('#kecamatan').html(hsl.data[i].wadmkc)
+                }
+                 $('#Id_kec').append(`<option value="${hsl.data[i].id}">${hsl.data[i].wadmkc}</option>`)
+                 $('#Id_kec2').append(`<option value="${hsl.data[i].id}">${hsl.data[i].wadmkc}</option>`)
+
+              }
+        })
+      // })
+
+      $.post('/manajemen_master/get_kab/<%=user.id_kec%>').then(function (hsl) {
+          for (let i = 0; i < hsl.data.length; i++) {
+                 $('#Id_des_kel').append(`<option value="${hsl.data[i].id_des_kel}" >${hsl.data[i].wadmkd}</option>`)
+                 $('#Id_des_kel2').append(`<option value="${hsl.data[i].id_des_kel}" >${hsl.data[i].wadmkd}</option>`)
+
+                }
+        })
+        // $('#Id_kec').change(async function () {
+        //   await   $.post('/manajemen_master/get_kab/'+$('#Id_kec').val()).then(function (hsl) {
+        //   for (let i = 0; i < hsl.data.length; i++) {
+        //          $('#Id_des_kel').append(`<option value="${hsl.data[i].id_des_kel}" >${hsl.data[i].wadmkd}</option>`)
+        //       }
+        // })
+        // })
+
+      let data = $('#data').DataTable({    
+            "language": {    
+                "sProcessing":   "Sedang memproses...",    
+                "sLengthMenu":   "_MENU_",    
+                "sZeroRecords":  "Tidak ditemukan data yang sesuai",    
+                "sInfo":         "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",    
+                "sInfoEmpty":    "Menampilkan 0 sampai 0 dari 0 entri",    
+                "sInfoFiltered": "(disaring dari _MAX_ entri keseluruhan)",    
+                "sInfoPostFix":  "",    
+                "sUrl":          "",    
+                "oPaginate": {    
+                    "sFirst":    "Pertama",    
+                    "sPrevious": "Sebelumnya",    
+                    "sNext":     "Selanjutnya",    
+                    "sLast":     "Terakhir"    
+                }    
+            },    
+            "processing": true,
+           "ajax":  `/kemiskinan/list?kemiskinan_id=0`,
+           "columns": [
+               { "data": null},
+               { "data": "nomor_KK"},
+               { "data": "ID_keluarga_P3KE"},
+               { "data": "nama"},
+               { "data": "NIK"},
+               { "data": "alamat"},
+               { "data": "kecamatan"},
+               { "data": "kelurahan"},
+               { "data": "tahun_data"},
+               { "data": "kemiskinan_id",render:function(data){
+                  return `
+                            <td style="text-align: center;">
+                              <a href="/dashboard_user/detail/${data}" class="btn btn-warning"><i class="fas fa-info"></i></a>
+                            </td>`
+               }},
+        ],
+            "columnDefs": [    
+            { "width": "80px", "targets": 0}    
+            ],    
+        });
+        data.on( 'draw.dt', function () {
+    let PageInfo = $('#data').DataTable().page.info();
+    data.column(0, { page: 'current' }).nodes().each( function (cell, i) {
+            cell.innerHTML = i + 1 + PageInfo.start;
+        } );
+    } ); 
+    // window.onload =async function () {
+    //         let tahun = new Date().getFullYear()
+    //       for (let i = tahun+10; i > tahun-10; i--) {
+    //         $('#tahun').append(`<option value="${i}" ${i==tahun?'selected':''}>${i}</option>`)
+    //       }
+    //       }
+          
+
+async function cari() {
+      data.ajax.url(`/kemiskinan/list?padan_dukcapil=Padan&VERVAL_memenuhi_kriteria_P3KE=Ya&tahun_data=${$('#tahun').val()}&Id_kec=<%=user.id_kec%>&Id_des_kel=${$('#Id_des_kel2').val()}`).load()
+    }
+    $('#loading1').hide()
+  $('#loading2').hide()
+  $('#loading3').hide()
+  $('#loading4').hide()
+  $('#loading5').hide()
+  $('#loading6').hide()
+  $('#loading7').hide()
+  $('#loading8').hide()
+  $('#loading9').hide()
+  $('#loading10').hide()
+async function cari1() {
+  $('#loading1').show()
+
+let poin = {
+group:'kelompok_umur',
+  tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',
+  Id_kec:'<%=user.id_kec%>',
+  Id_des_kel:$('#Id_des_kel').val()
+}
+let dataChart1 = await $.post('/kemiskinan/cari',poin)
+let chart1 = new CanvasJS.Chart("chartContainer1", {
+animationEnabled: true,
+axisX:{
+    labelFontSize: 14,
+    interval: 1,
+    // labelMaxWidth: 100,
+// labelWrap: true,
+    // labelAngle: 30,
+},
+axisY:{
+    labelFontSize: 14,
+},
+data: [{        
+    type: "column",  
+    // indexLabelFontSize: 8,
+    dataPoints: dataChart1.data
+}]
+});
+chart1.render();
+$('#loading1').hide()
+
+}
+
+async function cari2() {
+  $('#loading2').show()
+
+let poin1 = {
+group:'pekerjaan',
+tahun_data:$('#tahun2').val(),
+ padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',
+  Id_kec:'<%=user.id_kec%>',}
+let dataChart2 = await $.post('/kemiskinan/cari',poin1)
+let chart2 = new CanvasJS.Chart("chartContainer2", {
+animationEnabled: true,
+axisX:{
+    labelFontSize: 14,
+    interval: 1,
+},
+axisY:{
+    labelFontSize: 14,
+},
+data: [{        
+    type: "column",  
+    // indexLabelFontSize: 8,
+    dataPoints: dataChart2.data
+}]
+});
+chart2.render();
+$('#loading2').hide()
+
+}
+async function cari3() {
+  $('#loading3').show()
+
+let poin2 = {
+group:'pendidikan',
+tahun_data:$('#tahun2').val(),
+ padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',
+Id_kec:'<%=user.id_kec%>',
+Id_des_kel:$('#Id_des_kel').val()
+}
+let dataChart3 = await $.post('/kemiskinan/cari',poin2)
+let chart3 = new CanvasJS.Chart("chartContainer3", {
+animationEnabled: true,
+axisX:{
+    labelFontSize: 14,
+    interval: 1,
+    // labelMaxWidth: 100,
+// labelWrap: true,
+    // labelAngle: 30,
+},
+axisY:{
+    labelFontSize: 14,
+},
+data: [{        
+    type: "column",  
+    // indexLabelFontSize: 8,
+    dataPoints: dataChart3.data
+}]
+});
+chart3.render();
+$('#loading3').hide()
+
+}
+async function cari4() {
+  $('#loading4').show()
+
+            let dataTable1 = [{label:'Penerima BPNT',y:0},{label:'Penerima BPUM',y:0},
+            {label:'Penerima BST',y:0},{label:'Penerima PKH',y:0},{label:'Penerima SEMBAKO',y:0},
+            {label:'Penerima Prakerja',y:0}
+            
+          ]
+          try {
+            
+       
+            let penerima_BPNT = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),penerima_BPNT:'Ya',count:1})
+            let penerima_BPUM = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),penerima_BPUM:'Ya',count:1})
+            let penerima_BST = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),penerima_BST:'Ya',count:1})
+            let penerima_PKH = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),penerima_PKH:'Ya',count:1})
+            let penerima_SEMBAKO = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),penerima_SEMBAKO:'Ya',count:1})
+            let penerima_prakerja = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),penerima_prakerja:'Ya',count:1})
+            dataTable1[0].y = penerima_BPNT.data[0].jml
+            dataTable1[1].y = penerima_BPUM.data[0].jml
+            dataTable1[2].y = penerima_BST.data[0].jml
+            dataTable1[3].y = penerima_PKH.data[0].jml
+            dataTable1[4].y = penerima_SEMBAKO.data[0].jml
+            dataTable1[5].y = penerima_prakerja.data[0].jml
+            var chart4 = new CanvasJS.Chart("chartContainer4", {
+                animationEnabled: true,
+                
+                data: [{
+                    type: "pie",
+                    startAngle: 30,
+                    //innerRadius: 60,
+                    indexLabelFontSize: 14,
+                    indexLabel: "{label} - #percent%",
+                    toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                    dataPoints: dataTable1
+                }]
+            });
+            chart4.render();
+            $('#loading4').hide()
+
+          } catch (error) {
+            console.log(error);
+          }
+        }
+
+async function cari5() {
+  $('#loading5').show()
+
+  try {
+    let dataTable2 =  await $.post(`/kemiskinan/cari`,{group:'resiko_stunting',tahun_data:$('#tahun2').val(),
+     padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',
+  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),})
+
+var chart5 = new CanvasJS.Chart("chartContainer5", {
+    animationEnabled: true,
+    
+    data: [{
+        type: "pie",
+        startAngle: 30,
+        //innerRadius: 60,
+        indexLabelFontSize: 14,
+        indexLabel: "{label} - #percent%",
+        toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+        dataPoints: dataTable2.data
+    }]
+});
+chart5.render();
+$('#loading5').hide()
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+async function cari6() {
+  $('#loading6').show()
+
+            let dataTable1 = [{label:'Memiliki Rumah Layak Huni',y:0},{label:'Memiliki Akses Air Bersih',y:0},
+            {label:'Memiliki Jamban',y:0},{label:'Memiliki Listrik Sendiri',y:0},{label:'Apakah Bekerja',y:0},
+            {label:'Anak Tidak Sekolah',y:0},{label:'Berisiko Stunting',y:0},{label:'Disabilitas',y:0},
+          ]
+          try {
+            
+       
+            let SIKS_DJ_memiliki_rumah_layak_huni = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),SIKS_DJ_memiliki_rumah_layak_huni:'Ya',count:1})
+            let SIKS_DJ_memiliki_akses_air_bersih = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),SIKS_DJ_memiliki_akses_air_bersih:'Ya',count:1})
+            let SIKS_DJ_memiliki_jamban = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),SIKS_DJ_memiliki_jamban:'Ya',count:1})
+            let SIKS_DJ_memiliki_listrik_sendiri = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),SIKS_DJ_memiliki_listrik_sendiri:'Ya',count:1})
+            let SIKS_DJ_apakah_bekerja = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),SIKS_DJ_apakah_bekerja:'Ya',count:1})
+            let SIKS_DJ_anak_tidak_sekolah = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),SIKS_DJ_anak_tidak_sekolah:'Ya',count:1})
+            let SIKS_DJ_berisiko_stunting = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),SIKS_DJ_berisiko_stunting:'Ya',count:1})
+            let SIKS_DJ_disabilitas = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+             padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),SIKS_DJ_disabilitas:'Ya',count:1})
+            dataTable1[0].y = SIKS_DJ_memiliki_rumah_layak_huni.data[0].jml
+            dataTable1[1].y = SIKS_DJ_memiliki_akses_air_bersih.data[0].jml
+            dataTable1[2].y = SIKS_DJ_memiliki_jamban.data[0].jml
+            dataTable1[3].y = SIKS_DJ_memiliki_listrik_sendiri.data[0].jml
+            dataTable1[4].y = SIKS_DJ_apakah_bekerja.data[0].jml
+            dataTable1[5].y = SIKS_DJ_anak_tidak_sekolah.data[0].jml
+            dataTable1[6].y = SIKS_DJ_berisiko_stunting.data[0].jml
+            dataTable1[7].y = SIKS_DJ_disabilitas.data[0].jml
+            console.log(SIKS_DJ_disabilitas,SIKS_DJ_berisiko_stunting);
+            var chart6 = new CanvasJS.Chart("chartContainer6", {
+              animationEnabled: true,
+              axisX:{
+                  labelFontSize: 14,
+                  interval: 1,
+                  // labelMaxWidth: 100,
+              // labelWrap: true,
+                  // labelAngle: 30,
+              },
+              axisY:{
+                  labelFontSize: 14,
+              },                
+                data: [{
+                  type: "column",  
+
+                    dataPoints: dataTable1
+                }]
+            });
+            chart6.render();
+            $('#loading6').hide()
+
+          } catch (error) {
+            console.log(error);
+          }
+        }
+async function cari7() {
+  $('#loading7').show()
+
+  let dataTable1 = [{label:'PKH',y:0},{label:'Sembako',y:0},
+  {label:'PIP',y:0},{label:'KIP',y:0},{label:'JKN KIS',y:0},
+  {label:'BPJS',y:0}
+]
+try {
+  
+
+  let APBN_PKH = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBN_PKH:'Ya',count:1})
+  let APBN_sembako = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBN_sembako:'Ya',count:1})
+  let APBN_PIP = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBN_PIP:'Ya',count:1})
+  let APBN_KIP = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBN_KIP:'Ya',count:1})
+  let APBN_JKN_KIS = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBN_JKN_KIS:'Ya',count:1})
+  let APBN_BSPS = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBN_BSPS:'Ya',count:1})
+  dataTable1[0].y = APBN_PKH.data[0].jml
+  dataTable1[1].y = APBN_sembako.data[0].jml
+  dataTable1[2].y = APBN_PIP.data[0].jml
+  dataTable1[3].y = APBN_KIP.data[0].jml
+  dataTable1[4].y = APBN_JKN_KIS.data[0].jml
+  dataTable1[5].y = APBN_BSPS.data[0].jml
+  var chart7 = new CanvasJS.Chart("chartContainer7", {
+    animationEnabled: true,
+    axisX:{
+        labelFontSize: 14,
+        interval: 1,
+        // labelMaxWidth: 100,
+    // labelWrap: true,
+        // labelAngle: 30,
+    },
+    axisY:{
+        labelFontSize: 14,
+    },                
+      data: [{
+        type: "column",  
+
+          dataPoints: dataTable1
+      }]
+  });
+  chart7.render();
+  $('#loading7').hide()
+
+} catch (error) {
+  console.log(error);
+}
+}
+async function cari8() {
+  $('#loading8').show()
+
+  let dataTable1 = [{label:'Beasiswa Miskin',y:0},{label:'Serasi Kasih',y:0},
+  {label:'Yatim Piatu',y:0},{label:'Alat Bantu Disabilitas',y:0},{label:'RTLH Desa Bantuan Provinsi',y:0},{label:'RTLH Desa Bantuan Kabupaten',y:0}
+  ,{label:'RTLH Kelurahan',y:0}  ,{label:'BLT DBHCHT',y:0},{label:'BLT DID',y:0},{label:'BPJS PBI',y:0}
+]
+try {
+  
+
+  let APBD_beasiswa_miskin = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBD_beasiswa_miskin:'Ya',count:1})
+  let APBD_serasi_kasih = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBD_serasi_kasih:'Ya',count:1})
+  let APBD_yatim_piatu = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBD_yatim_piatu:'Ya',count:1})
+  let APBD_alat_bantu_disabilitas = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBD_alat_bantu_disabilitas:'Ya',count:1})
+  let APBD_RTLH_desa = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBD_RTLH_desa:'Ya',count:1})
+  let RTLH_bantuan_kabupaten = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),RTLH_bantuan_kabupaten:'Ya',count:1})
+  let APBD_RTLH_kelurahan = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBD_RTLH_kelurahan:'Ya',count:1})
+  let BLT_DBHCHT = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),BLT_DBHCHT:'Ya',count:1})
+  let BLT_DID = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),BLT_DID:'Ya',count:1})
+  let APBD_BPJS_PBI = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),APBD_BPJS_PBI:'Ya',count:1})
+ 
+  dataTable1[0].y = APBD_beasiswa_miskin.data[0].jml
+  dataTable1[1].y = APBD_serasi_kasih.data[0].jml
+  dataTable1[2].y = APBD_yatim_piatu.data[0].jml
+  dataTable1[3].y = APBD_alat_bantu_disabilitas.data[0].jml
+  dataTable1[4].y = APBD_RTLH_desa.data[0].jml
+  dataTable1[5].y = RTLH_bantuan_kabupaten.data[0].jml
+  dataTable1[6].y = APBD_RTLH_kelurahan.data[0].jml
+  dataTable1[7].y = BLT_DBHCHT.data[0].jml
+  dataTable1[8].y = BLT_DID.data[0].jml
+  dataTable1[9].y = APBD_BPJS_PBI.data[0].jml
+  var chart8 = new CanvasJS.Chart("chartContainer8", {
+    animationEnabled: true,
+    axisX:{
+        labelFontSize: 14,
+        interval: 1,
+        // labelMaxWidth: 100,
+    // labelWrap: true,
+        // labelAngle: 30,
+    },
+    axisY:{
+        labelFontSize: 14,
+    },                
+      data: [{
+        type: "column",  
+
+          dataPoints: dataTable1
+      }]
+  });
+  chart8.render();
+  $('#loading8').hide()
+
+} catch (error) {
+  console.log(error);
+}
+}
+async function cari9() {
+  $('#loading9').show()
+
+  let dataTable1 = [{label:'BLT DD',y:0},{label:'RTLH desa',y:0}
+]
+try {
+  
+
+  let dana_desa_BLT_DD = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),dana_desa_BLT_DD:'Ya',count:1})
+  let dana_desa_RTLH_desa = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),dana_desa_RTLH_desa:'Ya',count:1})
+
+  dataTable1[0].y = dana_desa_BLT_DD.data[0].jml
+  dataTable1[1].y = dana_desa_RTLH_desa.data[0].jml
+
+  var chart9 = new CanvasJS.Chart("chartContainer9", {
+    animationEnabled: true,
+    axisX:{
+        labelFontSize: 14,
+        interval: 1,
+        // labelMaxWidth: 100,
+    // labelWrap: true,
+        // labelAngle: 30,
+    },
+    axisY:{
+        labelFontSize: 14,
+    },                
+      data: [{
+        type: "column",  
+
+          dataPoints: dataTable1
+      }]
+  });
+  chart9.render();
+  $('#loading9').hide()
+
+} catch (error) {
+  console.log(error);
+}
+}
+async function cari10() {
+  $('#loading10').hide()
+
+  let dataTable1 = [{label:'Bantuan jambanisasi',y:0},
+  {label:'Bantuan akses air bersih',y:0},
+  {label:'Bantuan jaringan listrik',y:0},
+  {label:'Bantuan padat karya',y:0},
+  {label:'Bantuan pelatihan',y:0}]
+try {
+  
+
+  let bansos_APBD_bantuan_jambanisasi = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),bansos_APBD_bantuan_jambanisasi:'Ya',count:1})
+  let bansos_APBD_bantuan_akses_air_bersih = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),bansos_APBD_bantuan_akses_air_bersih:'Ya',count:1})
+  let bansos_APBD_bantuan_jaringan_listrik = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),bansos_APBD_bantuan_jaringan_listrik:'Ya',count:1})
+  let bansos_APBD_bantuan_padat_karya = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),bansos_APBD_bantuan_padat_karya:'Ya',count:1})
+  let bansos_APBD_bantuan_pelatihan = await $.post(`/kemiskinan/cari`,{tahun_data:$('#tahun2').val(),
+   padan_dukcapil:'Padan',
+              VERVAL_memenuhi_kriteria_P3KE:'Ya',  Id_kec:'<%=user.id_kec%>',  Id_des_kel:$('#Id_des_kel').val(),bansos_APBD_bantuan_pelatihan:'Ya',count:1})
+
+  dataTable1[0].y = bansos_APBD_bantuan_jambanisasi.data[0].jml
+  dataTable1[1].y = bansos_APBD_bantuan_akses_air_bersih.data[0].jml
+  dataTable1[2].y = bansos_APBD_bantuan_jaringan_listrik.data[0].jml
+  dataTable1[3].y = bansos_APBD_bantuan_padat_karya.data[0].jml
+  dataTable1[4].y = bansos_APBD_bantuan_pelatihan.data[0].jml
+
+  var chart10 = new CanvasJS.Chart("chartContainer10", {
+    animationEnabled: true,
+    axisX:{
+        labelFontSize: 14,
+        interval: 1,
+        // labelMaxWidth: 100,
+    // labelWrap: true,
+        // labelAngle: 30,
+    },
+    axisY:{
+        labelFontSize: 14,
+    },                
+      data: [{
+        type: "column",  
+
+          dataPoints: dataTable1
+      }]
+  });
+  chart10.render();
+  $('#loading10').hide()
+
+} catch (error) {
+  console.log(error);
+}
+}
+
+    </script>
+       <!-- <style>
+        .spinner-wrapper{
+          background-color: #000;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 9999;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: all 0.2s;
+        }
+        .spinner-border{
+          height: 60px;
+          width: 60px;
+        }
+      </style> -->
+</body>
+</html>

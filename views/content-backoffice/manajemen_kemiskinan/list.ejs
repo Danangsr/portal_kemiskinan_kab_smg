@@ -1,0 +1,323 @@
+<% include ../../template-backoffice/header.ejs %>
+
+<!-- BEGIN PAGE CONTENT -->
+<div class="page-content">
+  <div class="header">
+    <h2><strong>Data Kemiskinan</strong></h2>
+    <div class="breadcrumb-wrapper">
+      <ol class="breadcrumb">
+        <li><a href="/backoffice">Dashboard</a>
+        </li>
+        <li class="active">Data</li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="panel">
+        <div class="panel-header header-line">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="alert alert-success" role="alert" style="border-radius: 10px;">
+                <div class="form-horizontal">
+                  
+                  <div class="form-group">
+                    <label for="" class="col-sm-2 control-label">Kecamatan</label>
+                    <div class="col-sm-4">
+                      <select name="" id="Id_kec" class="form-control" data-search="true">
+                        <option value="">-- Pilih --</option>
+                      </select>
+                    </div>
+  
+                    <div class="col-sm-2">
+                      <label for="" class="col-sm-2 control-label">Kelurahan</label>
+                    </div>
+                    <div class="col-sm-4">
+                      <select name="" id="Id_kel" class="form-control" data-search="true">
+                        <option value="">-- Pilih --</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="" class="col-sm-2 control-label">Tahun</label>
+                    <div class="col-sm-4">
+                      <select name="" id="tahun" class="form-control" data-search="true">
+                        <option value="">-- Pilih --</option>
+                      </select>
+                    </div>
+
+                    <label for="" class="col-sm-2 control-label">Status Verval</label>
+                    <div class="col-sm-4">
+                      <select name="" id="status_verval" class="form-control" data-search="true">
+                        <option value="">-- Pilih --</option>
+                        <option value="0">Belum Terverifikasi</option>
+                        <option value="1">Terverifikasi</option>
+                      </select>
+                    </div>
+                  </div>
+                    <div class="form-group">
+
+                      <label for="" class="col-sm-2 control-label">Desil</label>
+                      <div class="col-sm-4">
+                        <select name="" id="desil_kesejahteraan"  class="form-control">
+                          <option value="">-- Pilih --</option>
+                          <option value="1" >1</option>
+                          <option value="2" >2</option>
+                          <option value="3" >3</option>
+                          <option value="4" >4</option>
+                        </select>
+                      </div>
+                      <label for="" class="col-sm-2 control-label">Padan Dukcapil</label>
+                      <div class="col-sm-4">
+                        <select name="" id="padan_dukcapil"  class="form-control"  data-search="true">
+                          <option value="">-- Pilih --</option>
+                          <option value="Kosong">Kosong</option>
+                          <option value="Tidak Padan" >Tidak padan</option>
+                          <option value="Padan" >padan</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="" class="col-sm-2 control-label">Memenuhi Kriteria p3ke</label>
+                      <div class="col-sm-4">
+                        <select name="" id="VERVAL_memenuhi_kriteria_P3KE"  class="form-control">
+                          <option value="">-- Pilih --</option>
+                          <option value="Tidak"> Tidak </option>
+                          <option value="Ya"> Ya </option>
+                        </select>
+                      </div>
+                    </div>
+
+                  <div class="form-group">
+                    <div class="col-sm-2">
+                      <button class="btn btn-primary btn-embossed" onclick="cari()">Cari</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#importData1">Import Data</button>
+      </div>
+      <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+      </div>
+      <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+        <div class="text-center spinner-wrapper" id="loading">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-embossed" id="button_export" onclick="export_file()">Export</button>
+      </div>
+        <div class="panel-content pagination2 ">
+          <div class="row">
+            <div class="col-md-12 col-lg-12">
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover" id="data">
+                  <thead>
+                    <tr>
+                      <th class="header">No.</th>
+                      <th class="header">Nama</th>
+                      <th class="header">NIK</th>
+                      <th class="header">Alamat</th>
+                      <th class="header">RT</th>
+                      <th class="header">RW</th>
+                      <th class="header">Desa/Kelurahan</th>
+                      <th class="header">Kecamatan</th>
+                      <th class="header">Tahun Data</th>
+                      <th class="header">Status Verval</th>
+                      <th class="header" style="min-width: 80px;">Option</th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>  
+  </div>
+  <div class="footer">
+    <% include ../../template-backoffice/copyright.ejs %>
+  </div>
+</div>
+<!-- END PAGE CONTENT -->
+<div class="modal fade" id="importData1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Import Data</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                  <label for="">Import Data</label>
+                  <input type="file" class="form-control" id="file">
+              </div>
+              <button class="btn btn-primary" id="button_submit" onclick="upload()">Import</button>
+          </div>
+      </div>
+  </div>
+</div>
+<% include ../../template-backoffice/footer.ejs %>
+
+<script type="text/javascript">
+async function get_filter() { 
+    try {
+      let tahun = new Date().getFullYear()
+      for (let i = tahun+10; i > tahun-10; i--) {
+          $('#tahun').append(`<option value="${i}" >${i}</option>`)        
+      }
+
+      let hsl = await  $.post('/manajemen_master/get_kec')
+      for (let i = 0; i < hsl.data.length; i++) {
+        $('#Id_kec').append(`<option value="${hsl.data[i].id}" >${hsl.data[i].wadmkc}</option>`)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+  get_filter()
+  $('#Id_kec').change(async function () {
+      await   $.post('/manajemen_master/get_kab/'+$('#Id_kec').val()).then(function (hsl) {
+      for (let i = 0; i < hsl.data.length; i++) {
+              $('#Id_kel').append(`<option value="${hsl.data[i].id_des_kel}" >${hsl.data[i].wadmkd}</option>`)
+          }
+    })
+  })
+    let data = $('#data').DataTable({
+      "language": {
+          "sProcessing":   "Sedang memproses...",
+          "sLengthMenu":   "_MENU_",
+          "sZeroRecords":  "Tidak ditemukan data yang sesuai",
+          "sInfo":         "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+          "sInfoEmpty":    "Menampilkan 0 sampai 0 dari 0 entri",
+          "sInfoFiltered": "(disaring dari _MAX_ entri keseluruhan)",
+          "sInfoPostFix":  "",
+          "sUrl":          "",
+          "oPaginate": {
+            "sFirst":    "Pertama",
+            "sPrevious": "Sebelumnya",
+            "sNext":     "Selanjutnya",
+            "sLast":     "Terakhir"
+          }
+      },
+      "processing": true,
+           "ajax":  `/kemiskinan/list?kemiskinan_id=0`,
+           "columns": [
+               { "data": null},
+               { "data": "nama"},
+               { "data": "NIK"},
+               { "data": "alamat"},
+               { "data": "RT",render:function(data){
+                let a = ''
+                if (data) {
+                  a =data
+                }
+                return `${a}`
+               }},
+               { "data": "RW",render:function(data){
+                let a = ''
+                if (data) {
+                  a =data
+                }
+                return `${a}`
+               }},
+               { "data": "kelurahan"},
+               { "data": "kecamatan"},
+               { "data": "tahun_data"},
+               { "data": "status_verifikasi",render:function(data){
+                let a = 'Belum Terverifikasi'
+                if (data == 1) {
+                  a ='Terverifikasi' 
+                }
+                return `${a}`
+               }},
+               { "data": "kemiskinan_id",render:function(data){
+                  return `<ul class="list-inline" style="text-align:center"><li>
+                  <a class="btn btn-warning btn-embossed btn-sm" href="/manajemen_kemiskinan/edit/${data}" role="button" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></li></ul>`
+               }},
+        ],
+      // "columnDefs": [
+      //     { "width": "100px", "targets": 0}
+      // ],
+    });
+  data.on( 'draw.dt', function () {
+    let PageInfo = $('#data').DataTable().page.info();
+    data.column(0, { page: 'current' }).nodes().each( function (cell, i) {
+            cell.innerHTML = i + 1 + PageInfo.start;
+        } );
+    } ); 
+    function cari() {
+      data.ajax.url(`/kemiskinan/list?Id_kec=${$('#Id_kec').val()}&Id_des_kel=${$('#Id_kel').val()}&status_verifikasi=${$('#status_verval').val()}&tahun_data=${$('#tahun').val()}&padan_dukcapil=${$('#padan_dukcapil').val()}&VERVAL_memenuhi_kriteria_P3KE=${$('#VERVAL_memenuhi_kriteria_P3KE').val()}&desil_kesejahteraan=${$('#desil_kesejahteraan').val()}`).load();
+    }
+    $('#button_export').hide()
+
+    function export_file(params) {
+
+      $('#button_export').hide()
+      $('#loading').show()
+      location.href = `/manajemen_kemiskinan/excel?Id_kec=${$('#Id_kec').val()}&Id_des_kel=${$('#Id_kel').val()}&status_verifikasi=${$('#status_verval').val()}&tahun_data=${$('#tahun').val()}&padan_dukcapil=${$('#padan_dukcapil').val()}&VERVAL_memenuhi_kriteria_P3KE=${$('#VERVAL_memenuhi_kriteria_P3KE').val()}&desil_kesejahteraan=${$('#desil_kesejahteraan').val()}`
+      $('#button_export').show()
+      $('#loading').hide()
+    }
+    function upload() {
+            let formData = new FormData();
+            alert('Mohon Tunggu Ya ...')
+            $('#button_submit').empty()
+            $('#button_submit').append('<button class="btn btn-primary" disabled>Import</button>')
+            if ( $(`#file`)[0].files[0]){
+                formData.append('excel', $(`#file`)[0].files[0]);
+            }
+    $.ajax({
+    type: 'POST',
+    enctype: 'multipart/form-data',
+    url: '/upload_excel/excel_kemiskinan',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success:async function(data) {
+      // $('#button_submit').empty()
+      // $('#button_submit').append(`<button class="btn btn-primary"  id="button_submit" onclick="upload()">Import</button>`)
+      // window.location.reload();
+      $(`#file`).val('')
+      alert('sukses')
+      cari()
+    },error: function(err) {
+      alert('gagal')
+      $('#button_submit').empty()
+      $('#button_submit').append(`<button class="btn btn-primary"  id="button_submit" onclick="upload()">Import</button>`)
+    }
+    })
+        }
+       
+</script>
+<style>
+  .spinner-wrapper{
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+  }
+  .spinner-border{
+    height: 60px;
+    width: 60px;
+  }
+</style>

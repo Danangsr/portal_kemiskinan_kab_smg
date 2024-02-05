@@ -1,0 +1,119 @@
+<% include ../../template-backoffice/header.ejs %>
+
+<!-- BEGIN PAGE CONTENT -->
+<div class="page-content">
+  <div class="header">
+    <h2><strong>Data Role & Privilege</strong></h2>
+    <div class="breadcrumb-wrapper">
+      <ol class="breadcrumb">
+        <li><a href="/backoffice">Dashboard</a>
+        </li>
+        <li class="active">Data</li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="panel">
+        <div class="panel-header header-line">
+           <a class="btn btn-primary btn-embossed" href="/manajemen_master/role/insert" role="button"><i class="fa fa-plus" aria-hidden="true"></i>Tambah Data</a>
+        </div>
+        <div class="panel-content pagination2">
+          <table class="table table-bordered table-striped table-hover" id="data">
+            <thead>
+              <tr>
+                <th class="header">No.</th>
+                <th class="header">Role</th>
+                <th class="header">Buka / Tutup</th>
+                <th class="header">Option</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <% for(var i=0; i<data.length; i++){ %>
+                <tr>
+                  <td><%= i+1%></td>
+                  <td><%= data[i].role%></td>
+                  <td>
+                    <select name="" id="login" onchange="login('<%=data[i].role_id%>','<%=data[i].login%>')" class="form-control">
+                      <!-- <option value="">-- Pilih --</option> -->
+                      <option value="0" <%=data[i].login==0?'selected':''%>>Tutup</option>
+                      <option value="1" <%=data[i].login==1?'selected':''%>>Buka</option>
+                    </select>
+                  </td>
+                  <td>
+                    <center>
+                    <ul class="list-inline" style="text-align: center;">
+                      <li><a class="btn btn-warning btn-embossed btn-sm" href="/manajemen_master/role/edit/<%= data[i].role_id%>" role="button" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></li>
+                      <!-- <li class="separator">|</li>
+                      <li><a class="btn btn-danger btn-embossed btn-sm" href="/manajemen_master/role/delete/<%= data[i].role_id%>" role="button" onclick="return confirm('Apakah anda yakin untuk menghapus data ini ?');"><i class="fa fa-trash-o" aria-hidden="true"></i></a></li> -->
+                      <li class="separator">|</li>
+                      <li><a class="btn btn-info btn-embossed btn-sm" href="/manajemen_master/role/privilege/<%= data[i].role_id%>" role="button" >Privilege</a></li>
+                    </ul>
+                    </center>
+                  </td>
+                </tr>
+              <%}%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>  
+  </div>
+  <div class="footer">
+    <% include ../../template-backoffice/copyright.ejs %>
+  </div>
+</div>
+<!-- END PAGE CONTENT -->
+
+<% include ../../template-backoffice/footer.ejs %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#data').DataTable({
+      "language": {
+          "sProcessing":   "Sedang memproses...",
+          "sLengthMenu":   "_MENU_",
+          "sZeroRecords":  "Tidak ditemukan data yang sesuai",
+          "sInfo":         "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+          "sInfoEmpty":    "Menampilkan 0 sampai 0 dari 0 entri",
+          "sInfoFiltered": "(disaring dari _MAX_ entri keseluruhan)",
+          "sInfoPostFix":  "",
+          "sUrl":          "",
+          "oPaginate": {
+            "sFirst":    "Pertama",
+            "sPrevious": "Sebelumnya",
+            "sNext":     "Selanjutnya",
+            "sLast":     "Terakhir"
+          }
+      },
+      "columnDefs": [
+          { "width": "150px", "targets": 3}
+      ],
+    });
+  });
+async function login(id,login) {      
+      // let formData = new FormData()
+      // formData.append('role_id',id)
+      // formData.append('login',login==0?1:0)
+      data = {
+        role_id:id,
+        login:login==0?1:0
+      }
+    await  $.post('/user/role/edit',data)
+    // await  $.ajax({
+    //     type: 'POST',
+    //     url: '/user/role/edit',
+    //     data: data,
+    //     processData: false,
+    //     contentType: false,
+    //     success:async function(data) {
+    //     },error: function(err) {
+    //       console.log(err);
+    //     }
+    //     })   
+        
+        location.href = '/manajemen_master/role'
+    }
+
+</script>

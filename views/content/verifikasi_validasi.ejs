@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width
+     initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/images/template/shortcut_icon.ico">
+    <title>Portal Informasi Data Kemiskinan Kabupaten Semarang</title>
+
+    <link href="/stylesheets/template/css/bs4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/template/css/style.css" rel="stylesheet">
+    <link href="/stylesheets/template/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+    <!-- Plugin This Page --> 
+    
+    <script src="/stylesheets/template/css/bs4/js/jquery.min.js"></script>
+    
+    <!-- End Plugins This Page -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        
+    </style>
+</head>
+
+<body>
+    <header class="shadow">
+      <div class="container">
+        <div class="row">
+          <div class="col-9 col-sm-9 col-md-9 col-lg-6 col-xl-6">
+            <div class="w-100-flex" style="height: 80px;justify-content: flex-start;align-items: center;">
+              <img src="/images/template/logo_kab_smg.png" alt="" style="height: 65px;">
+              <div style="display: flex;height: 80px;justify-content: center;flex-direction: column;margin-left: 15px;">
+                <h6><strong>PORTAL INFORMASI DATA KEMISKINAN</strong></h6>
+                <h6><strong>KABUPATEN SEMARANG</strong></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-3 col-sm-3 col-md-3 col-lg-6 col-xl-6">
+            <div class="w-100-flex" style="height: 80px;justify-content: flex-end;align-items: center;">
+              <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="far fa-user-circle fa-lg"></i>
+                </a>
+              
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="/autentifikasi/logout_user">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section style="padding: 60px 0;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="card shadow">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h6 class="text-center"><strong>VERIFIKASI DAN VALIDASI</strong></h6>
+                    <center>
+                      <ul class="list-inline mt-3">
+                        <li class="list-inline-item"><a href="/dashboard_user" style="color: #000;text-decoration: none;">Data</a></li>
+                        <li class="list-inline-item">|</li>
+                        <li class="list-inline-item text-primary"><strong>Verifikasi dan Validasi</strong></li>
+                      </ul>
+                  </center>
+                    <!-- <h6 class="text-center text-primary"><strong>"NAMA"</strong></h6>
+                    <h6 class="text-center text-primary"><strong>"ALAMAT RT, RW, DESA, KEC"</strong></h6> -->
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="accordion" id="accordionExample">
+                      <div class="card">
+                        <div class="card-header" id="headingOne">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" onclick="submit_temp()" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              DATA ART KEPMENKOPMK
+                            </button>
+                          </h2>
+                        </div>
+                    
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="form-group row" id="div_ID_keluarga_P3KE">
+                                  <label class="col-sm-2 col-form-label">ID Keluarga P3KE</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="ID_keluarga_P3KE" value="<%=data[0].ID_keluarga_P3KE%>">
+                                  </div>
+                                </div>
+                                <input type="hidden"  id="kemiskinan_id" value="<%=data[0].kemiskinan_id%>">
+
+                                <div class="form-group row" id="div_dimuktakhirkan_tahun">
+                                  <label class="col-sm-2 col-form-label">Dimuktakhirkan Tahun</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="dimuktakhirkan_tahun"  value="<%=data[0].dimuktakhirkan_tahun%>">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_provinsi">
+                                  <label class="col-sm-2 col-form-label">Provinsi</label>
+                                  <div class="col-sm-10">
+                                    <!-- <select name="" id=""  value="<%=data[0].provinsi%>" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                    </select> -->
+                                    <input type="text" name="" id="provinsi" class="form-control" value="<%=data[0].provinsi%>">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_kabupaten">
+                                  <label class="col-sm-2 col-form-label">Kabupaten/Kota</label>
+                                  <div class="col-sm-10">
+                                    <!-- <select name="" id="kabupaten"  value="<%=data[0].kabupaten%>" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                    </select> -->
+                                    <input type="text" name="" id="kabupaten" class="form-control" value="<%=data[0].kabupaten%>">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_Id_kec">
+                                  <label class="col-sm-2 col-form-label">Kecamatan</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="Id_kec"  value="<%=data[0].Id_kec%>" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <!-- <%for(let i = 0 ;i<kec.length ; i++){%>
+                                        <option value="<%=kec[i].id%>" <%=kec[i].id==data[0].Id_kec?'selected':''%>><%=kec[i].wadmkc%></option>
+                                        <%}%> -->
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_Id_des_kel">
+                                  <label class="col-sm-2 col-form-label">Desa/Kelurahan</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="Id_des_kel"  value="<%=data[0].Id_des_kel%>" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <!-- <%for(let i = 0 ;i<kel.length ; i++){%>
+                                        <option value="<%=kel[i].id_des_kel%>" <%=kel[i].id_des_kel==data[0].Id_des_kel?'selected':''%>><%=kel[i].wadmkd%></option>
+                                        <%}%> -->
+                                    </select>
+                                  </div>
+                                </div>
+                                
+                             
+                           
+                                <div class="form-group row" id="div_kode_kemdagri">
+                                  <label class="col-sm-2 col-form-label">Kode Kemdagri</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  value="<%=data[0].kode_kemdagri%>" class="form-control" id="kode_kemdagri">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_desil_kesejahteraan">
+                                  <label class="col-sm-2 col-form-label">Desil Kesejahteraan</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="desil_kesejahteraan"  value="" class="form-control">
+                                      <option value="" <%=data[0].desil_kesejahteraan==''?'selected':''%>>-- Pilih --</option>
+                                      <option value="1" <%=data[0].desil_kesejahteraan=='1'?'selected':''%>>1</option>
+                                      <option value="2" <%=data[0].desil_kesejahteraan=='2'?'selected':''%>>2</option>
+                                      <option value="3" <%=data[0].desil_kesejahteraan=='3'?'selected':''%>>3</option>
+                                      <option value="4" <%=data[0].desil_kesejahteraan=='4'?'selected':''%>>4</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_persentil">
+                                  <label class="col-sm-2 col-form-label">Persentil</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  value="<%=data[0].persentil%>" class="form-control" id="persentil">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_alamat">
+                                  <label class="col-sm-2 col-form-label">Alamat</label>
+                                  <div class="col-sm-10">
+                                    <textarea name="" id="alamat" class="form-control" rows="2"><%-data[0].alamat%></textarea>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_RT">
+                                  <label class="col-sm-2 col-form-label">RT</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  value="<%=data[0].RT%>" class="form-control" id="RT">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_RW">
+                                  <label class="col-sm-2 col-form-label">RW</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  value="<%=data[0].RW%>" class="form-control" id="RW">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_prioritas_verval">
+                                  <label class="col-sm-2 col-form-label">Prioritas Verval</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="prioritas_verval"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[17].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[17].pilihan[i].pilihan %>" <%= pilihan[17].pilihan[i].pilihan == data[0].prioritas_verval?'selected':''%>><%= pilihan[17].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_nama">
+                                  <label class="col-sm-2 col-form-label">Nama</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  value="<%=data[0].nama%>" class="form-control" id="nama">
+                                  </div>
+                                </div>
+
+                                <!-- TAMBAHAN BARU -->
+                                <div class="form-group row" id="div_nama_perbaikan">
+                                  <label class="col-sm-2 col-form-label">Nama Perbaikan</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  value="" class="form-control"  value="<%=data[0].nama_perbaikan%>" id="nama_perbaikan">
+                                  </div>
+                                </div>
+
+
+                                <div class="form-group row" id="div_NIK">
+                                  <label class="col-sm-2 col-form-label">NIK</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  value="<%=data[0].NIK%>" class="form-control" id="NIK">
+                                  </div>
+                                </div>
+
+                                <!-- TAMBAHAN BARU -->
+                                <div class="form-group row" id="div_NIK_perbaikan">
+                                  <label class="col-sm-2 col-form-label">NIK Perbaikan</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"   value="<%=data[0].NIK_perbaikan%>" class="form-control" id="NIK_perbaikan">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_padan_dukcapil">
+                                  <label class="col-sm-2 col-form-label">Padan Dukcapil</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="padan_dukcapil"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[18].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[18].pilihan[i].pilihan %>" <%= pilihan[18].pilihan[i].pilihan == data[0].padan_dukcapil?'selected':''%>><%= pilihan[18].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_nomor_KK">
+                                  <label class="col-sm-2 col-form-label">Nomor KK</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  value="<%=data[0].nomor_KK%>" class="form-control" id="nomor_KK">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_foto_KK">
+                                  <label class="col-sm-2 col-form-label">Foto KK</label>
+                                  <div class="col-sm-10">
+                                    <input type="file"  class="form-control" id="foto_KK">
+                                    <%if(data[0].foto_KK){%>
+                                      <div id="lihat_foto_KK"><a href="/foto/<%=data[0].foto_KK%>">Lihat File</a></div>
+                                    <%}%>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_tanggal_lahir">
+                                  <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                                  <div class="col-sm-10">
+                                    <input type="date"  value="<%=data[0].tanggal_lahir%>" class="form-control" id="tanggal_lahir">
+                                  </div>
+                                </div>
+
+                                
+
+                                <div class="form-group row" id="div_jenis_kelamin">
+                                  <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="jenis_kelamin" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Laki-laki" <%=data[0].jenis_kelamin=='Laki-laki'?'selected':''%>>Laki-laki</option>
+                                      <option value="Perempuan" <%=data[0].jenis_kelamin=='Perempuan'?'selected':''%>>Perempuan</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_hubungan_dengan_KK">
+                                  <label class="col-sm-2 col-form-label">Hubungan Dengan Kepala Keluarga</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="hubungan_dengan_KK" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[2].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[2].pilihan[i].pilihan %>" <%= pilihan[2].pilihan[i].pilihan == data[0].hubungan_dengan_KK?'selected':''%>><%= pilihan[2].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_status_kawin">
+                                  <label class="col-sm-2 col-form-label">Status Kawin</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="status_kawin" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[0].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[0].pilihan[i].pilihan %>" <%= pilihan[0].pilihan[i].pilihan == data[0].status_kawin?'selected':''%>><%= pilihan[0].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_pekerjaan">
+                                  <label class="col-sm-2 col-form-label">Pekerjaan</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="pekerjaan"   class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[1].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[1].pilihan[i].pilihan %>" <%= pilihan[1].pilihan[i].pilihan == data[0].pekerjaan?'selected':''%>><%= pilihan[1].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_status_pekerjaan">
+                                  <label class="col-sm-2 col-form-label">Status Pekerjaan</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="status_pekerjaan"   class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[3].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[3].pilihan[i].pilihan %>" <%= pilihan[3].pilihan[i].pilihan == data[0].status_pekerjaan?'selected':''%>><%= pilihan[3].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_pendidikan">
+                                  <label class="col-sm-2 col-form-label">Pendidikan</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="pendidikan"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[5].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[5].pilihan[i].pilihan %>" <%= pilihan[5].pilihan[i].pilihan == data[0].pendidikan?'selected':''%>><%= pilihan[5].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_umur">
+                                  <label class="col-sm-2 col-form-label">Umur</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  value="<%=data[0].umur%>" class="form-control" id="umur">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_kelompok_umur">
+                                  <label class="col-sm-2 col-form-label">Kelompok Usia</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="kelompok_umur"   class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[4].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[4].pilihan[i].pilihan %>" <%= pilihan[4].pilihan[i].pilihan == data[0].kelompok_umur?'selected':''%>><%= pilihan[4].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_penerima_BPNT">
+                                  <label class="col-sm-2 col-form-label">Penerima BPNT</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="penerima_BPNT" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].penerima_BPNT=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].penerima_BPNT=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_penerima_BPUM">
+                                  <label class="col-sm-2 col-form-label">Penerima BPUM</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="penerima_BPUM" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].penerima_BPUM=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].penerima_BPUM=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_penerima_BST">
+                                  <label class="col-sm-2 col-form-label">Penerima BST</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="penerima_BST" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].penerima_BST=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].penerima_BST=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_penerima_PKH">
+                                  <label class="col-sm-2 col-form-label">Penerima PKH</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="penerima_PKH" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].penerima_PKH=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].penerima_PKH=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_penerima_SEMBAKO">
+                                  <label class="col-sm-2 col-form-label">Penerima Sembako</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="penerima_SEMBAKO"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].penerima_SEMBAKO=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].penerima_SEMBAKO=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_penerima_prakerja">
+                                  <label class="col-sm-2 col-form-label">Penerima Prakerja</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="penerima_prakerja" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].penerima_prakerja=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].penerima_prakerja=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_penerima_KUR">
+                                  <label class="col-sm-2 col-form-label">Penerima KUR</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="penerima_KUR" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].penerima_KUR=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].penerima_KUR=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_resiko_stunting">
+                                  <label class="col-sm-2 col-form-label">Resiko Stunting</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="resiko_stunting" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[19].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[19].pilihan[i].pilihan %>" <%= pilihan[19].pilihan[i].pilihan == data[0].resiko_stunting?'selected':''%>><%= pilihan[19].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+                                
+                                <div class="form-group row" id="div_Koordinat_X">
+                                  <label class="col-sm-2 col-form-label">Koordinat Lokasi X</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  value="<%=data[0].Koordinat_X%>" class="form-control" id="Koordinat_X" placeholder="110.xxxx">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_Koordinat_Y">
+                                  <label class="col-sm-2 col-form-label">Koordinat Lokasi Y</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  value="<%=data[0].Koordinat_Y%>" class="form-control" id="Koordinat_Y" placeholder="-7.xxxx">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_">
+                                  
+                                  <div class="col-sm-10 offset-sm-2" onclick="getLocation()"><button class="btn btn-primary">Ambil Lokasi</button></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header" id="headingTwo">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" onclick="submit_temp()" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              DATA RT KEPMENKOPMK
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="form-group row" id="div_kepemilikan_rumah">
+                                  <label class="col-sm-2 col-form-label">Kepemilikan Rumah</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="kepemilikan_rumah"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[6].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[6].pilihan[i].pilihan %>" <%= pilihan[6].pilihan[i].pilihan == data[0].kepemilikan_rumah?'selected':''%>><%= pilihan[6].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_memiliki_simpanan">
+                                  <label class="col-sm-2 col-form-label">Memiliki Simpanan Uang/Perhiasan/Ternak/Lainnya</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="memiliki_simpanan" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].memiliki_simpanan=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].memiliki_simpanan=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_jenis_atap">
+                                  <label class="col-sm-2 col-form-label">Jenis Atap</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="jenis_atap" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[7].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[7].pilihan[i].pilihan %>" <%= pilihan[7].pilihan[i].pilihan == data[0].jenis_atap?'selected':''%>><%= pilihan[7].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <!-- TAMBAHAN BARU -->
+                                <div class="form-group row" id="div_kualitas_atap">
+                                  <label class="col-sm-2 col-form-label">Kualitas Atap</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="kualitas_atap" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[20].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[20].pilihan[i].pilihan %>" <%= pilihan[20].pilihan[i].pilihan == data[0].kualitas_atap?'selected':''%>><%= pilihan[20].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_jenis_dinding">
+                                  <label class="col-sm-2 col-form-label">Jenis Dinding</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="jenis_dinding" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[8].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[8].pilihan[i].pilihan %>" <%= pilihan[8].pilihan[i].pilihan == data[0].jenis_dinding?'selected':''%>><%= pilihan[8].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <!-- TAMBAHAN BARU -->
+                                <div class="form-group row" id="div_kualitas_dinding">
+                                  <label class="col-sm-2 col-form-label">Kualitas Dinding</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="kualitas_dinding" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[21].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[21].pilihan[i].pilihan %>" <%= pilihan[21].pilihan[i].pilihan == data[0].kualitas_dinding?'selected':''%>><%= pilihan[21].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_jenis_lantai">
+                                  <label class="col-sm-2 col-form-label">Jenis Lantai</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="jenis_lantai" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[9].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[9].pilihan[i].pilihan %>" <%= pilihan[9].pilihan[i].pilihan == data[0].jenis_lantai?'selected':''%>><%= pilihan[9].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <!-- TAMBAHAN BARU -->
+                                <div class="form-group row" id="div_kualitas_lantai">
+                                  <label class="col-sm-2 col-form-label">Kualitas Lantai</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="kualitas_lantai" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[22].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[22].pilihan[i].pilihan %>" <%= pilihan[22].pilihan[i].pilihan == data[0].kualitas_lantai?'selected':''%>><%= pilihan[22].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_sumber_penerangan">
+                                  <label class="col-sm-2 col-form-label">Sumber Penerangan</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  value="<%=data[0].sumber_penerangan%>" class="form-control" id="sumber_penerangan">
+                                  </div>
+                                </div>
+
+                                <!-- TAMBAHAN BARU -->
+                                <div class="form-group row" id="div_daya_listik_terpasang">
+                                  <label class="col-sm-2 col-form-label">Daya Listrik Terpasang</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="daya_listik_terpasang" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[23].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[23].pilihan[i].pilihan %>" <%= pilihan[23].pilihan[i].pilihan == data[0].daya_listik_terpasang?'selected':''%>><%= pilihan[23].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_bahan_bakar_memasak">
+                                  <label class="col-sm-2 col-form-label">Bahan Bakar Memasak</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="bahan_bakar_memasak" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[11].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[11].pilihan[i].pilihan %>" <%= pilihan[11].pilihan[i].pilihan == data[0].bahan_bakar_memasak?'selected':''%>><%= pilihan[11].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_sumber_air_minum">
+                                  <label class="col-sm-2 col-form-label">Sumber Air Minum</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="sumber_air_minum" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[12].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[12].pilihan[i].pilihan %>" <%= pilihan[12].pilihan[i].pilihan == data[0].sumber_air_minum?'selected':''%>><%= pilihan[12].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_memiliki_fasilitas_buang_air_besar">
+                                  <label class="col-sm-2 col-form-label">Memiliki Fasilitas Buang Air Besar</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="memiliki_fasilitas_buang_air_besar" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[13].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[13].pilihan[i].pilihan %>" <%= pilihan[13].pilihan[i].pilihan == data[0].memiliki_fasilitas_buang_air_besar?'selected':''%>><%= pilihan[13].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_foto_rumah_tampak_depan">
+                                  <label class="col-sm-2 col-form-label">Foto Rumah Tampak Depan</label>
+                                  <div class="col-sm-10">
+                                    <input type="file" name="" id="foto_rumah_tampak_depan"  value="<%=data[0].foto_rumah_tampak_depan%>" class="form-control">
+                                    <%if(data[0].foto_rumah_tampak_depan){%>
+                                      <div id="lihat_foto_rumah_tampak_depan"><a href="/foto/<%=data[0].foto_rumah_tampak_depan%>">Lihat File</a></div>
+                                    <%}%>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_foto_atap">
+                                  <label class="col-sm-2 col-form-label">Foto Atap</label>
+                                  <div class="col-sm-10">
+                                    <input type="file" name="" id="foto_atap"  value="<%=data[0].foto_atap%>" class="form-control">
+                                    <%if(data[0].foto_atap){%>
+                                      <div id="lihat_foto_atap"><a href="/foto/<%=data[0].foto_atap%>">Lihat File</a></div>
+                                    <%}%>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_foto_lantai">
+                                  <label class="col-sm-2 col-form-label">Foto Lantai</label>
+                                  <div class="col-sm-10">
+                                    <input type="file" name="" id="foto_lantai"  value="<%=data[0].foto_lantai%>" class="form-control">
+                                    <%if(data[0].foto_lantai){%>
+                                      <div id="lihat_foto_lantai"><a href="/foto/<%=data[0].foto_lantai%>">Lihat File</a></div>
+                                    <%}%>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_foto_dinding">
+                                  <label class="col-sm-2 col-form-label">Foto Dinding</label>
+                                  <div class="col-sm-10">
+                                    <input type="file" name="" id="foto_dinding"  value="<%=data[0].foto_dinding%>" class="form-control">
+                                    <%if(data[0].foto_dinding){%>
+                                      <div id="lihat_foto_dinding"><a href="/foto/<%=data[0].foto_dinding%>">Lihat File</a></div>
+                                    <%}%>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_foto_jamban">
+                                  <label class="col-sm-2 col-form-label">Foto Jamban</label>
+                                  <div class="col-sm-10">
+                                    <input type="file" name="" id="foto_jamban"  value="<%=data[0].foto_jamban%>" class="form-control">
+                                    <%if(data[0].foto_jamban){%>
+                                      <div id="lihat_foto_jamban"><a href="/foto/<%=data[0].foto_jamban%>">Lihat File</a></div>
+                                    <%}%>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header" id="headingThree">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" onclick="submit_temp()" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              KETERANGAN HASIL VERVAL
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="form-group row" id="div_VERVAL_memenuhi_kriteria_P3KE">
+                                  <label class="col-sm-2 col-form-label">Memenuhi Kriteria P3KE</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="VERVAL_memenuhi_kriteria_P3KE"  value="<%=data[0].VERVAL_memenuhi_kriteria_P3KE%>" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].VERVAL_memenuhi_kriteria_P3KE=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].VERVAL_memenuhi_kriteria_P3KE=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_VERVAL_alasan_tidak_memenuhi_kriteria_P3KE">
+                                  <label class="col-sm-2 col-form-label">Alasan Tidak Memenuhi Kriteria P3KE</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="VERVAL_alasan_tidak_memenuhi_kriteria_P3KE" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[14].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[14].pilihan[i].pilihan %>" <%= pilihan[14].pilihan[i].pilihan == data[0].VERVAL_alasan_tidak_memenuhi_kriteria_P3KE?'selected':''%>><%= pilihan[14].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_VERVAL_keterangan">
+                                  <label class="col-sm-2 col-form-label">Keterangan</label>
+                                  <div class="col-sm-10">
+                                    <textarea name="" id="VERVAL_keterangan" rows="2"  value="" class="form-control"><%-data[0].VERVAL_keterangan%></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header" id="headingFour">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" onclick="submit_temp()" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                              OVERLAY DATA DTKS
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="form-group row" id="div_DTKS_BERIRISAN_DTKS">
+                                  <label class="col-sm-2 col-form-label">Beririsan DTKS</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="DTKS_BERIRISAN_DTKS" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Belum" <%=data[0].DTKS_BERIRISAN_DTKS=='Belum'?'selected':''%>>Belum</option>
+                                      <option value="Sudah" <%=data[0].DTKS_BERIRISAN_DTKS=='Sudah'?'selected':''%>>Sudah</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_DTKS_keterangan_DTKS">
+                                  <label class="col-sm-2 col-form-label">Keterangan DTKS</label>
+                                  <div class="col-sm-10">
+                                    <textarea name="" id="DTKS_keterangan_DTKS"  value="" class="form-control" rows="2"><%-data[0].DTKS_keterangan_DTKS%></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header" id="headingFive">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" onclick="submit_temp()" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                              KOMPONEN TAGGING SIKS-DJ
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="form-group row" id="div_SIKS_DJ_memiliki_rumah_layak_huni">
+                                  <label class="col-sm-2 col-form-label">Memiliki Rumah Layak Huni ?</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="SIKS_DJ_memiliki_rumah_layak_huni" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].SIKS_DJ_memiliki_rumah_layak_huni=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].SIKS_DJ_memiliki_rumah_layak_huni=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_SIKS_DJ_memiliki_akses_air_bersih">
+                                  <label class="col-sm-2 col-form-label">Memiliki Akses Air Bersih ?</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="SIKS_DJ_memiliki_akses_air_bersih" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].SIKS_DJ_memiliki_akses_air_bersih=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].SIKS_DJ_memiliki_akses_air_bersih=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_SIKS_DJ_memiliki_jamban">
+                                  <label class="col-sm-2 col-form-label">Memiliki Jamban ?</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="SIKS_DJ_memiliki_jamban" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].SIKS_DJ_memiliki_jamban=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].SIKS_DJ_memiliki_jamban=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_SIKS_DJ_memiliki_listrik_sendiri">
+                                  <label class="col-sm-2 col-form-label">Memiliki Listrik Sendiri ?</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="SIKS_DJ_memiliki_listrik_sendiri" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].SIKS_DJ_memiliki_listrik_sendiri=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].SIKS_DJ_memiliki_listrik_sendiri=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_SIKS_DJ_apakah_bekerja">
+                                  <label class="col-sm-2 col-form-label">Apakah Bekerja ?</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="SIKS_DJ_apakah_bekerja" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].SIKS_DJ_apakah_bekerja=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].SIKS_DJ_apakah_bekerja=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_SIKS_DJ_anak_tidak_sekolah">
+                                  <label class="col-sm-2 col-form-label">Anak Tidak Sekolah ?</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="SIKS_DJ_anak_tidak_sekolah" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].SIKS_DJ_anak_tidak_sekolah=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].SIKS_DJ_anak_tidak_sekolah=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_SIKS_DJ_berisiko_stunting">
+                                  <label class="col-sm-2 col-form-label">Beresiko Stunting ?</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="SIKS_DJ_berisiko_stunting" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].SIKS_DJ_berisiko_stunting=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].SIKS_DJ_berisiko_stunting=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_SIKS_DJ_disabilitas">
+                                  <label class="col-sm-2 col-form-label">Disabilitas ?</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="SIKS_DJ_disabilitas" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].SIKS_DJ_disabilitas=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].SIKS_DJ_disabilitas=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header" id="headingSix">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" onclick="submit_temp()" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                              BANSOS (APBN)
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="form-group row" id="div_APBN_PKH">
+                                  <label class="col-sm-2 col-form-label">PKH </label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBN_PKH"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBN_PKH=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBN_PKH=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_APBN_sembako">
+                                  <label class="col-sm-2 col-form-label">Sembako </label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBN_sembako" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBN_sembako=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBN_sembako=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_APBN_PIP">
+                                  <label class="col-sm-2 col-form-label">PIP </label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBN_PIP" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBN_PIP=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBN_PIP=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_APBN_KIP">
+                                  <label class="col-sm-2 col-form-label">KIP </label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBN_KIP" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBN_KIP=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBN_KIP=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_APBN_JKN_KIS">
+                                  <label class="col-sm-2 col-form-label">JKN-KIS </label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBN_JKN_KIS" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBN_JKN_KIS=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBN_JKN_KIS=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_APBN_BSPS">
+                                  <label class="col-sm-2 col-form-label">BSPS </label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBN_BSPS" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBN_BSPS=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBN_BSPS=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header" id="headingSeven">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" onclick="submit_temp()" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                              BANSOS (APBD)
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="form-group row" id="div_APBD_beasiswa_miskin">
+                                  <label class="col-sm-2 col-form-label">Beasiswa Miskin </label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBD_beasiswa_miskin" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBD_beasiswa_miskin=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBD_beasiswa_miskin=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_APBD_serasi_kasih">
+                                  <label class="col-sm-2 col-form-label">Serasi Kasih</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBD_serasi_kasih" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBD_serasi_kasih=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBD_serasi_kasih=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_APBD_yatim_piatu">
+                                  <label class="col-sm-2 col-form-label">Yatim Piatu</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBD_yatim_piatu" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBD_yatim_piatu=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBD_yatim_piatu=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_APBD_alat_bantu_disabilitas">
+                                  <label class="col-sm-2 col-form-label">Alat Bantu Disabilitas</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBD_alat_bantu_disabilitas" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBD_alat_bantu_disabilitas=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBD_alat_bantu_disabilitas=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_APBD_RTLH_desa">
+                                  <label class="col-sm-2 col-form-label">RTLH Desa Bantuan Provinsi</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBD_RTLH_desa" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBD_RTLH_desa=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBD_RTLH_desa=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <!-- TAMBAHAN BARU  -->
+                                <div class="form-group row" id="div_RTLH_bantuan_kabupaten">
+                                  <label class="col-sm-2 col-form-label">RTLH Desa Bantuan Kabupaten</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="RTLH_bantuan_kabupaten" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].RTLH_bantuan_kabupaten=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].RTLH_bantuan_kabupaten=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_APBD_RTLH_kelurahan">
+                                  <label class="col-sm-2 col-form-label">RTLH Kelurahan</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBD_RTLH_kelurahan" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBD_RTLH_kelurahan=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBD_RTLH_kelurahan=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <!-- TAMBAHAN BARU  -->
+                                <div class="form-group row" id="div_BLT_DBHCHT">
+                                  <label class="col-sm-2 col-form-label">BLT DBHCHT</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="BLT_DBHCHT" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].BLT_DBHCHT=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].BLT_DBHCHT=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <!-- TAMBAHAN BARU  -->
+                                <div class="form-group row" id="div_BLT_DID">
+                                  <label class="col-sm-2 col-form-label">BLT DID</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="BLT_DID" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].BLT_DID=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].BLT_DID=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_APBD_BPJS_PBI">
+                                  <label class="col-sm-2 col-form-label">BPJS PBI</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="APBD_BPJS_PBI" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].APBD_BPJS_PBI=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].APBD_BPJS_PBI=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_bansos_APBD_bantuan_jambanisasi">
+                                  <label class="col-sm-2 col-form-label">Bantuan Jambanisasi</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="bansos_APBD_bantuan_jambanisasi" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].bansos_APBD_bantuan_jambanisasi=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].bansos_APBD_bantuan_jambanisasi=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_bansos_APBD_bantuan_akses_air_bersih">
+                                  <label class="col-sm-2 col-form-label">Bantuan Akses Air Bersih</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="bansos_APBD_bantuan_akses_air_bersih" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].bansos_APBD_bantuan_akses_air_bersih=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].bansos_APBD_bantuan_akses_air_bersih=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_bansos_APBD_bantuan_jaringan_listrik">
+                                  <label class="col-sm-2 col-form-label">Bantuan Jaringan Listrik</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="bansos_APBD_bantuan_jaringan_listrik" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].bansos_APBD_bantuan_jaringan_listrik=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].bansos_APBD_bantuan_jaringan_listrik=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_bansos_APBD_bantuan_padat_karya">
+                                  <label class="col-sm-2 col-form-label">Bantuan Padat karya</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="bansos_APBD_bantuan_padat_karya" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].bansos_APBD_bantuan_padat_karya=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].bansos_APBD_bantuan_padat_karya=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_bansos_APBD_bantuan_pelatihan">
+                                  <label class="col-sm-2 col-form-label">Bantuan Pelatihan</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="bansos_APBD_bantuan_pelatihan" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].bansos_APBD_bantuan_pelatihan=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].bansos_APBD_bantuan_pelatihan=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header" id="headingEight">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" onclick="submit_temp()" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                              BANSOS (DANA DESA)
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="form-group row" id="div_dana_desa_BLT_DD">
+                                  <label class="col-sm-2 col-form-label">BLT DD</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="dana_desa_BLT_DD" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].dana_desa_BLT_DD=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].dana_desa_BLT_DD=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_dana_desa_RTLH_desa">
+                                  <label class="col-sm-2 col-form-label">RTLH Desa</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="dana_desa_RTLH_desa" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="Ya" <%=data[0].dana_desa_RTLH_desa=='Ya'?'selected':''%>>Ya</option>
+                                      <option value="Tidak" <%=data[0].dana_desa_RTLH_desa=='Tidak'?'selected':''%>>Tidak</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="card">
+                        <div class="card-header" id="heading1">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" onclick="submit_temp()" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                              BANSOS APBD
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+                      <div class="card">
+                        <div class="card-header" id="headingNine">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" onclick="submit_temp()" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                              SIMPAN DATA
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="form-group row" id="div_sumber_data">
+                                  <label class="col-sm-2 col-form-label">Sumber Data</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="sumber_data" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[15].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[15].pilihan[i].pilihan %>" <%= pilihan[15].pilihan[i].pilihan == data[0].sumber_data?'selected':''%>><%= pilihan[15].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_tahun_data">
+                                  <label class="col-sm-2 col-form-label">Tahun Data</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" name="" id="tahun_data"  value="<%=data[0].tahun_data%>" class="form-control">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_status_keberadaan_target">
+                                  <label class="col-sm-2 col-form-label">Status Keberadaan Target</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="status_keberadaan_target" class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <%for(let i = 0 ;i<pilihan[16].pilihan.length ; i++){%>
+                                        <option value="<%= pilihan[16].pilihan[i].pilihan %>" <%= pilihan[16].pilihan[i].pilihan == data[0].status_keberadaan_target?'selected':''%>><%= pilihan[16].pilihan[i].pilihan %></option>
+                                        <%}%>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row" id="div_status_verifikasi">
+                                  <label class="col-sm-2 col-form-label">Status</label>
+                                  <div class="col-sm-10">
+                                    <select name="" id="status_verifikasi"  class="form-control">
+                                      <option value="">-- Pilih --</option>
+                                      <option value="0" <%=data[0].status_verifikasi=='0'?'selected':''%>>Belum Terverifikasi</option>
+                                      <option value="1" <%=data[0].status_verifikasi=='1'?'selected':''%>>Terverifikasi</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <button class="btn btn-primary btn-block" onclick="simpan()">Simpan Data</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="/stylesheets/template/css/bs4/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Plugins This Page -->
+    <!-- End Plugins This Page -->
+    <script type="text/javascript">
+      window.onload =async function () {
+       await $.post('/user/role/list',{role_id:'<%=user.role_id%>'}).then(async function (hsl) {
+          let user = hsl.role[0]
+          await   $.post('/manajemen_master/get_kec').then(function (hsl) {
+              for (let i = 0; i < hsl.data.length; i++) {
+                 $('#Id_kec').append(`<option value="${hsl.data[i].id}" ${hsl.data[i].id=='<%=data[0].Id_kec%>'?'selected':''}>${hsl.data[i].wadmkc}</option>`)
+              }
+        })
+     await   $.post('/manajemen_master/get_kab/<%=data[0].Id_kec%>').then(function (hsl) {
+          for (let i = 0; i < hsl.data.length; i++) {
+                 $('#Id_des_kel').append(`<option value="${hsl.data[i].id_des_kel}" ${hsl.data[i].id_des_kel=='<%=data[0].Id_des_kel%>'?'selected':''}>${hsl.data[i].wadmkd}</option>`)
+              }
+        })
+        $('#Id_kec').change(async function () {
+          await   $.post('/manajemen_master/get_kab/'+$('#Id_kec').val()).then(function (hsl) {
+          for (let i = 0; i < hsl.data.length; i++) {
+                 $('#Id_des_kel').append(`<option value="${hsl.data[i].id_des_kel}" >${hsl.data[i].wadmkd}</option>`)
+              }
+        })
+        })
+          console.log(user);  
+          for (const i in user) {
+            $('#div_'+i).hide()
+            if (user[i]==2) {
+              $('#div_'+i).show()
+            }else if (user[i]==1) {
+              $('#div_'+i).show()
+              $('#'+i).prop('disabled', true);
+            }
+          }
+      })
+
+      }
+
+
+      $('#data').DataTable({    
+            "language": {    
+                "sProcessing":   "Sedang memproses...",
+                "sLengthMenu":   "_MENU_",
+                "sZeroRecords":  "Tidak ditemukan data yang sesuai",    
+                "sInfo":         "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",    
+                "sInfoEmpty":    "Menampilkan 0 sampai 0 dari 0 entri",    
+                "sInfoFiltered": "(disaring dari _MAX_ entri keseluruhan)",    
+                "sInfoPostFix":  "",    
+                "sUrl":          "",    
+                "oPaginate": {    
+                    "sFirst":    "Pertama",    
+                    "sPrevious": "Sebelumnya",    
+                    "sNext":     "Selanjutnya",    
+                    "sLast":     "Terakhir"    
+                }    
+            },    
+            // "columnDefs": [    
+            // { "width": "80px", "targets": 2}    
+            // ],    
+        });
+    async  function  submit_temp(){
+          let temp_kemiskinan = await $.post('/kemiskinan/temp/list',{kemiskinan_id:'<%=data[0].kemiskinan_id%>'})
+          console.log(temp_kemiskinan.data.length,temp_kemiskinan,'<%=data[0].kemiskinan_id%>');
+  
+          let formData = new FormData()
+
+formData.append('kemiskinan_id',$('#kemiskinan_id').val())
+formData.append('ID_keluarga_P3KE',$('#ID_keluarga_P3KE').val())
+formData.append('dimuktakhirkan_tahun',$('#dimuktakhirkan_tahun').val())
+formData.append('provinsi',$('#provinsi').val())
+formData.append('kabupaten',$('#kabupaten').val())
+formData.append('Id_kec',$('#Id_kec').val())
+formData.append('kecamatan',$('#kecamatan').val())
+formData.append('Id_des_kel',$('#Id_des_kel').val())
+formData.append('kelurahan',$('#kelurahan').val())
+formData.append('persentil',$('#persentil').val())
+formData.append('kode_kemdagri',$('#kode_kemdagri').val())
+formData.append('desil_kesejahteraan',$('#desil_kesejahteraan').val())
+formData.append('alamat',$('#alamat').val())
+formData.append('RT',$('#RT').val())
+formData.append('RW',$('#RW').val())
+formData.append('Koordinat_X',$('#Koordinat_X').val())
+formData.append('Koordinat_Y',$('#Koordinat_Y').val())
+formData.append('IDIndividu',$('#IDIndividu').val())
+formData.append('nama',$('#nama').val())
+formData.append('prioritas_verval',$('#prioritas_verval').val())
+formData.append('NIK',$('#NIK').val())
+formData.append('nomor_KK',$('#nomor_KK').val())
+if ( $(`#foto_KK`)[0].files[0]){
+      formData.append('foto_KK', $(`#foto_KK`)[0].files[0]);
+  }
+formData.append('padan_dukcapil',$('#padan_dukcapil').val())
+formData.append('jenis_kelamin',$('#jenis_kelamin').val())
+formData.append('hubungan_dengan_KK',$('#hubungan_dengan_KK').val())
+formData.append('tanggal_lahir',$('#tanggal_lahir').val())
+formData.append('umur',$('#umur').val())
+formData.append('kelompok_umur',$('#kelompok_umur').val())
+formData.append('status_kawin',$('#status_kawin').val())
+formData.append('pekerjaan',$('#pekerjaan').val())
+formData.append('pendidikan',$('#pendidikan').val())
+formData.append('penerima_BPNT',$('#penerima_BPNT').val())
+formData.append('penerima_BPUM',$('#penerima_BPUM').val())
+formData.append('penerima_BST',$('#penerima_BST').val())
+formData.append('penerima_PKH',$('#penerima_PKH').val())
+formData.append('penerima_SEMBAKO',$('#penerima_SEMBAKO').val())
+formData.append('penerima_prakerja',$('#penerima_prakerja').val())
+formData.append('penerima_KUR',$('#penerima_KUR').val())
+formData.append('resiko_stunting',$('#resiko_stunting').val())
+formData.append('kepemilikan_rumah',$('#kepemilikan_rumah').val())
+formData.append('memiliki_simpanan',$('#memiliki_simpanan').val())
+formData.append('jenis_atap',$('#jenis_atap').val())
+formData.append('jenis_dinding',$('#jenis_dinding').val())
+formData.append('jenis_lantai',$('#jenis_lantai').val())
+formData.append('sumber_penerangan',$('#sumber_penerangan').val())
+formData.append('bahan_bakar_memasak',$('#bahan_bakar_memasak').val())
+formData.append('sumber_air_minum',$('#sumber_air_minum').val())
+formData.append('memiliki_fasilitas_buang_air_besar',$('#memiliki_fasilitas_buang_air_besar').val())
+if ( $(`#foto_rumah_tampak_depan`)[0].files[0]){
+      formData.append('foto_rumah_tampak_depan', $(`#foto_rumah_tampak_depan`)[0].files[0]);
+  }
+  if ( $(`#foto_atap`)[0].files[0]){
+      formData.append('foto_atap', $(`#foto_atap`)[0].files[0]);
+  }
+  if ( $(`#foto_lantai`)[0].files[0]){
+      formData.append('foto_lantai', $(`#foto_lantai`)[0].files[0]);
+  }
+  if ( $(`#foto_dinding`)[0].files[0]){
+      formData.append('foto_dinding', $(`#foto_dinding`)[0].files[0]);
+  }
+  if ( $(`#foto_jamban`)[0].files[0]){
+      formData.append('foto_jamban', $(`#foto_jamban`)[0].files[0]);
+  }
+
+formData.append('VERVAL_memenuhi_kriteria_P3KE',$('#VERVAL_memenuhi_kriteria_P3KE').val())
+formData.append('VERVAL_alasan_tidak_memenuhi_kriteria_P3KE',$('#VERVAL_alasan_tidak_memenuhi_kriteria_P3KE').val())
+formData.append('VERVAL_keterangan',$('#VERVAL_keterangan').val())
+formData.append('VERVAL_keterangan_tambahan',$('#VERVAL_keterangan_tambahan').val())
+formData.append('DTKS_BERIRISAN_DTKS',$('#DTKS_BERIRISAN_DTKS').val())
+formData.append('DTKS_ID_DTKS',$('#DTKS_ID_DTKS').val())
+formData.append('DTKS_KK_DTKS',$('#DTKS_KK_DTKS').val())
+formData.append('DTKS_keterangan_DTKS',$('#DTKS_keterangan_DTKS').val())
+formData.append('SIKS_DJ_memiliki_rumah_layak_huni',$('#SIKS_DJ_memiliki_rumah_layak_huni').val())
+formData.append('SIKS_DJ_memiliki_akses_air_bersih',$('#SIKS_DJ_memiliki_akses_air_bersih').val())
+formData.append('SIKS_DJ_memiliki_jamban',$('#SIKS_DJ_memiliki_jamban').val())
+formData.append('SIKS_DJ_memiliki_listrik_sendiri',$('#SIKS_DJ_memiliki_listrik_sendiri').val())
+formData.append('SIKS_DJ_apakah_bekerja',$('#SIKS_DJ_apakah_bekerja').val())
+formData.append('SIKS_DJ_anak_tidak_sekolah',$('#SIKS_DJ_anak_tidak_sekolah').val())
+formData.append('SIKS_DJ_berisiko_stunting',$('#SIKS_DJ_berisiko_stunting').val())
+formData.append('SIKS_DJ_disabilitas',$('#SIKS_DJ_disabilitas').val())
+formData.append('APBN_PKH',$('#APBN_PKH').val())
+formData.append('APBN_sembako',$('#APBN_sembako').val())
+formData.append('APBN_PIP',$('#APBN_PIP').val())
+formData.append('APBN_KIP',$('#APBN_KIP').val())
+formData.append('APBN_JKN_KIS',$('#APBN_JKN_KIS').val())
+formData.append('APBN_BSPS',$('#APBN_BSPS').val())
+formData.append('APBD_beasiswa_miskin',$('#APBD_beasiswa_miskin').val())
+formData.append('APBD_serasi_kasih',$('#APBD_serasi_kasih').val())
+formData.append('APBD_yatim_piatu',$('#APBD_yatim_piatu').val())
+formData.append('APBD_alat_bantu_disabilitas',$('#APBD_alat_bantu_disabilitas').val())
+formData.append('APBD_RTLH_desa',$('#APBD_RTLH_desa').val())
+formData.append('APBD_RTLH_kelurahan',$('#APBD_RTLH_kelurahan').val())
+formData.append('APBD_BPJS_PBI',$('#APBD_BPJS_PBI').val())
+formData.append('dana_desa_BLT_DD',$('#dana_desa_BLT_DD').val())
+formData.append('dana_desa_RTLH_desa',$('#dana_desa_RTLH_desa').val())
+formData.append('sumber_data',$('#sumber_data').val())
+formData.append('tahun_data',$('#tahun_data').val())
+formData.append('status_keberadaan_target',$('#status_keberadaan_target').val())
+formData.append('status_verifikasi',$('#status_verifikasi').val())
+formData.append('status_pekerjaan',$('#status_pekerjaan').val())
+formData.append('nama_perbaikan',$('#nama_perbaikan').val())
+formData.append('NIK_perbaikan',$('#NIK_perbaikan').val())
+formData.append('kualitas_atap',$('#kualitas_atap').val())
+formData.append('kualitas_dinding',$('#kualitas_dinding').val())
+formData.append('kualitas_lantai',$('#kualitas_lantai').val())
+formData.append('daya_listik_terpasang',$('#daya_listik_terpasang').val())
+formData.append('RTLH_bantuan_kabupaten',$('#RTLH_bantuan_kabupaten').val())
+formData.append('BLT_DBHCHT',$('#BLT_DBHCHT').val())
+formData.append('BLT_DID',$('#BLT_DID').val())
+
+formData.append('bansos_APBD_bantuan_jambanisasi',$('#bansos_APBD_bantuan_jambanisasi').val())
+formData.append('bansos_APBD_bantuan_akses_air_bersih',$('#bansos_APBD_bantuan_akses_air_bersih').val())
+formData.append('bansos_APBD_bantuan_jaringan_listrik',$('#bansos_APBD_bantuan_jaringan_listrik').val())
+formData.append('bansos_APBD_bantuan_padat_karya',$('#bansos_APBD_bantuan_padat_karya').val())
+formData.append('bansos_APBD_bantuan_pelatihan',$('#bansos_APBD_bantuan_pelatihan').val())
+if (temp_kemiskinan.data.length >0) {
+  formData.append('temp_kemiskinan_id', temp_kemiskinan.data[0].temp_kemiskinan_id)
+    $.ajax({
+    type: 'POST',
+    enctype: 'multipart/form-data',
+    url: '/kemiskinan/temp/edit',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success:async function(data) {
+    },error: function(err) {
+    }
+    })   
+}else{
+  $.ajax({
+    type: 'POST',
+    enctype: 'multipart/form-data',
+    url: '/kemiskinan/temp/insert',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success:async function(data) {
+    },error: function(err) {
+    }
+    })   
+}
+}
+function simpan() {
+  let formData = new FormData()
+
+formData.append('kemiskinan_id',$('#kemiskinan_id').val())
+formData.append('ID_keluarga_P3KE',$('#ID_keluarga_P3KE').val())
+formData.append('dimuktakhirkan_tahun',$('#dimuktakhirkan_tahun').val())
+formData.append('provinsi',$('#provinsi').val())
+formData.append('kabupaten',$('#kabupaten').val())
+formData.append('Id_kec',$('#Id_kec').val())
+formData.append('kecamatan',$('#kecamatan').val())
+formData.append('Id_des_kel',$('#Id_des_kel').val())
+formData.append('kelurahan',$('#kelurahan').val())
+formData.append('persentil',$('#persentil').val())
+formData.append('kode_kemdagri',$('#kode_kemdagri').val())
+formData.append('desil_kesejahteraan',$('#desil_kesejahteraan').val())
+formData.append('alamat',$('#alamat').val())
+formData.append('RT',$('#RT').val())
+formData.append('RW',$('#RW').val())
+formData.append('Koordinat_X',$('#Koordinat_X').val())
+formData.append('Koordinat_Y',$('#Koordinat_Y').val())
+formData.append('IDIndividu',$('#IDIndividu').val())
+formData.append('nama',$('#nama').val())
+formData.append('prioritas_verval',$('#prioritas_verval').val())
+formData.append('NIK',$('#NIK').val())
+formData.append('nomor_KK',$('#nomor_KK').val())
+if ( $(`#foto_KK`)[0].files[0]){
+      formData.append('foto_KK', $(`#foto_KK`)[0].files[0]);
+  }
+formData.append('padan_dukcapil',$('#padan_dukcapil').val())
+formData.append('jenis_kelamin',$('#jenis_kelamin').val())
+formData.append('hubungan_dengan_KK',$('#hubungan_dengan_KK').val())
+formData.append('tanggal_lahir',$('#tanggal_lahir').val())
+formData.append('umur',$('#umur').val())
+formData.append('kelompok_umur',$('#kelompok_umur').val())
+formData.append('status_kawin',$('#status_kawin').val())
+formData.append('pekerjaan',$('#pekerjaan').val())
+formData.append('pendidikan',$('#pendidikan').val())
+formData.append('penerima_BPNT',$('#penerima_BPNT').val())
+formData.append('penerima_BPUM',$('#penerima_BPUM').val())
+formData.append('penerima_BST',$('#penerima_BST').val())
+formData.append('penerima_PKH',$('#penerima_PKH').val())
+formData.append('penerima_SEMBAKO',$('#penerima_SEMBAKO').val())
+formData.append('penerima_prakerja',$('#penerima_prakerja').val())
+formData.append('penerima_KUR',$('#penerima_KUR').val())
+formData.append('resiko_stunting',$('#resiko_stunting').val())
+formData.append('kepemilikan_rumah',$('#kepemilikan_rumah').val())
+formData.append('memiliki_simpanan',$('#memiliki_simpanan').val())
+formData.append('jenis_atap',$('#jenis_atap').val())
+formData.append('jenis_dinding',$('#jenis_dinding').val())
+formData.append('jenis_lantai',$('#jenis_lantai').val())
+formData.append('sumber_penerangan',$('#sumber_penerangan').val())
+formData.append('bahan_bakar_memasak',$('#bahan_bakar_memasak').val())
+formData.append('sumber_air_minum',$('#sumber_air_minum').val())
+formData.append('memiliki_fasilitas_buang_air_besar',$('#memiliki_fasilitas_buang_air_besar').val())
+if ( $(`#foto_rumah_tampak_depan`)[0].files[0]){
+      formData.append('foto_rumah_tampak_depan', $(`#foto_rumah_tampak_depan`)[0].files[0]);
+  }
+  if ( $(`#foto_atap`)[0].files[0]){
+      formData.append('foto_atap', $(`#foto_atap`)[0].files[0]);
+  }
+  if ( $(`#foto_lantai`)[0].files[0]){
+      formData.append('foto_lantai', $(`#foto_lantai`)[0].files[0]);
+  }
+  if ( $(`#foto_dinding`)[0].files[0]){
+      formData.append('foto_dinding', $(`#foto_dinding`)[0].files[0]);
+  }
+  if ( $(`#foto_jamban`)[0].files[0]){
+      formData.append('foto_jamban', $(`#foto_jamban`)[0].files[0]);
+  }
+
+formData.append('VERVAL_memenuhi_kriteria_P3KE',$('#VERVAL_memenuhi_kriteria_P3KE').val())
+formData.append('VERVAL_alasan_tidak_memenuhi_kriteria_P3KE',$('#VERVAL_alasan_tidak_memenuhi_kriteria_P3KE').val())
+formData.append('VERVAL_keterangan',$('#VERVAL_keterangan').val())
+formData.append('VERVAL_keterangan_tambahan',$('#VERVAL_keterangan_tambahan').val())
+formData.append('DTKS_BERIRISAN_DTKS',$('#DTKS_BERIRISAN_DTKS').val())
+formData.append('DTKS_ID_DTKS',$('#DTKS_ID_DTKS').val())
+formData.append('DTKS_KK_DTKS',$('#DTKS_KK_DTKS').val())
+formData.append('DTKS_keterangan_DTKS',$('#DTKS_keterangan_DTKS').val())
+formData.append('SIKS_DJ_memiliki_rumah_layak_huni',$('#SIKS_DJ_memiliki_rumah_layak_huni').val())
+formData.append('SIKS_DJ_memiliki_akses_air_bersih',$('#SIKS_DJ_memiliki_akses_air_bersih').val())
+formData.append('SIKS_DJ_memiliki_jamban',$('#SIKS_DJ_memiliki_jamban').val())
+formData.append('SIKS_DJ_memiliki_listrik_sendiri',$('#SIKS_DJ_memiliki_listrik_sendiri').val())
+formData.append('SIKS_DJ_apakah_bekerja',$('#SIKS_DJ_apakah_bekerja').val())
+formData.append('SIKS_DJ_anak_tidak_sekolah',$('#SIKS_DJ_anak_tidak_sekolah').val())
+formData.append('SIKS_DJ_berisiko_stunting',$('#SIKS_DJ_berisiko_stunting').val())
+formData.append('SIKS_DJ_disabilitas',$('#SIKS_DJ_disabilitas').val())
+formData.append('APBN_PKH',$('#APBN_PKH').val())
+formData.append('APBN_sembako',$('#APBN_sembako').val())
+formData.append('APBN_PIP',$('#APBN_PIP').val())
+formData.append('APBN_KIP',$('#APBN_KIP').val())
+formData.append('APBN_JKN_KIS',$('#APBN_JKN_KIS').val())
+formData.append('APBN_BSPS',$('#APBN_BSPS').val())
+formData.append('APBD_beasiswa_miskin',$('#APBD_beasiswa_miskin').val())
+formData.append('APBD_serasi_kasih',$('#APBD_serasi_kasih').val())
+formData.append('APBD_yatim_piatu',$('#APBD_yatim_piatu').val())
+formData.append('APBD_alat_bantu_disabilitas',$('#APBD_alat_bantu_disabilitas').val())
+formData.append('APBD_RTLH_desa',$('#APBD_RTLH_desa').val())
+formData.append('APBD_RTLH_kelurahan',$('#APBD_RTLH_kelurahan').val())
+formData.append('APBD_BPJS_PBI',$('#APBD_BPJS_PBI').val())
+formData.append('dana_desa_BLT_DD',$('#dana_desa_BLT_DD').val())
+formData.append('dana_desa_RTLH_desa',$('#dana_desa_RTLH_desa').val())
+formData.append('sumber_data',$('#sumber_data').val())
+formData.append('tahun_data',$('#tahun_data').val())
+formData.append('status_keberadaan_target',$('#status_keberadaan_target').val())
+formData.append('status_verifikasi',$('#status_verifikasi').val())
+formData.append('status_pekerjaan',$('#status_pekerjaan').val())
+formData.append('nama_perbaikan',$('#nama_perbaikan').val())
+formData.append('NIK_perbaikan',$('#NIK_perbaikan').val())
+formData.append('kualitas_atap',$('#kualitas_atap').val())
+formData.append('kualitas_dinding',$('#kualitas_dinding').val())
+formData.append('kualitas_lantai',$('#kualitas_lantai').val())
+formData.append('daya_listik_terpasang',$('#daya_listik_terpasang').val())
+formData.append('RTLH_bantuan_kabupaten',$('#RTLH_bantuan_kabupaten').val())
+formData.append('BLT_DBHCHT',$('#BLT_DBHCHT').val())
+formData.append('BLT_DID',$('#BLT_DID').val())
+formData.append('bansos_APBD_bantuan_jambanisasi',$('#bansos_APBD_bantuan_jambanisasi').val())
+formData.append('bansos_APBD_bantuan_akses_air_bersih',$('#bansos_APBD_bantuan_akses_air_bersih').val())
+formData.append('bansos_APBD_bantuan_jaringan_listrik',$('#bansos_APBD_bantuan_jaringan_listrik').val())
+formData.append('bansos_APBD_bantuan_padat_karya',$('#bansos_APBD_bantuan_padat_karya').val())
+formData.append('bansos_APBD_bantuan_pelatihan',$('#bansos_APBD_bantuan_pelatihan').val())
+    $.ajax({
+    type: 'POST',
+    enctype: 'multipart/form-data',
+    url: '/kemiskinan/edit',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success:async function(data) {
+     await $.get('/kemiskinan/temp/hapus/'+$('#kemiskinan_id').val())
+     await $.post('/log/insert',{log:'Data telah di edit oleh <%=user.username%> pada '+new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate(),id_user:'<%=user.id_user%>',kemiskinan_id:$('#kemiskinan_id').val()})
+     alert('Sukses')
+    //  location.href = '/dashboard_user'
+    },error: function(err) {
+    }
+    })   
+}
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+   $('#Koordinat_X').val(position.coords.latitude)
+   $('#Koordinat_Y').val(position.coords.longitude)
+
+}
+    </script>
+</body>
+</html>

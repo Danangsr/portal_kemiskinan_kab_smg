@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/images/template/shortcut_icon.ico">
+    <title>Portal Informasi Data Kemiskinan Kabupaten Semarang</title>
+
+    <link href="/stylesheets/template/css/bs4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/template/css/style.css" rel="stylesheet">
+    <link href="/stylesheets/template/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+    <!-- Plugin This Page --> 
+    
+    <script src="/stylesheets/template/css/bs4/js/jquery.min.js"></script>
+    
+    <!-- End Plugins This Page -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        
+    </style>
+</head>
+
+<body>
+    <header class="shadow">
+      <div class="container">
+        <div class="row">
+          <div class="col-9 col-sm-9 col-md-9 col-lg-6 col-xl-6">
+            <div class="w-100-flex" style="height: 80px;justify-content: flex-start;align-items: center;">
+              <img src="/images/template/logo_kab_smg.png" alt="" style="height: 65px;">
+              <div style="display: flex;height: 80px;justify-content: center;flex-direction: column;margin-left: 15px;">
+                <h6><strong>PORTAL INFORMASI DATA KEMISKINAN</strong></h6>
+                <h6><strong>KABUPATEN SEMARANG</strong></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-3 col-sm-3 col-md-3 col-lg-6 col-xl-6">
+            <div class="w-100-flex" style="height: 80px;justify-content: flex-end;align-items: center;">
+              <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="far fa-user-circle fa-lg"></i>
+                </a>
+              
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="/autentifikasi/logout_user">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section style="padding: 60px 0;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="card shadow">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h6 class="text-center"><strong>DATA VERIFIKASI DAN VALIDASI</strong></h6>
+                    <!-- <h5 class="text-center text-primary"><strong>"NAMA KECAMATAN"</strong></h5> -->
+                  </div>
+
+                  
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
+                    <div class="alert alert-primary" role="alert">
+                      <h4 class="alert-heading" style="font-size: 14px; font-weight: bold;">Filter Data :</h4>
+                      <hr class="mt-2 mb-2">
+                      <div class="row">
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                          <div class="form-group" id="">
+                            <label>SK Bupati</label>
+                            <select name="" id="sk_bupati"  class="form-control">
+                              <!-- <option value="">-- Pilih --</option> -->
+                              <option value="0" >Semua</option>
+                              <option value="1" selected>SK Bupati</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                          <div class="form-group" id="">
+                            <label>Desil</label>
+                            <select name="" id="desil_kesejahteraan"  class="form-control">
+                              <option value="">-- Pilih --</option>
+                              <option value="1" >1</option>
+                              <option value="2" >2</option>
+                              <option value="3" >3</option>
+                              <option value="4" >4</option>
+                            </select>
+                          </div>
+                        </div>
+                        <% if(user.role_id != 5&&user.role_id != 4 &&user.role_id != 2){%>
+                          <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                            <div class="form-group" id="div_Id_kec">
+                              <label>Kecamatan</label>
+                              <select name="" id="Id_kec"  class="form-control">
+                                <option value="">-- Pilih --</option>
+                              </select>
+                            </div>
+                        </div>
+                        <%}%>
+                        <% if(user.role_id != 5){%>
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                            <div class="form-group" id="div_Id_des_kel">
+                              <label>Desa/Kelurahan</label>
+                              <select name="" id="Id_des_kel"  class="form-control">
+                                <option value="">-- Pilih --</option>
+                              </select>
+                            </div>
+                        </div>
+                        <%}%>
+
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                          <div class="form-group" id="div_tahun">
+                            <label>Tahun</label>
+                            <select name="" id="tahun"  class="form-control">
+                              <option value="">-- Pilih --</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                          <div class="form-group" id="div_status_verifikasi">
+                            <label>Status</label>
+                            <select name="" id="status_verifikasi"  class="form-control">
+                              <option value="">-- Pilih --</option>
+                              <option value="0" >Belum Terverifikasi</option>
+                              <option value="1" >Terverifikasi</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                          <button class="btn btn-primary" onclick="cari()">Cari</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="table-responsive">
+                          <table class="table table-bordered table-striped" id="data">
+                            <thead>
+                              <tr>
+                                <th>No.</th>
+                                <th>KK</th>
+                                <th>ID Keluarga</th>
+                                <th>Nama</th>
+                                <th>NIK</th>
+                                <th>Alamat</th>
+                                <th>RT</th>
+                                <th>RW</th>
+                                <th>Desa/Kelurahan</th>
+                                <th>Kecamatan</th>
+                                <th>Tahun Data</th>
+                                <th>Status Verval</th>
+                                <th>Log Terakhir</th>
+                                <th style="min-width: 100px;">Option</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- <tr>
+                                <td>1.</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td style="text-align: center;"><button class="btn btn-danger"><i class="far fa-times-circle fa-lg"></i></button></td>
+                                <td style="text-align: center;">
+                                  <a href="/dashboard_user/verval/1" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                </td>
+                              </tr>
+        
+                              <tr>
+                                <td>2.</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td style="text-align: center;"><button class="btn btn-success"><i class="far fa-check-circle fa-lg"></i></button></td>
+                                <td style="text-align: center;">
+                                  <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                </td>
+                              </tr> -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="/stylesheets/template/css/bs4/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Plugins This Page -->
+    <!-- End Plugins This Page -->
+    <script type="text/javascript">
+      // let tahun = new Date().getFullYear()
+      // for (let i = tahun+10; i > tahun-20; i--) {
+        let tahun = 2022
+        for (let i = 2024; i >= 2022; i--) {
+        $('#tahun').append(`<option value="${i}" ${tahun == i?'selected':''}>${i}</option>`)
+      }
+    //  $.post('/user/role/list',{role_id:'<%=user.role_id%>'}).then(async function (hsl) {
+    //       let user = hsl.role[0]
+             $.post('/manajemen_master/get_kec').then(function (hsl) {
+              for (let i = 0; i < hsl.data.length; i++) {
+                 $('#Id_kec').append(`<option value="${hsl.data[i].id}">${hsl.data[i].wadmkc}</option>`)
+              }
+        })
+      // })
+
+      $.post('/manajemen_master/get_kab/<%=user.id_kec%>').then(function (hsl) {
+          for (let i = 0; i < hsl.data.length; i++) {
+                 $('#Id_des_kel').append(`<option value="${hsl.data[i].id_des_kel}" >${hsl.data[i].wadmkd}</option>`)
+              }
+        })
+        $('#Id_kec').change(async function () {
+          await   $.post('/manajemen_master/get_kab/'+$('#Id_kec').val()).then(function (hsl) {
+          for (let i = 0; i < hsl.data.length; i++) {
+                 $('#Id_des_kel').append(`<option value="${hsl.data[i].id_des_kel}" >${hsl.data[i].wadmkd}</option>`)
+              }
+        })
+        })
+      let data = $('#data').DataTable({    
+            "language": {    
+                "sProcessing":   "Sedang memproses...",    
+                "sLengthMenu":   "_MENU_",    
+                "sZeroRecords":  "Tidak ditemukan data yang sesuai",    
+                "sInfo":         "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",    
+                "sInfoEmpty":    "Menampilkan 0 sampai 0 dari 0 entri",    
+                "sInfoFiltered": "(disaring dari _MAX_ entri keseluruhan)",    
+                "sInfoPostFix":  "",    
+                "sUrl":          "",    
+                "oPaginate": {    
+                    "sFirst":    "Pertama",    
+                    "sPrevious": "Sebelumnya",    
+                    "sNext":     "Selanjutnya",    
+                    "sLast":     "Terakhir"    
+                }    
+            },    
+            "processing": true,
+           "ajax":  `/kemiskinan/list?kemiskinan_id=0`,
+           "columns": [
+               { "data": null},
+               { "data": "nomor_KK"},
+               { "data": "ID_keluarga_P3KE"},
+               { "data": "nama"},
+               { "data": "NIK"},
+               { "data": "alamat"},
+               { "data": "RT",render:function(data){
+                  return data?data:''
+               }},
+               { "data": "RW",render:function(data){
+                  return data?data:''
+               }},
+               { "data": "kelurahan"},
+               { "data": "kecamatan"},
+               { "data": "tahun_data"},
+               { "data": "status_verifikasi",render:function(data){
+                let a = 'Belum Terverifikasi'
+                if (data == 1) {
+                  a ='Terverifikasi' 
+                }
+                return `<td style="text-align: center;">${a}</td>`
+               }},
+               { "data": 'catatan'},
+
+               { "data": "kemiskinan_id",render:function(data){
+                  return `
+                            <td style="text-align: center;">
+                              <ul class="list-inline">
+                                <li class="list-inline-item"> <a href="/dashboard_user/verval/${data}" class="btn btn-warning"><i class="fas fa-edit"></i></a></li>
+                                <li class="list-inline-item"> |</li>
+                                <li class="list-inline-item"> <a href="/dashboard_user/detail/${data}" class="btn btn-info"><i class="fas fa-info"></i></a></li>
+                              </ul>
+                            </td>`
+               }},
+        ],
+            // "columnDefs": [    
+            // { "width": "160px", "targets": 11}    
+            // ],    
+        });
+        data.on( 'draw.dt', function () {
+    let PageInfo = $('#data').DataTable().page.info();
+    data.column(0, { page: 'current' }).nodes().each( function (cell, i) {
+            cell.innerHTML = i + 1 + PageInfo.start;
+        } );
+    } ); 
+   async function cari() {
+      data.ajax.url(`/kemiskinan/list?sk_bupati=${$('#sk_bupati').val()}&desil_kesejahteraan=${$('#desil_kesejahteraan').val()}&status_verifikasi=${$('#status_verifikasi').val()}&tahun_data=${$('#tahun').val()}&Id_kec=${'<%= user.role_id%>'!=5&&'<%= user.role_id%>'!=4&&'<%= user.role_id%>'!=2?$('#Id_kec').val():'<%= user.id_kec%>'}&Id_des_kel=${'<%= user.role_id%>'!=5?$('#Id_des_kel').val():'<%= user.id_des_kel%>'}`).load()
+    }
+    </script>
+</body>
+</html>
